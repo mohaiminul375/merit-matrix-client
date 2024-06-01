@@ -1,11 +1,13 @@
-
+import Banner from "./Banner";
+import TopScholarship from "./TopScholarship";
 
 const Home = () => {
-    return (
-        <div>
-           <h2>Home page</h2> 
-        </div>
-    );
+  return (
+    <div>
+      <Banner></Banner>
+      <TopScholarship></TopScholarship>
+    </div>
+  );
 };
 
 export default Home;

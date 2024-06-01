@@ -5,16 +5,16 @@ const Navbar = () => {
     <>
       <NavLink
         className={({ isActive }) =>
-          isActive ? "text-xl font-bold border-b-2 border-[#FC9928]" : "text-xl"
+          isActive ? "text-lg font-bold underline text-[#0089F7]" : "text-lg"
         }
         to="/"
       >
         Home
       </NavLink>
       <NavLink
-        className={({ isActive }) =>
-          isActive ? "text-xl font-bold border-b-2 border-[#FC9928]" : "text-xl"
-        }
+       className={({ isActive }) =>
+        isActive ? "text-lg font-bold underline text-[#0089F7]" : "text-lg"
+      }
         to="/all-scholarship"
       >
         All Scholarship
@@ -22,7 +22,7 @@ const Navbar = () => {
     </>
   );
   return (
-    <div className="navbar bg-base-100 justify-between px-5">
+    <div className="navbar bg-base-100 justify-between px-5 shadow-xl">
       <div className="w">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -79,7 +79,7 @@ const Navbar = () => {
         <div className="">
           <NavLink
            className={({ isActive }) =>
-            isActive ? "text-xl font-bold border-b-2 border-[#FC9928]" : "text-xl"
+            isActive ? "text-lg font-bold underline text-[#0089F7]" : "text-lg"
           }
             to="/login"
           >
@@ -89,8 +89,8 @@ const Navbar = () => {
           
           className={({ isActive }) =>
             isActive
-              ? "text-lg border-2 rounded-full p-2 border-black bg-[#FC9928] ml-6"
-              : "text-lg border-2 rounded-full p-2 border-[#FC9928] bg-[#FC9928] ml-6"
+              ? "text-lg text-[#0089F7] border-2 rounded-full p-2 border-[#E8F6FC] bg-[#E8F6FC] ml-6"
+              : "text-lg border-2 rounded-full p-2 border-[#E8F6FC] bg-[#E8F6FC] ml-6"
           } to="/register">
             Register
           </NavLink>
