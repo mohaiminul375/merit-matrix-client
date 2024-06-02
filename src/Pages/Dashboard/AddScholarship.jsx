@@ -1,6 +1,17 @@
 import { useForm } from "react-hook-form";
-
+import { useState } from "react";
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
+import useAuth from "../../hooks/useAuth";
+import axios from "axios";
+import useAxiosSecure from "../../hooks/useAxiosSecure";
+import Swal from "sweetalert2";
 const AddScholarship = () => {
+  const axiosSecure = useAxiosSecure();
+  const { user } = useAuth();
+  const [startDate, setStartDate] = useState(new Date());
+  const image_hosting_key = import.meta.env.VITE_IMG_HOST;
+  const image_hosting_api = `https://api.imgbb.com/1/upload?key=${image_hosting_key}`;
   const {
     register,
     handleSubmit,
@@ -8,8 +19,31 @@ const AddScholarship = () => {
     formState: { errors },
   } = useForm();
 
-  const onSubmit = (data) => {
+  const onSubmit = async (data) => {
+    // console.log()
+    const current = new Date();
+    const img = { image: data.university_logo[0] };
+    console.log(img);
+
+    // generate img
+    const { data: res } = await axios.post(image_hosting_api, img, {
+      headers: { "content-type": "multipart/form-data" },
+    });
+    const img_url = res.data.display_url;
+    // console.log(img_url);
+    // add data
+    data.posted_user = user?.email;
+    data.deadline = startDate.toLocaleDateString();
+    data.post_date = current.toLocaleDateString();
+    data.university_logo = img_url;
     console.log(data);
+    const { data: scholarship_post } = await axiosSecure.post(
+      "/all-scholarship"
+    );
+    console.log(scholarship_post);
+    if(scholarship_post.insertedId){
+        Swal.fire("Scholarship added successfully");
+    }
   };
   return (
     <div>
@@ -70,34 +104,33 @@ const AddScholarship = () => {
                   {...register("university_country")}
                 />
               </div>
-              
             </div>
             <div className="md:flex gap-6">
-                <div className="form-control w-full md:w-1/2">
-                  <label className="label">
-                    <span className="label-text">University City</span>
-                  </label>
-                  <input
-                    type="text"
-                    placeholder="input university city"
-                    className="input input-bordered"
-                    required
-                    {...register("university_city")}
-                  />
-                </div>
-                <div className="form-control w-full md:w-1/2">
-                  <label className="label">
-                    <span className="label-text">University Rank</span>
-                  </label>
-                  <input
-                    type="number"
-                    placeholder="input university rank number"
-                    className="input input-bordered"
-                    required
-                    {...register("university_rank")}
-                  />
-                </div>
+              <div className="form-control w-full md:w-1/2">
+                <label className="label">
+                  <span className="label-text">University City</span>
+                </label>
+                <input
+                  type="text"
+                  placeholder="input university city"
+                  className="input input-bordered"
+                  required
+                  {...register("university_city")}
+                />
               </div>
+              <div className="form-control w-full md:w-1/2">
+                <label className="label">
+                  <span className="label-text">University Rank</span>
+                </label>
+                <input
+                  type="number"
+                  placeholder="input university rank number"
+                  className="input input-bordered"
+                  required
+                  {...register("university_rank")}
+                />
+              </div>
+            </div>
             {/* row 3 */}
             <div className="md:flex gap-6">
               <div className="form-control md:w-1/2">
@@ -105,7 +138,9 @@ const AddScholarship = () => {
                   <span className="label-text">Subject Category</span>
                 </label>
                 <select {...register("subject")} className="select w-full">
-                  <option disabled>Select Your Subject</option>
+                  <option disabled selected>
+                    Select Your Subject
+                  </option>
 
                   <option value="Agriculture">Agriculture</option>
                   <option value="Engineering">Engineering</option>
@@ -116,12 +151,11 @@ const AddScholarship = () => {
                 <label className="label">
                   <span className="label-text">Scholarship Category</span>
                 </label>
-                <select className="select w-full">
-                  <option
-                    {...register("scholarship_category")}
-                    disabled
-                    selected
-                  >
+                <select
+                  {...register("scholarship_category")}
+                  className="select w-full"
+                >
+                  <option disabled selected>
                     Pick Your Scholarship Category
                   </option>
                   <option value="Full-fund">Full-fund</option>
@@ -137,12 +171,10 @@ const AddScholarship = () => {
                   <span className="label-text">Degree Name</span>
                 </label>
                 <select {...register("degree_name")} className="select w-full">
-                  <option disabled selected>
-                    Pick Your Degree Name
-                  </option>
-                  <option value="Full-fund">Diploma</option>
-                  <option value="">Bachelor</option>
-                  <option value="Self-fund">Masters</option>
+                  <option disabled>Pick Your Degree Name</option>
+                  <option value="Diploma">Diploma</option>
+                  <option value="Bachelor">Bachelor</option>
+                  <option value="Maters">Masters</option>
                 </select>
               </div>
               <div className="form-control md:w-1/2">
@@ -184,6 +216,24 @@ const AddScholarship = () => {
                   {...register("service_charge")}
                 />
               </div>
+            </div>
+            {/* row 7 */}
+            <div className="md:flex gap-6">
+              <div className="form-control md:w-1/2">
+                <label className="label">
+                  <span className="label-text">Application Deadline</span>
+                </label>
+                <DatePicker
+                  className="input input-bordered w-full"
+                  selected={startDate}
+                  onChange={(date) => setStartDate(date)}
+                />
+              </div>
+            </div>
+            <div className="mt-3">
+              <button className="w-full bg-[#1EA9E4] text-white py-2 text-lg rounded-md">
+                Add Scholarship
+              </button>
             </div>
           </form>
         </div>
