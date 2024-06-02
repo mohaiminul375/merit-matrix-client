@@ -1,14 +1,10 @@
 import axios from 'axios';
-import React from 'react';
-const axiosPublic=axios.create([
-    // baseURL:'http'
-])
+
+const axiosPublic=axios.create({
+    baseURL:'https://merit-matrix-server.vercel.app'
+})
 const useAxiosPublic = () => {
-    return (
-        <div>
-            
-        </div>
-    );
+    return axiosPublic
 };
 
 export default useAxiosPublic;

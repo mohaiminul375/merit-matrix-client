@@ -7,6 +7,7 @@ import Dashboard from "../Pages/Dashboard/Dashboard";
 import { GiSchoolBag } from "react-icons/gi";
 import AddScholarship from "../Pages/Dashboard/AddScholarship";
 import AdminHome from "../Pages/Dashboard/AdminHome";
+import ManageScholarship from "../Pages/Dashboard/ManageScholarship";
 
 export const router = createBrowserRouter([
   {
@@ -40,6 +41,10 @@ export const router = createBrowserRouter([
         path:'add-scholarship',
         element:<AddScholarship></AddScholarship>
       },
+      {
+        path:'manage-scholarship',
+        element:<ManageScholarship></ManageScholarship>
+      }
     ],
   },
 ]);

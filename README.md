@@ -8,5 +8,7 @@
 - sweet alert 2
 - swiper.js
 - react hook form
+- axios
+- tan stack query
 
 

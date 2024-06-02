@@ -15,8 +15,7 @@ const AddScholarship = () => {
   const {
     register,
     handleSubmit,
-    watch,
-    formState: { errors },
+    reset
   } = useForm();
 
   const onSubmit = async (data) => {
@@ -38,10 +37,11 @@ const AddScholarship = () => {
     data.university_logo = img_url;
     console.log(data);
     const { data: scholarship_post } = await axiosSecure.post(
-      "/all-scholarship"
+      "/all-scholarship",data
     );
     console.log(scholarship_post);
     if(scholarship_post.insertedId){
+        reset()
         Swal.fire("Scholarship added successfully");
     }
   };
@@ -171,7 +171,7 @@ const AddScholarship = () => {
                   <span className="label-text">Degree Name</span>
                 </label>
                 <select {...register("degree_name")} className="select w-full">
-                  <option disabled>Pick Your Degree Name</option>
+                  <option disabled selected>Pick Your Degree Name</option>
                   <option value="Diploma">Diploma</option>
                   <option value="Bachelor">Bachelor</option>
                   <option value="Maters">Masters</option>
