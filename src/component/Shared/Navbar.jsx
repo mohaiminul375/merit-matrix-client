@@ -26,6 +26,7 @@ const Navbar = () => {
       >
         All Scholarship
       </NavLink>
+      
     </>
   );
   return (
@@ -52,23 +53,7 @@ const Navbar = () => {
             tabIndex={0}
             className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
           >
-            <li>
-              <a>Item 1</a>
-            </li>
-            <li>
-              <a>Parent</a>
-              <ul className="p-2">
-                <li>
-                  <a>Submenu 1</a>
-                </li>
-                <li>
-                  <a>Submenu 2</a>
-                </li>
-              </ul>
-            </li>
-            <li>
-              <a>Item 3</a>
-            </li>
+          {navLins}
           </ul>
         </div>
         <div className="flex items-center gap-3">
@@ -104,9 +89,9 @@ const Navbar = () => {
                 className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-[#E8F6FC] text-[#1EA9E4]  rounded-box w-52"
               >
                 <li className="text-center font-bold"><h3 className="flex justify-center text-base mb-3">{user?.displayName}</h3></li>
-                
+
                 <li className="border-b-2 border-[#1EA9E4] hover:border-2 border-1 hover:rounded-md">
-                  <Link to="/update-profile">Update Profile</Link>
+                  <Link to="/dashboard/admin-Home">Dashboard of Admin</Link>
                 </li>
                
                 <li className="mt-2">
