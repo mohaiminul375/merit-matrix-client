@@ -1,6 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import React from "react";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
 import { RingLoader } from "react-spinners";
 
@@ -49,22 +49,35 @@ const ScholarshipDetails = () => {
         <p className="font-bold text-3xl">{scholarship_name}</p>
       </div>
       {/* details */}
-      <div className="mt-10 md:max-w-5xl mx-auto flex flex-col md:flex-row md:p-4 gap-10 bg-[#E8F6FC] text-[#1E62D5]">
+      <div className="mt-10 md:max-w-5xl mx-auto flex flex-col md:flex-row md:p-4 gap-10 bg-[#E8F6FC] text-[#1E62D5] rounded-md">
         <img className="w-56" src={university_logo} alt="" />
         <div className="flex-1">
-          <h2 className="font-bold text-lg">University Name:  {university_name}</h2>
+          <h2 className="font-bold text-lg">
+            University Name: {university_name}
+          </h2>
           <h3 className="text-base font-bold mb-4">
             Location: {university_city}, {university_country}
           </h3>
-          <h3 className="text-base font-bold">University Rank:{university_rank}</h3>
+          <h3 className="text-base font-bold">
+            University Rank:{university_rank}
+          </h3>
           <h4 className="text-base font-bold">Subject: {subject}</h4>
           <h4 className="text-base font-bold">Degree: {degree_name}</h4>
-          <h4 className="text-base font-bold">Scholarship Category:{scholarship_category}</h4>
-          <h4 className="text-base font-bold">Tuition Fees: {tuition_fees}</h4>
-          <h4>Application Fees: {application_fees}</h4>
-          <h4 className="text-base font-bold">Service Charge: {service_charge}</h4>
+          <h4 className="text-base font-bold">
+            Scholarship Category:{scholarship_category}
+          </h4>
+          <h4 className="text-base font-bold">Tuition Fees: ${tuition_fees}</h4>
+          <h4 className="text-base font-bold">Application Fees: ${application_fees}</h4>
+          <h4 className="text-base font-bold">
+            Service Charge: ${service_charge}
+          </h4>
           <h4 className="text-base font-bold">Posted Date: {post_date}</h4>
-          <h4 className="text-base font-bold">Application Deadline: {deadline}</h4>
+          <div className="flex justify-between">
+            <h4 className="text-base font-bold">
+              Application Deadline: {deadline}
+            </h4>
+            <Link className="text-white bg-[#007AFF] px-3 py-1 rounded-full">Apply</Link>
+          </div>
         </div>
       </div>
     </div>

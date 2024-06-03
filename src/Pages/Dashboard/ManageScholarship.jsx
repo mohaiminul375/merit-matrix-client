@@ -10,7 +10,7 @@ const ManageScholarship = () => {
       const { data } = await axiosPublic.get("/all-scholarship");
       return data;
     },
-    queryKey: ["all-scholarship"],
+    queryKey: ["manage-scholarship"],
   });
   console.log("scholarship", scholarship);
   if (isLoading) {
@@ -32,7 +32,7 @@ const ManageScholarship = () => {
         <div className="overflow-x-auto">
           <table className="table">
             {/* head */}
-            <thead className="border bg-[#E8F6FC] text-[#1E62D5]">
+            <thead className="border bg-[#E8F6FC] text-[#1E62D5] font-bold">
               <tr>
                 <th>Sl No</th>
                 <th>Scholarship Name</th>
