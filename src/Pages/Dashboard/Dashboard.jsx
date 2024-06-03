@@ -74,7 +74,7 @@ const Dashboard = () => {
               </span>
             </NavLink>
             <NavLink
-              to="all-scholarship"
+              to="all-user"
               className={({ isActive }) =>
                 isActive
                   ? "text-lg font-bold w-full flex items-center px-4 py-1 rounded-full bg-[#0089F7] text-white"
