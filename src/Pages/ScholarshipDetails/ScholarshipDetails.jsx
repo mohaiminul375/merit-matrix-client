@@ -71,10 +71,10 @@ const ScholarshipDetails = () => {
           <h4 className="text-base font-bold">
             Service Charge: ${service_charge}
           </h4>
-          <h4 className="text-base font-bold">Posted Date: {post_date}</h4>
+          <h4 className="text-base font-bold">Posted Date: {new Date(post_date).toLocaleDateString()}</h4>
           <div className="flex justify-between">
             <h4 className="text-base font-bold">
-              Application Deadline: {deadline}
+              Application Deadline:  {new Date(deadline).toLocaleDateString()}
             </h4>
             <Link className="text-white bg-[#007AFF] px-3 py-1 rounded-full">Apply</Link>
           </div>
