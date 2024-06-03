@@ -30,7 +30,10 @@ const ScholarshipCard = ({ item }) => {
         </p>
         <p className="font-semibold"> {application_fees}</p>
         <div className="flex justify-center">
-          <Link className="w-full btn btn-primary" to={`/details/${_id}`}>
+          <Link
+            className="w-full btn btn-primary"
+            to={`/scholarship-details/${_id}`}
+          >
             Details
           </Link>
         </div>

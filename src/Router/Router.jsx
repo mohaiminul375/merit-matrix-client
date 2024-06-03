@@ -9,6 +9,7 @@ import AddScholarship from "../Pages/Dashboard/AddScholarship";
 import AdminHome from "../Pages/Dashboard/AdminHome";
 import ManageScholarship from "../Pages/Dashboard/ManageScholarship";
 import AllScholarship from "../Pages/AllScholarship/AllScholarship";
+import ScholarshipDetails from "../Pages/ScholarshipDetails/ScholarshipDetails";
 
 export const router = createBrowserRouter([
   {
@@ -30,6 +31,11 @@ export const router = createBrowserRouter([
       {
         path: "/all-Scholarship",
         element: <AllScholarship></AllScholarship>,
+      },
+      {
+        path: "/scholarship-details/:id",
+        element: <ScholarshipDetails></ScholarshipDetails>,
+        
       },
     ],
   },

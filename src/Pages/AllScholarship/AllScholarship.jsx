@@ -21,8 +21,8 @@ const AllScholarship = () => {
       );
     }
     return (
-        <div>
-            <div className="text-center mt-20">
+        <div className="mt-20">
+            <div className="text-center">
               <h2 className="text-4xl font-bold text-[#1E62D5]">All Scholarship</h2>
             </div>
             <div className="mt-10 grid grid-cols-3 gap-6">
