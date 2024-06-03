@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
 import useAxiosSecure from "../hooks/useAxiosSecure";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
+import UpdateDataModal from "./UpdateDataModal";
 
 const ScholarshipTable = ({ idx, item }) => {
   const queryClient = useQueryClient();
@@ -55,25 +56,33 @@ const ScholarshipTable = ({ idx, item }) => {
     });
   };
   return (
-    <tr className="even:bg-[#E8F6FC] text-base font-bold">
-      <th>{idx + 1}</th>
-      <td>{scholarship_name}</td>
-      <td>{university_name}</td>
-      <td>{subject}</td>
-      <td>{application_fees}</td>
-      <td>{tuition_fees}</td>
-      <td className="flex items-center gap-3">
-        <Link to={`/scholarship-details/${_id}`}>
-          {" "}
-          <FaRegEye className="text-2xl cursor-pointer  text-black rounded-md" />
-        </Link>
-        <FaEdit className="text-2xl cursor-pointer  text-black rounded-md" />
-        <FaTrash
-          onClick={() => handleDelete(_id)}
-          className="text-2xl cursor-pointer  text-red-600 rounded-md"
-        />
-      </td>
-    </tr>
+    <>
+      <tr className="even:bg-[#E8F6FC] text-base font-bold">
+        <th>{idx + 1}</th>
+        <td>{scholarship_name}</td>
+        <td>{university_name}</td>
+        <td>{subject}</td>
+        <td>{application_fees}</td>
+        <td>{tuition_fees}</td>
+        <td className="flex items-center gap-3">
+          <Link to={`/scholarship-details/${_id}`}>
+            {" "}
+            <FaRegEye className="text-2xl cursor-pointer  text-black rounded-md" />
+          </Link>
+          <FaEdit
+            onClick={() => document.getElementById(`${_id}`).showModal()}
+            className="text-2xl cursor-pointer  text-black rounded-md"
+          />
+          <FaTrash
+            onClick={() => handleDelete(_id)}
+            className="text-2xl cursor-pointer  text-red-600 rounded-md"
+          />
+        </td>
+      </tr>
+      <dialog id={_id} className="modal">
+        <UpdateDataModal item={item}></UpdateDataModal>
+      </dialog>
+    </>
   );
 };
 
