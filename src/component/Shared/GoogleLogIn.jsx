@@ -3,12 +3,20 @@
 import { useContext } from "react";
 import { AuthContext } from "../../Provider/AuthProvider";
 import Swal from "sweetalert2";
+import useAxiosPublic from "../../hooks/useAxiosPublic";
 
 const GoogleLogIn = () => {
+  const axiosPublic = useAxiosPublic();
   const { googleLogin } = useContext(AuthContext);
   const handleGoogleLogin = () => {
     googleLogin()
-      .then((result) => {
+      .then(async (result) => {
+        const userInfo = {
+          name: result.user?.displayName,
+          email: result.user?.email,
+        };
+        const { data } = await axiosPublic.post("/users", userInfo);
+        console.log(data);
         console.log(result);
         Swal.fire("Login successfully");
       })

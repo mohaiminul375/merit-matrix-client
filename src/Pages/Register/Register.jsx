@@ -6,10 +6,12 @@ import { FaRegCircleXmark } from "react-icons/fa6";
 import { AuthContext } from "../../Provider/AuthProvider";
 import Swal from "sweetalert2";
 import axios from "axios";
+import useAxiosPublic from "../../hooks/useAxiosPublic";
 
 const Register = () => {
   const { createUser, updateUserProfile, setUser } = useContext(AuthContext);
   const [error, setError] = useState("");
+  const axiosPublic = useAxiosPublic();
   const image_hosting_key = import.meta.env.VITE_IMG_HOST;
   const image_hosting_api = `https://api.imgbb.com/1/upload?key=${image_hosting_key}`;
   const {
@@ -43,8 +45,14 @@ const Register = () => {
 
     // create user
     createUser(userData.email, userData.password)
-      .then((result) => {
+      .then(async (result) => {
+        const userInfo = {
+          name: userData.userName,
+          email: userData.email,
+        };
         // update user info
+        const { data } = await axiosPublic.post("/users", userInfo);
+        console.log(data)
         updateUserProfile(userData.userName, img_url);
         setUser({ ...result?.user, img_url, displayName: userData.userName });
         console.log(result.user);

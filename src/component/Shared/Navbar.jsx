@@ -6,7 +6,7 @@ import useAuth from "../../hooks/useAuth";
 import { IoLogOutOutline } from "react-icons/io5";
 const Navbar = () => {
   // const {user}=useContext(AuthContext);
-  const {user}=useAuth()
+  const {user,logOut}=useAuth()
   console.log(user)
   const navLins = (
     <>
@@ -96,7 +96,7 @@ const Navbar = () => {
                
                 <li className="mt-2">
                   <button
-                    // onClick={logOut}
+                    onClick={logOut}
                     className="bg-[#1EA9E4] text-white text-center hover:border-2 flex items-center gap-2 justify-center"
                   >
                     Logout <IoLogOutOutline />

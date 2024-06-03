@@ -10,5 +10,6 @@
 - react hook form
 - axios
 - tan stack query
+- react spinner
 
 
