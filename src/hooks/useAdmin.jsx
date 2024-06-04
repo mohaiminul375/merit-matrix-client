@@ -15,7 +15,7 @@ const useAdmin = () => {
     },
     queryKey: ["isAdmin", user?.email],
   });
-  return { isAdminOrMod };
+  return { isAdminOrMod,isLoading };
 };
 
 export default useAdmin;
