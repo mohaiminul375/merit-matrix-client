@@ -49,7 +49,7 @@ const Register = () => {
         const userInfo = {
           name: userData.userName,
           email: userData.email,
-          role:'user'
+          role:'User'
         };
         // update user info
         const { data } = await axiosPublic.post("/users", userInfo);

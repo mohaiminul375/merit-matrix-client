@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import GoogleLogIn from "../../component/Shared/GoogleLogIn";
 import { useForm } from "react-hook-form";
 import useAuth from "../../hooks/useAuth";
@@ -9,6 +9,10 @@ import { FaRegCircleXmark } from "react-icons/fa6";
 const Login = () => {
   const { login } = useAuth();
   const [error, setError] = useState("");
+  const location=useLocation();
+  const navigate=useNavigate();
+  const from = location.state?.from?.pathname || "/";
+  console.log(location.state?.from?.pathname)
   const {
     register,
     handleSubmit,
@@ -28,6 +32,9 @@ const Login = () => {
     login(userData.email, userData.password)
       .then((result) => {
         Swal.fire("login successfully");
+        setTimeout(() => {
+          navigate(from);
+        }, 1000);
       })
       .catch((error) => {
         console.log(error);
