@@ -1,4 +1,4 @@
-import React from "react";
+
 // import useAxiosPublic from "../../hooks/useAxiosPublic";
 import { useQuery } from "@tanstack/react-query";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
@@ -21,7 +21,7 @@ const AllUser = () => {
       </div>
     );
   }
-//   console.log(users);
+  //   console.log(users);
   return (
     <div>
       <div className="text-center">
@@ -30,7 +30,24 @@ const AllUser = () => {
           Manage All User Data
         </h2>
       </div>
-      <div className="mt-10">
+      <div className="mt-5 flex justify-end">
+        {/* TODO:add filter */}
+        <select
+        defaultValue={'all-user'}
+        className="select select-bordered w-1/4">
+          <option value='' disabled>
+            filter user
+          </option>
+          <option value='all-user'>
+            All User
+          </option>
+          <option value='Admin'>Admin</option>
+          <option value='Moderator'>Moderator</option>
+          <option value='User'>User</option>
+
+        </select>
+      </div>
+      <div className="mt-5">
         <div className="overflow-x-auto">
           <table className="table">
             {/* head */}
@@ -41,18 +58,13 @@ const AllUser = () => {
                 <th>Email</th>
                 <th>Role</th>
                 <th>Action</th>
-                
               </tr>
             </thead>
             <tbody>
               {/* row 1 */}
-              {
-                users?.map((user,idx)=><UsersTable
-                key={user._id}
-                idx={idx}
-                user={user}
-                ></UsersTable>)
-              }
+              {users?.map((user, idx) => (
+                <UsersTable key={user._id} idx={idx} user={user}></UsersTable>
+              ))}
             </tbody>
           </table>
         </div>
