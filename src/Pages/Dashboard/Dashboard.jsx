@@ -31,7 +31,7 @@ const Dashboard = () => {
         <div className="flex flex-col justify-between flex-1 mt-6">
           <nav className="flex flex-col space-y-5">
             {/* admin home */}
-            {isAdminOrMod=='Admin' && (
+            {isAdminOrMod == "Admin" && (
               <>
                 <NavLink
                   to="admin-Home"
@@ -98,7 +98,7 @@ const Dashboard = () => {
               </>
             )}
             {/* moderator */}
-            {isAdminOrMod=='Moderator' && (
+            {isAdminOrMod == "Moderator" && (
               <>
                 <NavLink
                   to="moderator-Home"
@@ -164,6 +164,16 @@ const Dashboard = () => {
               }
             >
               <span className="mx-4">Home</span>
+            </NavLink>
+            <NavLink
+              to="my-application"
+              className={({ isActive }) =>
+                isActive
+                  ? "text-lg font-medium w-full flex items-center px-4 py-1 rounded-full bg-[#0089F7] text-white"
+                  : ""
+              }
+            >
+              <span className="mx-4">My Application</span>
             </NavLink>
           </nav>
         </div>

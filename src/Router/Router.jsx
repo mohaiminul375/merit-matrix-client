@@ -15,6 +15,7 @@ import PrivateRoute from "./PrivateRoute";
 import Checkout from "../Pages/Checkout/Checkout";
 import AdminAndModeratorRoute from "./AdminAndModeratorRoute";
 import ManageAppliedScholarship from "../Pages/Dashboard/ManageAppliedScholarship";
+import MyApplication from "../Pages/MyApplication/MyApplication";
 
 export const router = createBrowserRouter([
   {
@@ -44,7 +45,8 @@ export const router = createBrowserRouter([
       {
         path:"/checkout/:id",
         element:<PrivateRoute><Checkout></Checkout></PrivateRoute>
-      }
+      },
+     
     ],
   },
   {
@@ -71,6 +73,10 @@ export const router = createBrowserRouter([
       {
         path:'manage-applications',
         element:<AdminAndModeratorRoute><ManageAppliedScholarship></ManageAppliedScholarship></AdminAndModeratorRoute>
+      },
+      {
+        path:'my-application',
+        element:<PrivateRoute><MyApplication></MyApplication></PrivateRoute>
       }
     ],
   },
