@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import GoogleLogIn from "../../component/Shared/GoogleLogIn";
 import { useForm } from "react-hook-form";
 import { useContext, useState } from "react";
@@ -10,6 +10,10 @@ import useAxiosPublic from "../../hooks/useAxiosPublic";
 
 const Register = () => {
   const { createUser, updateUserProfile, setUser } = useContext(AuthContext);
+  const location = useLocation();
+  const navigate = useNavigate();
+  const from = location.state?.from?.pathname || "/";
+  // console.log(location.state?.from?.pathname)
   const [error, setError] = useState("");
   const axiosPublic = useAxiosPublic();
   const image_hosting_key = import.meta.env.VITE_IMG_HOST;
@@ -49,15 +53,17 @@ const Register = () => {
         const userInfo = {
           name: userData.userName,
           email: userData.email,
-          role:'User'
+          role: "User",
         };
         // update user info
         const { data } = await axiosPublic.post("/users", userInfo);
-        console.log(data)
+        console.log(data);
         updateUserProfile(userData.userName, img_url);
-        setUser({ ...result?.user, img_url, displayName: userData.userName });
         console.log(result.user);
-        Swal.fire("Register Successfully");
+        Swal.fire("Register successfully");
+        setTimeout(() => {
+          navigate(from);
+        }, 1000);
       })
       .catch((error) => {
         if (error?.message == "Firebase: Error (auth/email-already-in-use).") {

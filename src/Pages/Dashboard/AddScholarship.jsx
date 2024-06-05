@@ -32,8 +32,8 @@ const AddScholarship = () => {
     // console.log(img_url);
     // add data
     data.posted_user = user?.email;
-    data.deadline = startDate.toLocaleDateString();
-    data.post_date = current.toLocaleDateString();
+    data.deadline = startDate;
+    data.post_date = current;
     data.university_logo = img_url;
     console.log(data);
     const { data: scholarship_post } = await axiosSecure.post(
