@@ -76,7 +76,9 @@ const ScholarshipDetails = () => {
             <h4 className="text-base font-bold">
               Application Deadline:  {new Date(deadline).toLocaleDateString()}
             </h4>
-            <Link className="text-white bg-[#007AFF] px-3 py-1 rounded-full">Apply</Link>
+            <Link
+            to={`/checkout/${_id}`}
+            className="text-white bg-[#007AFF] px-3 py-1 rounded-full">Apply</Link>
           </div>
         </div>
       </div>

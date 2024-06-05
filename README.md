@@ -11,5 +11,6 @@
 - axios
 - tan stack query
 - react spinner
+- react stripe
 
 

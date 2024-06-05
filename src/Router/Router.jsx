@@ -12,6 +12,7 @@ import AllScholarship from "../Pages/AllScholarship/AllScholarship";
 import ScholarshipDetails from "../Pages/ScholarshipDetails/ScholarshipDetails";
 import AllUser from "../Pages/Dashboard/AllUser";
 import PrivateRoute from "./PrivateRoute";
+import Checkout from "../Pages/Checkout/Checkout";
 
 export const router = createBrowserRouter([
   {
@@ -38,6 +39,10 @@ export const router = createBrowserRouter([
         path: "/scholarship-details/:id",
         element: <PrivateRoute><ScholarshipDetails></ScholarshipDetails></PrivateRoute>,
       },
+      {
+        path:"/checkout/:id",
+        element:<PrivateRoute><Checkout></Checkout></PrivateRoute>
+      }
     ],
   },
   {
