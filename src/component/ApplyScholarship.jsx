@@ -267,7 +267,7 @@ const ApplyScholarship = ({ scholarship_info, toggleForm: TrxID }) => {
             </div>
             <div className="mt-3">
               <button className="w-full bg-[#1EA9E4] text-white py-2 text-lg rounded-md">
-                Add Scholarship
+                Submit
               </button>
             </div>
           </form>

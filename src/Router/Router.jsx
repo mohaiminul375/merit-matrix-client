@@ -13,6 +13,8 @@ import ScholarshipDetails from "../Pages/ScholarshipDetails/ScholarshipDetails";
 import AllUser from "../Pages/Dashboard/AllUser";
 import PrivateRoute from "./PrivateRoute";
 import Checkout from "../Pages/Checkout/Checkout";
+import AdminAndModeratorRoute from "./AdminAndModeratorRoute";
+import ManageAppliedScholarship from "../Pages/Dashboard/ManageAppliedScholarship";
 
 export const router = createBrowserRouter([
   {
@@ -66,6 +68,10 @@ export const router = createBrowserRouter([
         path: "all-user",
         element: <AllUser></AllUser>,
       },
+      {
+        path:'manage-applications',
+        element:<AdminAndModeratorRoute><ManageAppliedScholarship></ManageAppliedScholarship></AdminAndModeratorRoute>
+      }
     ],
   },
 ]);
