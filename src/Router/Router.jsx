@@ -51,7 +51,7 @@ export const router = createBrowserRouter([
     ],
   },
   {
-    path: "/dashboard",
+    path: "dashboard",
     element: <Dashboard></Dashboard>,
     children: [
       // admin
@@ -65,7 +65,7 @@ export const router = createBrowserRouter([
       },
       {
         path: "manage-scholarship",
-        element: <ManageScholarship></ManageScholarship>,
+        element: <AdminAndModeratorRoute><ManageScholarship></ManageScholarship>,</AdminAndModeratorRoute>
       },
       {
         path: "all-user",

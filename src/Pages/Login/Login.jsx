@@ -9,17 +9,17 @@ import { FaRegCircleXmark } from "react-icons/fa6";
 const Login = () => {
   const { login } = useAuth();
   const [error, setError] = useState("");
-  const location=useLocation();
-  const navigate=useNavigate();
+  const location = useLocation();
+  const navigate = useNavigate();
   const from = location.state?.from?.pathname || "/";
-  console.log(location.state?.from?.pathname)
+  console.log(location.state?.from?.pathname);
   const {
     register,
     handleSubmit,
     // watch,
     // formState: { errors },
   } = useForm();
-// TODO: Error handling
+  // TODO: Error handling
   const onSubmit = (userData) => {
     if (userData.password.length < 6) {
       console.log("password error");
@@ -32,12 +32,15 @@ const Login = () => {
     login(userData.email, userData.password)
       .then((result) => {
         Swal.fire("login successfully");
-        setTimeout(() => {
-          navigate(from);
-        }, 1000);
+
+        navigate(from);
       })
       .catch((error) => {
-        console.log(error);
+        if (error.message == "Firebase: Error (auth/invalid-credential).") {
+          setError("Incorrect email or password");
+        } else {
+          setError(error.message);
+        }
       });
   };
   // remove error
@@ -47,7 +50,8 @@ const Login = () => {
   return (
     <div className="w-full max-w-sm p-6 m-auto mx-auto bg-[#E8F6FC] rounded-lg shadow-2xl mt-12">
       <h2 className="text-center text-3xl font-bold text-[#1EA9E4]">Login</h2>
-      {error && (   <p className="text-center my-3 text-base font-semibold text-red-600 flex items-center gap-2 justify-center">
+      {error && (
+        <p className="text-center my-3 text-base font-semibold text-red-600 flex items-center gap-2 justify-center">
           {error}
           <FaRegCircleXmark
             className="text-base cursor-pointer"
@@ -103,7 +107,8 @@ const Login = () => {
         <span className="w-1/5 border-b border-[#1EA9E4] lg:w-1/5"></span>
       </div>
 
-      <GoogleLogIn></GoogleLogIn>
+      <GoogleLogIn
+      ></GoogleLogIn>
 
       <p className="mt-8 text-base font-semibold  text-center text-base-content">
         {" "}

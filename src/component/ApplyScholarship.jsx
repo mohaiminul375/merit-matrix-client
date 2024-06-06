@@ -19,6 +19,7 @@ const ApplyScholarship = ({ scholarship_info, toggleForm: TrxID }) => {
     _id,
 
     university_name,
+    scholarship_name,
     subject,
     service_charge,
     scholarship_category,
@@ -62,6 +63,8 @@ const ApplyScholarship = ({ scholarship_info, toggleForm: TrxID }) => {
     applicant_info.apply_date = new Date();
     applicant_info.scholarship_id = _id;
     applicant_info.service_charge = service_charge;
+    applicant_info.application_fees = application_fees;
+    applicant_info.scholarship_name=scholarship_name;
     applicant_info.status = "Pending";
     applicant_info.TrxID = TrxID;
     console.log(applicant_info);

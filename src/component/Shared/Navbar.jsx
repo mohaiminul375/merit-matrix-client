@@ -7,6 +7,7 @@ import { IoLogOutOutline } from "react-icons/io5";
 import useAdmin from "../../hooks/useAdmin";
 const Navbar = () => {
   const { isAdminOrMod } = useAdmin();
+  console.log(isAdminOrMod)
   // const {user}=useContext(AuthContext);
   const { user, logOut } = useAuth();
   console.log(user);
@@ -34,6 +35,26 @@ const Navbar = () => {
             isActive ? "text-lg font-bold underline text-[#0089F7]" : "text-lg"
           }
           to="/dashboard/admin-Home"
+        >
+          Dashboard
+        </NavLink>
+      )}
+      {isAdminOrMod === "Moderator" && (
+        <NavLink
+          className={({ isActive }) =>
+            isActive ? "text-lg font-bold underline text-[#0089F7]" : "text-lg"
+          }
+          to="/dashboard"
+        >
+          Dashboard
+        </NavLink>
+      )}
+      {isAdminOrMod === 'User'&& (
+        <NavLink
+          className={({ isActive }) =>
+            isActive ? "text-lg font-bold underline text-[#0089F7]" : "text-lg"
+          }
+          to="/dashboard/my-application"
         >
           Dashboard
         </NavLink>
