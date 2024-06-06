@@ -7,7 +7,7 @@ const Dashboard = () => {
   const { isAdminOrMod } = useAdmin();
   console.log(isAdminOrMod);
   return (
-    <div className="sm:drawer md:flex">
+    <div className="sm:drawer md:flex font-inter">
       <aside className="min-h-screen flex flex-col  md:max-w-64 px-4 py-8 overflow-y-auto bg-[#E8F6FC] border-r rtl:border-r-0 rtl:border-l">
         <label
           htmlFor="my-drawer"
@@ -164,6 +164,17 @@ const Dashboard = () => {
               }
             >
               <span className="mx-4">Home</span>
+            </NavLink>
+
+            <NavLink
+              to="my-profile"
+              className={({ isActive }) =>
+                isActive
+                  ? "text-lg font-medium w-full flex items-center px-4 py-1 rounded-full bg-[#0089F7] text-white"
+                  : ""
+              }
+            >
+              <span className="mx-4">My Profile</span>
             </NavLink>
             <NavLink
               to="my-application"

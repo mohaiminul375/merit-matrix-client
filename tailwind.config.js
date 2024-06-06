@@ -2,9 +2,13 @@
 export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        "dancing-Script": '"Dancing Script", cursive',
+        inter: '"Inter", sans-serif',
+        cinzel: '"Cinzel", serif',
+      },
+    },
   },
-  plugins: [
-    require('daisyui'),
-  ],
+  plugins: [require("daisyui")],
 };

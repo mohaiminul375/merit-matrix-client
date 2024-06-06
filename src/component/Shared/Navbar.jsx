@@ -4,10 +4,12 @@ import { useContext } from "react";
 import { AuthContext } from "../../Provider/AuthProvider";
 import useAuth from "../../hooks/useAuth";
 import { IoLogOutOutline } from "react-icons/io5";
+import useAdmin from "../../hooks/useAdmin";
 const Navbar = () => {
+  const { isAdminOrMod } = useAdmin();
   // const {user}=useContext(AuthContext);
-  const {user,logOut}=useAuth()
-  console.log(user)
+  const { user, logOut } = useAuth();
+  console.log(user);
   const navLins = (
     <>
       <NavLink
@@ -19,14 +21,23 @@ const Navbar = () => {
         Home
       </NavLink>
       <NavLink
-       className={({ isActive }) =>
-        isActive ? "text-lg font-bold underline text-[#0089F7]" : "text-lg"
-      }
+        className={({ isActive }) =>
+          isActive ? "text-lg font-bold underline text-[#0089F7]" : "text-lg"
+        }
         to="/all-scholarship"
       >
         All Scholarship
       </NavLink>
-      
+      {isAdminOrMod === "Admin" && (
+        <NavLink
+          className={({ isActive }) =>
+            isActive ? "text-lg font-bold underline text-[#0089F7]" : "text-lg"
+          }
+          to="/dashboard/admin-Home"
+        >
+          Dashboard
+        </NavLink>
+      )}
     </>
   );
   return (
@@ -53,23 +64,26 @@ const Navbar = () => {
             tabIndex={0}
             className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
           >
-          {navLins}
+            {navLins}
           </ul>
         </div>
         <div className="flex items-center gap-3">
           <img className="w-16" src={logo} alt="" />
-          <h2>MeritMatrix</h2>
+          <h2 className="font-dancing-Script font-bold text-3xl">
+            MeritMatrix
+          </h2>
         </div>
       </div>
       {/* right */}
-     { <div className="gap-8">
-        <div className="hidden lg:flex">
-          <ul className="menu menu-horizontal px-1 gap-5 items-center">
-            {navLins}
-          </ul>
-        </div>
-        {/* login register conditon */}
-      {user ? (
+      {
+        <div className="gap-8">
+          <div className="hidden lg:flex">
+            <ul className="menu menu-horizontal px-1 gap-5 items-center">
+              {navLins}
+            </ul>
+          </div>
+          {/* login register conditon */}
+          {user ? (
             <div className="dropdown dropdown-end z-10">
               <div
                 tabIndex={0}
@@ -88,12 +102,14 @@ const Navbar = () => {
                 tabIndex={0}
                 className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-[#E8F6FC] text-[#1EA9E4]  rounded-box w-52"
               >
-                <li className="text-center font-bold"><h3 className="flex justify-center text-base mb-3">{user?.displayName}</h3></li>
-
-                <li className="border-b-2 border-[#1EA9E4] hover:border-2 border-1 hover:rounded-md">
-                  <Link to="/dashboard/admin-Home">Dashboard of Admin</Link>
+                <li className="text-center font-bold">
+                  <h3 className="flex justify-center text-base mb-3">
+                    {user?.displayName}
+                  </h3>
                 </li>
-               
+
+                <li className="border-b-2 border-[#1EA9E4] hover:border-2 border-1 hover:rounded-md"></li>
+
                 <li className="mt-2">
                   <button
                     onClick={logOut}
@@ -104,26 +120,32 @@ const Navbar = () => {
                 </li>
               </ul>
             </div>
-          )  :<div className="">
-          <NavLink
-           className={({ isActive }) =>
-            isActive ? "text-lg font-bold underline text-[#0089F7]" : "text-lg"
-          }
-            to="/login"
-          >
-            Login
-          </NavLink>
-          <NavLink 
-          
-          className={({ isActive }) =>
-            isActive
-              ? "text-lg text-[#0089F7] border-2 rounded-full p-2 border-[#E8F6FC] bg-[#E8F6FC] ml-6"
-              : "text-lg border-2 rounded-full p-2 border-[#E8F6FC] bg-[#E8F6FC] ml-6"
-          } to="/register">
-            Register
-          </NavLink>
-        </div>}
-      </div>}
+          ) : (
+            <div className="">
+              <NavLink
+                className={({ isActive }) =>
+                  isActive
+                    ? "text-lg font-bold underline text-[#0089F7]"
+                    : "text-lg"
+                }
+                to="/login"
+              >
+                Login
+              </NavLink>
+              <NavLink
+                className={({ isActive }) =>
+                  isActive
+                    ? "text-lg text-[#0089F7] border-2 rounded-full p-2 border-[#E8F6FC] bg-[#E8F6FC] ml-6"
+                    : "text-lg border-2 rounded-full p-2 border-[#E8F6FC] bg-[#E8F6FC] ml-6"
+                }
+                to="/register"
+              >
+                Register
+              </NavLink>
+            </div>
+          )}
+        </div>
+      }
     </div>
   );
 };
