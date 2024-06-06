@@ -27,7 +27,15 @@ const AppliedScholarshipTable = ({ idx, info }) => {
         <td>{degree_name}</td>
         <td></td>
         <td>{service_charge}</td>
-        <td>{status}</td>
+        <td> <select
+          defaultValue={status}
+          // onChange={handleUpdateRole}
+          className="border rounded-md border-[#1E62D5]"
+        >
+          <option>Pending</option>
+          <option>Processing</option>
+          <option>Completed</option>
+        </select></td>
         <td className="flex justify-center items-center flex-col  gap-1">
           <button onClick={()=>document.getElementById(`${_id}`).showModal()} className="bg-[#247CFF] text-white rounded-md px-2">
             Details
