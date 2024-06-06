@@ -1,5 +1,6 @@
 import { FaEye } from "react-icons/fa6";
 import ManageAppliedModal from "../Pages/Dashboard/ManageAppliedModal";
+import ManageFeedback from "../Pages/Dashboard/ManageFeedback";
 
 const AppliedScholarshipTable = ({ idx, info }) => {
   console.log(info);
@@ -31,7 +32,7 @@ const AppliedScholarshipTable = ({ idx, info }) => {
           <button onClick={()=>document.getElementById(`${_id}`).showModal()} className="bg-[#247CFF] text-white rounded-md px-2">
             Details
           </button>
-          <button className="bg-[#247CFF] text-white rounded-md px-2">
+          <button onClick={()=>document.getElementById(`feedback_${_id}`).showModal()} className="bg-[#247CFF] text-white rounded-md px-2">
             Feed back
           </button>
           <button className="bg-[#247CFF] text-white rounded-md px-2">
@@ -41,6 +42,9 @@ const AppliedScholarshipTable = ({ idx, info }) => {
       </tr>
       <dialog id={_id} className="modal">
         <ManageAppliedModal info={info}></ManageAppliedModal>
+      </dialog>
+      <dialog id={`feedback_${_id}`} className="modal">
+        <ManageFeedback id={_id}></ManageFeedback>
       </dialog>
     </>
   );

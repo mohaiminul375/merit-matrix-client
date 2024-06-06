@@ -22,7 +22,7 @@ const ManageAppliedModal = ({ info }) => {
     <div className="modal-box  md:max-w-3xl">
       <div className="flex justify-end">
         <form method="dialog">
-          {/* if there is a button, it will close the modal */}
+        
           <button className="btn">Close</button>
         </form>
       </div>
