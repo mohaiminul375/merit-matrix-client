@@ -42,10 +42,11 @@ const Checkout = () => {
   } = scholarship_info;
   return (
     <div className="mt-20">
-      {!toggleForm ? (
+      {toggleForm ? (
         <ApplyScholarship
-        toggleForm={toggleForm}
-        scholarship_info={scholarship_info}></ApplyScholarship>
+          toggleForm={toggleForm}
+          scholarship_info={scholarship_info}
+        ></ApplyScholarship>
       ) : (
         <div className="md:max-w-xl mx-auto">
           <h2 className="text-center text-4xl font-bold text-[#1E62D5]">
@@ -54,12 +55,12 @@ const Checkout = () => {
           <div className="mt-5 bg-[#EEFAFC] p-5 rounded-md border-2 border-[#1EA9E4] flex flex-col-reverse">
             {/* strip payment */}
             <div className="mt-5">
-              {/* <Elements stripe={stripePromise}>
+              <Elements stripe={stripePromise}>
                 <CheckoutForm
                   setToggleForm={setToggleForm}
                   application_fees={application_fees}
                 />
-              </Elements> */}
+              </Elements>
             </div>
             <hr className="border-4 border-[#1EA9E4] w-full my-5" />
             {/* info */}

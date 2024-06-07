@@ -1,9 +1,13 @@
+import { useMutation } from "@tanstack/react-query";
 import axios from "axios";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import PhoneInput from "react-phone-number-input";
 import "react-phone-number-input/style.css";
+import useAxiosSecure from "../../hooks/useAxiosSecure";
+import Swal from "sweetalert2";
 const UpdateMyApplication = ({ application }) => {
+  const axiosSecure = useAxiosSecure();
   const image_hosting_key = import.meta.env.VITE_IMG_HOST;
   const image_hosting_api = `https://api.imgbb.com/1/upload?key=${image_hosting_key}`;
   const {
@@ -25,15 +29,37 @@ const UpdateMyApplication = ({ application }) => {
     handleSubmit,
     formState: { errors },
   } = useForm();
+
+  const { mutateAsync } = useMutation({
+    mutationFn: async ({ _id, update_info }) => {
+      const { data } = await axiosSecure.patch(
+        `/update-my-application/${_id}`,
+        update_info
+      );
+      console.log("inside", update_info);
+      return data;
+    },
+    onSuccess: (data) => {
+      if (data.modifiedCount > 0) {
+        Swal.fire("application update successfully");
+      }
+    },
+  });
   const onSubmit = async (update_info) => {
+    let img_url = applicant_photo;
     const img = { image: update_info.applicant_photo[0] };
-    const { data: res } = await axios.post(image_hosting_api, img, {
-      headers: { "content-type": "multipart/form-data" },
-    });
-    const img_url = res.data.display_url;
+    if (img.image) {
+      const { data: res } = await axios.post(image_hosting_api, img, {
+        headers: { "content-type": "multipart/form-data" },
+      });
+      img_url = res.data.display_url;
+    }
+
     update_info.applicant_photo = img_url;
     console.log(update_info);
+    mutateAsync({ _id, update_info });
   };
+
   return (
     <div className="modal-box w-full md:max-w-5xl">
       <div className="bg-[#E8F6FC] md:max-w-3xl lg:max-w-5xl mx-auto p-5 rounded-md">

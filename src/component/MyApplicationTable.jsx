@@ -41,7 +41,7 @@ const MyApplicationTable = ({ idx, application }) => {
       Swal.fire({
         icon: "error",
         title: "Oops...",
-        text: `You are unable to delete when application has been${status}`,
+        text: `You are unable to edit when application has been   ${status}`,
       });
       return;
     }

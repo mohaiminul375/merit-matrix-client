@@ -16,13 +16,13 @@ const ManageAppliedModal = ({ info }) => {
     degree_name,
     service_charge,
     application_fees,
+    apply_date,
     status,
   } = info;
   return (
     <div className="modal-box  md:max-w-3xl">
       <div className="flex justify-end">
         <form method="dialog">
-        
           <button className="btn">Close</button>
         </form>
       </div>
@@ -38,9 +38,25 @@ const ManageAppliedModal = ({ info }) => {
           <h1 className="text-xl font-bold underline text-[#247CFF]">
             Applicant Info
           </h1>
-          <h2 className="text-base font-bold text-[#247CFF]">Applicant Name: <span className={`${applicant_name || 'text-red-600'}`}>{applicant_name || "missing"}</span></h2>
+          <h2 className="text-base font-bold text-[#247CFF]">
+            Applicant Name:{" "}
+            <span className={`${applicant_name || "text-red-600"}`}>
+              {applicant_name || "missing"}
+            </span>
+          </h2>
           <h4 className="text-sm font-semibold text-[#247CFF]">
-            Address:<span className={`${village_name || 'text-red-600'}`}>{village_name || "missing"}</span>, <span className={`${district_name || 'text-red-600'}`}>{district_name || "missing"}</span>, <span className={`${country_name || 'text-red-600'}`}>{country_name || "missing"}</span>
+            Address:
+            <span className={`${village_name || "text-red-600"}`}>
+              {village_name || "missing"}
+            </span>
+            ,{" "}
+            <span className={`${district_name || "text-red-600"}`}>
+              {district_name || "missing"}
+            </span>
+            ,{" "}
+            <span className={`${country_name || "text-red-600"}`}>
+              {country_name || "missing"}
+            </span>
           </h4>
 
           <div className="mt-5">
@@ -48,20 +64,29 @@ const ManageAppliedModal = ({ info }) => {
               Institution Info
             </h1>
             <h2 className="text-base font-bold text-[#247CFF]">
-              University Name: <span className={`${university_name || 'text-red-600'}`}>{university_name || "missing"}</span>
+              University Name:{" "}
+              <span className={`${university_name || "text-red-600"}`}>
+                {university_name || "missing"}
+              </span>
             </h2>
             <h2 className="text-base font-bold text-[#247CFF]">
               {" "}
-              Scholarship Name: <span className={`${scholarship_name || 'text-red-600'}`}>{scholarship_name || "missing"}</span>
+              Scholarship Name:{" "}
+              <span className={`${scholarship_name || "text-red-600"}`}>
+                {scholarship_name || "missing"}
+              </span>
             </h2>
             <p className="text-sm font-semibold text-[#247CFF]">
               {" "}
-              Subject Category: <span className={`${subject || 'text-red-600'}`}>{subject || "missing"}</span>
+              Subject Category:{" "}
+              <span className={`${subject || "text-red-600"}`}>
+                {subject || "missing"}
+              </span>
             </p>
             <p className="text-sm font-semibold text-[#247CFF]">
               {" "}
               Applied Degree:{" "}
-              <span className={`${degree_name|| "text-red-600"}`}>
+              <span className={`${degree_name || "text-red-600"}`}>
                 {degree_name || "missing"}
               </span>
             </p>
@@ -81,6 +106,12 @@ const ManageAppliedModal = ({ info }) => {
               Service Charge:
               <span className={`${service_charge || "text-red-600"}`}>
                 {service_charge || "missing"}
+              </span>
+            </p>
+            <p className="text-sm font-semibold text-[#247CFF]">
+              Apply Date:
+              <span className={`${apply_date || "text-red-600"}`}>
+                {new Date(apply_date).toLocaleDateString() || "missing"}
               </span>
             </p>
           </div>
