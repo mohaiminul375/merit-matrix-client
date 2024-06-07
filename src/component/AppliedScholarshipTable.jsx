@@ -6,6 +6,7 @@ import useAxiosSecure from "../hooks/useAxiosSecure";
 import Swal from "sweetalert2";
 
 const AppliedScholarshipTable = ({ idx, info }) => {
+  
   // console.log(info);
   const axiosSecure = useAxiosSecure();
   const {
@@ -19,7 +20,7 @@ const AppliedScholarshipTable = ({ idx, info }) => {
     application_fees,
     status,
   } = info;
-
+  // update application status
   const { mutateAsync } = useMutation({
     mutationFn: async ({ _id, updatedStatus }) => {
       const { data } = await axiosSecure.patch(`/update-status/${_id}`, {
@@ -39,6 +40,39 @@ const AppliedScholarshipTable = ({ idx, info }) => {
     // console.log(_id,e.target.value)
     mutateAsync({ _id, updatedStatus });
   };
+  // mark as rejects
+
+  const { mutateAsync: rejectedFunc } = useMutation({
+    mutationFn: async () => {
+      const { data } = await axiosSecure.patch(`/reject/${_id}`);
+      console.log(data);
+      return data;
+    },
+    onSuccess: (data) => {
+      if (data.modifiedCount > 0) {
+        Swal.fire({
+          title: "Rejected",
+          text: "Application Rejected Successfully.",
+          icon: "success",
+        });
+      }
+    },
+  });
+  const handleRejected = () => {
+    Swal.fire({
+      title: "Are you sure?",
+      text: "After rejected you are unable to any operation",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, Reject it!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        rejectedFunc(_id);
+      }
+    });
+  };
   return (
     <>
       <tr className="even:bg-[#E8F6FC] text-base font-bold">
@@ -53,15 +87,20 @@ const AppliedScholarshipTable = ({ idx, info }) => {
         <td>
           {" "}
           <select
-          disabled={status==="Canceled"}
+            disabled={status === "Canceled" || status === "Rejected"}
             defaultValue={status}
             onChange={handleUpdateStatus}
-            className="border rounded-md border-[#1E62D5]"
+            className={` ${status==='Rejected'?'border rounded-md border-red-600 bg-red-600 text-white':'border rounded-md border-[#1E62D5]'}`}
           >
             <option value="Pending">Pending</option>
             <option value="Processing">Processing</option>
             <option value="Completed">Completed</option>
-            <option disabled value="Canceled">Canceled</option>
+            <option disabled value="Canceled">
+              Canceled
+            </option>
+            <option  disabled value="Rejected">
+              Rejected
+            </option>
           </select>
         </td>
         <td className="flex justify-center items-center flex-col  gap-1">
@@ -72,7 +111,7 @@ const AppliedScholarshipTable = ({ idx, info }) => {
             Details
           </button>
           <button
-          disabled={status=='Canceled'}
+            disabled={status == "Canceled"}
             onClick={() =>
               document.getElementById(`feedback_${_id}`).showModal()
             }
@@ -81,9 +120,15 @@ const AppliedScholarshipTable = ({ idx, info }) => {
             Feed back
           </button>
           <button
-          disabled={status === "Canceled"}
-          className="bg-[#247CFF] text-white rounded-md px-2 disabled:cursor-not-allowed">
-            Cancel
+            onClick={handleRejected}
+            disabled={status === "Canceled" || status==='Rejected'}
+            className={`${
+              status === "Rejected"
+                ? "bg-red-600 text-white rounded-md px-2 disabled:cursor-not-allowed"
+                : ""
+            }bg-[#247CFF] text-white rounded-md px-2 disabled:cursor-not-allowed`}
+          >
+            {status === "Rejected" ? "Rejected" : status==='Canceled'?'Canceled':'Cancel'}
           </button>
         </td>
       </tr>

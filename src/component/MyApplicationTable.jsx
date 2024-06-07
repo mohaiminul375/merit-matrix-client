@@ -2,6 +2,7 @@ import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
 import useAxiosSecure from "../hooks/useAxiosSecure";
+import UpdateMyApplication from "../Pages/MyApplication/UpdateMyApplication";
 
 const MyApplicationTable = ({ idx, application }) => {
   const axiosSecure = useAxiosSecure();
@@ -36,13 +37,20 @@ const MyApplicationTable = ({ idx, application }) => {
         }`,
       });
       return;
+    } else if (status === "Canceled" || status === "Rejected") {
+      Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: `You are unable to delete when application has been${status}`,
+      });
+      return;
     }
   };
   // cancel
   const { mutateAsync } = useMutation({
     mutationFn: async (_id) => {
       const { data } = await axiosSecure.patch(`/cancel/${_id}`);
-      console.log(data)
+      console.log(data);
       return data;
     },
     onSuccess: (data) => {
@@ -86,7 +94,25 @@ const MyApplicationTable = ({ idx, application }) => {
       <td>{degree_name}</td>
       <td>{application_fees}</td>
       <td>{service_charge}</td>
-      <td>{status}</td>
+      <td>
+        <span
+          className={`${
+            status == "Pending" || status === "Processing"
+              ? "bg-[#247CFF] text-white font-bold p-1 rounded-full"
+              : ""
+          } ${
+            status == "Canceled" || status === "Rejected"
+              ? "bg-red-600 text-white font-bold p-1 rounded-full"
+              : ""
+          }${
+            status == "Completed"
+              ? "bg-green-600 text-white font-bold p-1 rounded-full"
+              : ""
+          }`}
+        >
+          {status}
+        </span>
+      </td>
       <td>
         <button
           onClick={() => document.getElementById(`feedback_${_id}`).showModal()}
@@ -103,16 +129,30 @@ const MyApplicationTable = ({ idx, application }) => {
           </button>
         </Link>
         <button
-          onClick={handleStatus}
-          className="bg-[#247CFF] text-white rounded-md px-2"
+          //  disabled={status==='Canceled' || status==='Rejected'}
+          onClick={() => {
+            status === "Pending"
+              ? document.getElementById(`update_${_id}`).showModal()
+              : handleStatus();
+          }}
+          className="bg-[#247CFF] text-white rounded-md px-2 disabled:cursor-not-allowed"
         >
           Edit
         </button>
         <button
+          disabled={status === "Canceled" || status === "Rejected"}
           onClick={handleStatusCancel}
-          className="bg-[#247CFF] text-white rounded-md px-2"
+          className={`bg-[#247CFF] text-white rounded-md px-2 disabled:cursor-not-allowed ${
+            status == "Rejected" && "bg-red-600 text-white rounded-md px-2"
+          }  ${
+            status == "Canceled" && "bg-red-600 text-white rounded-md px-2"
+          }`}
         >
-          Cancel
+          {status == "Rejected"
+            ? "Rejected"
+            : status === "Canceled"
+            ? "Canceled"
+            : "Cancel"}
         </button>
       </td>
       <dialog id={`feedback_${_id}`} className="modal">
@@ -132,6 +172,11 @@ const MyApplicationTable = ({ idx, application }) => {
           </div>
         </div>
       </dialog>
+      {status === "Pending" && (
+        <dialog id={`update_${_id}`} className="modal">
+          <UpdateMyApplication application={application}></UpdateMyApplication>
+        </dialog>
+      )}
     </tr>
   );
 };
