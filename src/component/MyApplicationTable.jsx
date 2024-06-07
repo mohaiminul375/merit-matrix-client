@@ -22,11 +22,11 @@ const MyApplicationTable = ({ idx, application }) => {
         icon: "error",
         title: "Oops...",
         text: `${
-          status == "Processing" &&
-          "You are unable to delete when application is processing"
+          status == "Processing" ?
+          "You are unable to delete when application is processing":""
         } ${
-          status == "Completed" &&
-          "You are unable to delete when application is processing"
+          status == "Completed" ?
+          "You are unable to delete when application is processing":''
         }`,
       });
       return;
