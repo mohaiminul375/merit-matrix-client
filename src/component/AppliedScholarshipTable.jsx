@@ -21,8 +21,10 @@ const AppliedScholarshipTable = ({ idx, info }) => {
   } = info;
 
   const { mutateAsync } = useMutation({
-    mutationFn: async ({ _id,updatedStatus }) => {
-      const { data } = await axiosSecure.patch(`/update-status/${_id}`,{updatedStatus});
+    mutationFn: async ({ _id, updatedStatus }) => {
+      const { data } = await axiosSecure.patch(`/update-status/${_id}`, {
+        updatedStatus,
+      });
       console.log(data);
       return data;
     },
@@ -35,7 +37,7 @@ const AppliedScholarshipTable = ({ idx, info }) => {
   const handleUpdateStatus = (e) => {
     const updatedStatus = e.target.value;
     // console.log(_id,e.target.value)
-    mutateAsync({_id,updatedStatus})
+    mutateAsync({ _id, updatedStatus });
   };
   return (
     <>
@@ -51,13 +53,15 @@ const AppliedScholarshipTable = ({ idx, info }) => {
         <td>
           {" "}
           <select
+          disabled={status==="Canceled"}
             defaultValue={status}
             onChange={handleUpdateStatus}
             className="border rounded-md border-[#1E62D5]"
           >
-            <option>Pending</option>
-            <option>Processing</option>
-            <option>Completed</option>
+            <option value="Pending">Pending</option>
+            <option value="Processing">Processing</option>
+            <option value="Completed">Completed</option>
+            <option disabled value="Canceled">Canceled</option>
           </select>
         </td>
         <td className="flex justify-center items-center flex-col  gap-1">
@@ -68,14 +72,17 @@ const AppliedScholarshipTable = ({ idx, info }) => {
             Details
           </button>
           <button
+          disabled={status=='Canceled'}
             onClick={() =>
               document.getElementById(`feedback_${_id}`).showModal()
             }
-            className="bg-[#247CFF] text-white rounded-md px-2"
+            className="bg-[#247CFF] text-white rounded-md px-2 disabled:cursor-not-allowed"
           >
             Feed back
           </button>
-          <button className="bg-[#247CFF] text-white rounded-md px-2">
+          <button
+          disabled={status === "Canceled"}
+          className="bg-[#247CFF] text-white rounded-md px-2 disabled:cursor-not-allowed">
             Cancel
           </button>
         </td>

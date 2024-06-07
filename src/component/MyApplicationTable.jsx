@@ -1,7 +1,11 @@
+import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
+import useAxiosSecure from "../hooks/useAxiosSecure";
 
 const MyApplicationTable = ({ idx, application }) => {
+  const axiosSecure = useAxiosSecure();
+  const queryClient = useQueryClient();
   const {
     _id,
     university_name,
@@ -13,7 +17,7 @@ const MyApplicationTable = ({ idx, application }) => {
     application_fees,
     status,
     feedback,
-    scholarship_id
+    scholarship_id,
   } = application;
 
   const handleStatus = () => {
@@ -22,17 +26,53 @@ const MyApplicationTable = ({ idx, application }) => {
         icon: "error",
         title: "Oops...",
         text: `${
-          status == "Processing" ?
-          "You are unable to delete when application is processing":""
+          status == "Processing"
+            ? "You are unable to delete when application is processing"
+            : ""
         } ${
-          status == "Completed" ?
-          "You are unable to delete when application is processing":''
+          status == "Completed"
+            ? "You are unable to delete when application is processing"
+            : ""
         }`,
       });
       return;
     }
   };
-
+  // cancel
+  const { mutateAsync } = useMutation({
+    mutationFn: async (_id) => {
+      const { data } = await axiosSecure.patch(`/cancel/${_id}`);
+      console.log(data)
+      return data;
+    },
+    onSuccess: (data) => {
+      if (data.modifiedCount) {
+        Swal.fire({
+          title: "Canceled",
+          text: "Your scholarship canceled successfully",
+          icon: "success",
+        });
+        queryClient.invalidateQueries({ queryKey: ["my-application"] });
+        queryClient.invalidateQueries({ queryKey: ["applied-scholarship"] });
+      }
+    },
+  });
+  const handleStatusCancel = () => {
+    Swal.fire({
+      title: "Are you sure?",
+      text: "After cancelation we will close all processing on this scholarship",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      cancelButtonText: "No",
+      confirmButtonText: "I agree",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        mutateAsync(_id);
+      }
+    });
+  };
   return (
     <tr>
       <th>{idx + 1}</th>
@@ -49,8 +89,9 @@ const MyApplicationTable = ({ idx, application }) => {
       <td>{status}</td>
       <td>
         <button
-        onClick={()=>document.getElementById(`feedback_${_id}`).showModal()}
-        className="bg-[#247CFF] text-white rounded-md px-2">
+          onClick={() => document.getElementById(`feedback_${_id}`).showModal()}
+          className="bg-[#247CFF] text-white rounded-md px-2"
+        >
           See feedback
         </button>
       </td>
@@ -67,11 +108,14 @@ const MyApplicationTable = ({ idx, application }) => {
         >
           Edit
         </button>
-        <button className="bg-[#247CFF] text-white rounded-md px-2">
+        <button
+          onClick={handleStatusCancel}
+          className="bg-[#247CFF] text-white rounded-md px-2"
+        >
           Cancel
         </button>
       </td>
-      <dialog id={`feedback_${_id}`}className="modal">
+      <dialog id={`feedback_${_id}`} className="modal">
         <div className="modal-box">
           <div className="flex justify-end">
             <form method="dialog">
@@ -79,8 +123,12 @@ const MyApplicationTable = ({ idx, application }) => {
             </form>
           </div>
           <div className="mt-5">
-            <h2 className="text-center font-bold text-3xl text-[#247CFF]">See feedback</h2>
-            <h4 className="mt-6 text-center text-2xl text-[#247CFF]">{feedback? feedback:'No feedback was given.'}</h4>
+            <h2 className="text-center font-bold text-3xl text-[#247CFF]">
+              See feedback
+            </h2>
+            <h4 className="mt-6 text-center text-2xl text-[#247CFF]">
+              {feedback ? feedback : "No feedback was given."}
+            </h4>
           </div>
         </div>
       </dialog>

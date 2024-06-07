@@ -1,28 +1,28 @@
-import { useQuery } from '@tanstack/react-query';
-import React from 'react';
-import useAxiosSecure from '../../hooks/useAxiosSecure';
-import { RingLoader } from 'react-spinners';
-import AppliedScholarshipTable from '../../component/AppliedScholarshipTable';
+import { useQuery } from "@tanstack/react-query";
+import React from "react";
+import useAxiosSecure from "../../hooks/useAxiosSecure";
+import { RingLoader } from "react-spinners";
+import AppliedScholarshipTable from "../../component/AppliedScholarshipTable";
 
 const ManageAppliedScholarship = () => {
-    const axiosSecure=useAxiosSecure();
-    const{data:applied_info,isLoading}=useQuery({
-        queryFn:async()=>{
-            const {data}=await axiosSecure.get('/applied-scholarship')
-            console.log(data)
-            return data;
-        },
-        queryKey:['applied-scholarship']
-    })
-    if (isLoading) {
-        return (
-          <div className="flex justify-center items-center">
-            <RingLoader className="" color="#1E62D5" />
-          </div>
-        );
-      }
+  const axiosSecure = useAxiosSecure();
+  const { data: applied_info, isLoading } = useQuery({
+    queryFn: async () => {
+      const { data } = await axiosSecure.get("/applied-scholarship");
+      console.log(data);
+      return data;
+    },
+    queryKey: ["applied-scholarship"],
+  });
+  if (isLoading) {
     return (
-        <div>
+      <div className="flex justify-center items-center">
+        <RingLoader className="" color="#1E62D5" />
+      </div>
+    );
+  }
+  return (
+    <div>
       <div className="text-center">
         <h4 className="font-bold text-lg">Manage Applied Scholarship</h4>
         <h2 className="font-bold text-3xl text-[#1E62D5]">
@@ -49,19 +49,19 @@ const ManageAppliedScholarship = () => {
             </thead>
             <tbody>
               {/* row 1 */}
-              {
-                applied_info?.map((info,idx)=><AppliedScholarshipTable
-                key={info._id}
-                idx={idx}
-                info={info}
-                ></AppliedScholarshipTable>)
-              }
+              {applied_info?.map((info, idx) => (
+                <AppliedScholarshipTable
+                  key={info._id}
+                  idx={idx}
+                  info={info}
+                ></AppliedScholarshipTable>
+              ))}
             </tbody>
           </table>
         </div>
       </div>
     </div>
-    );
+  );
 };
 
 export default ManageAppliedScholarship;
