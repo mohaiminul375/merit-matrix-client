@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
 import useAxiosSecure from "../hooks/useAxiosSecure";
 import UpdateMyApplication from "../Pages/MyApplication/UpdateMyApplication";
+import ReviewModal from "../Pages/Dashboard/ReviewModal";
 
 const MyApplicationTable = ({ idx, application }) => {
   const axiosSecure = useAxiosSecure();
@@ -121,7 +122,14 @@ const MyApplicationTable = ({ idx, application }) => {
           See feedback
         </button>
       </td>
-      <td>Add review</td>
+      <td>
+        <button
+        onClick={()=> document.getElementById(`review_${_id}`).showModal()}
+        className="bg-[#247CFF] text-white rounded-md px-2"
+      >
+         Add review
+      </button>
+       </td>
       <td className="flex justify-center items-center flex-col  gap-1">
         <Link to={`/scholarship-details/${scholarship_id}`}>
           <button className="bg-[#247CFF] text-white rounded-md px-2">
@@ -177,6 +185,9 @@ const MyApplicationTable = ({ idx, application }) => {
           <UpdateMyApplication application={application}></UpdateMyApplication>
         </dialog>
       )}
+      <dialog id={`review_${_id}`} className="modal">
+       <ReviewModal application={application}></ReviewModal>
+      </dialog>
     </tr>
   );
 };
