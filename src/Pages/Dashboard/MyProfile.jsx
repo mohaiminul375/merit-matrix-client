@@ -8,7 +8,7 @@ const MyProfile = () => {
   return (
     <div className="md:max-w-xl mx-auto bg-[#E8F6FC] rounded-md  p-10 text-[#1E62D5]">
       <div className="text-center font-bold text-3xl text-[#1E62D5] ">
-        <h2>My Profile</h2>
+        <h2 className="font-cinzel">My Profile</h2>
       </div>
       <div className="">
         <div className="flex flex-col items-center mt-8 space-y-8">

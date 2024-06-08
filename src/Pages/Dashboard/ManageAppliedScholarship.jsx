@@ -25,7 +25,7 @@ const ManageAppliedScholarship = () => {
     <div>
       <div className="text-center">
         <h4 className="font-bold text-lg">Manage Applied Scholarship</h4>
-        <h2 className="font-bold text-3xl text-[#1E62D5]">
+        <h2 className="font-bold text-3xl font-cinzel text-[#1E62D5]">
           Manage All Applied Scholarship Data
         </h2>
       </div>

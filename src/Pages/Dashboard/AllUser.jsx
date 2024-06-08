@@ -26,7 +26,7 @@ const AllUser = () => {
     <div>
       <div className="text-center">
         <h4 className="font-bold text-lg">Manage User</h4>
-        <h2 className="font-bold text-3xl text-[#1E62D5]">
+        <h2 className="font-bold text-3xl font-cinzel text-[#1E62D5]">
           Manage All User Data
         </h2>
       </div>

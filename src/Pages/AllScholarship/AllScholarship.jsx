@@ -36,7 +36,7 @@ const AllScholarship = () => {
           <button className="btn join-item bg-[#1E62D5] text-white rounded-r-md">Search</button>
         </div>
       </div>
-      <div className="mt-10 grid grid-cols-3 gap-6">
+      <div className="mt-10 grid md:grid-cols-3 gap-6">
         {scholarship?.map((item) => (
           <ScholarshipCard key={item._id} item={item}></ScholarshipCard>
         ))}

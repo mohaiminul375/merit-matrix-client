@@ -28,7 +28,7 @@ const MyApplication = () => {
   return (
     <div>
       <div className="text-center">
-        <h2 className="font-bold text-3xl text-[#1E62D5]">My Application</h2>
+        <h2 className="font-bold text-3xl text-[#1E62D5] font-cinzel">My Application</h2>
       </div>
 
       <div className="mt-5">

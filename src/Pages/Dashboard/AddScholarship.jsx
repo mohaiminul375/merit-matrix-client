@@ -48,7 +48,7 @@ const AddScholarship = () => {
   return (
     <div>
       <div className="bg-[#E8F6FC] md:max-w-3xl lg:max-w-5xl mx-auto p-5 rounded-md">
-        <h2 className="text-center text-3xl font-bold">Add A Scholarship</h2>
+        <h2 className="text-center text-3xl font-bold font-cinzel text-[#247CFF]">Add A Scholarship</h2>
         <div className="mt-10">
           <form onSubmit={handleSubmit(onSubmit)} className="card-body">
             {/* row 1 */}

@@ -44,7 +44,7 @@ const ScholarshipDetails = () => {
   return (
     <div className="mt-20 md:max-w-5xl mx-auto">
       <div className="text-center">
-        <h2 className="text-4xl font-bold text-[#1E62D5]">
+        <h2 className="text-4xl font-bold font-cinzel text-[#1E62D5]">
           Scholarship Details
         </h2>
         <p className="font-bold text-3xl">{scholarship_name}</p>
@@ -91,7 +91,7 @@ const ScholarshipDetails = () => {
         </div>
       </div>
       <div className="mt-5">
-        <h2 className="text-center text-2xl font-bold text-[#1E62D5] underline">
+        <h2 className="text-center text-2xl font-bold font-cinzel text-[#1E62D5] underline">
           Review of this Scholarship
         </h2>
         

@@ -20,7 +20,7 @@ import MyProfile from "../Pages/Dashboard/MyProfile";
 import ManageReview from "../Pages/Dashboard/ManageReview";
 import MyReviews from "../Pages/Dashboard/MyReviews";
 import ErrorPage from "../Pages/ErrorPage";
-
+import OnlyAdminRoute from "../Router/OnlyAdminRoute"
 export const router = createBrowserRouter([
   {
     path: "/",
@@ -69,11 +69,11 @@ export const router = createBrowserRouter([
       // admin
       {
         path: "admin-Home",
-        element: <AdminHome></AdminHome>,
+        element: <OnlyAdminRoute><AdminHome></AdminHome></OnlyAdminRoute>
       },
       {
         path: "add-scholarship",
-        element: <AddScholarship></AddScholarship>,
+        element: <AdminAndModeratorRoute><AddScholarship></AddScholarship></AdminAndModeratorRoute>,
       },
       {
         path: "manage-scholarship",
@@ -85,7 +85,7 @@ export const router = createBrowserRouter([
       },
       {
         path: "all-user",
-        element: <AllUser></AllUser>,
+        element:<OnlyAdminRoute> <AllUser></AllUser></OnlyAdminRoute>,
       },
       {
         path: "manage-applications",

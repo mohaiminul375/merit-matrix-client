@@ -13,7 +13,7 @@ const ScholarshipCard = ({ item }) => {
   } = item;
   console.log(item);
   return (
-    <div className="card card-compact w-96 bg-base-100 shadow-xl">
+    <div className="card card-compact w-96 bg-[#EEFAFC] shadow-xl text-[#247CFF]">
       <figure>
         <img src={university_logo} alt="" />
       </figure>
@@ -31,7 +31,7 @@ const ScholarshipCard = ({ item }) => {
         <p className="font-semibold"> {application_fees}</p>
         <div className="flex justify-center">
           <Link
-            className="w-full btn btn-primary"
+            className="w-full btn bg-[#247CFF] text-white"
             to={`/scholarship-details/${_id}`}
           >
             Details

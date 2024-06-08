@@ -5,7 +5,7 @@ const AdminHome = () => {
     const {user}=useAuth()
     return (
         <div>
-            <h4 className='text-lg font-bold'>Hi, {user?.displayName}</h4>
+            <h4 className='text-lg font-bold font-cinzel text-[#247CFF]'>Hi, {user?.displayName}</h4>
             <h2 className='text-4xl'>Welcome to Admin Dashboard</h2>
         </div>
     );

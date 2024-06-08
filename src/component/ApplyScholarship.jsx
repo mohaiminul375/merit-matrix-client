@@ -78,7 +78,7 @@ const ApplyScholarship = ({ scholarship_info, toggleForm: TrxID }) => {
   return (
     <div>
       <div className="bg-[#E8F6FC] md:max-w-3xl lg:max-w-5xl mx-auto p-5 rounded-md">
-        <h2 className="text-center text-3xl font-bold">
+        <h2 className="text-center text-3xl font-bold font-cinzel text-[#247CFF]">
           Applicant Information
         </h2>
         <div className="mt-10">
