@@ -3,6 +3,7 @@ import React from "react";
 import { Link, useParams } from "react-router-dom";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
 import { RingLoader } from "react-spinners";
+import ReviewSlider from "../../component/ReviewSlider";
 
 const ScholarshipDetails = () => {
   const axiosSecure = useAxiosSecure();
@@ -41,7 +42,7 @@ const ScholarshipDetails = () => {
     _id,
   } = details;
   return (
-    <div className="mt-20 ">
+    <div className="mt-20 md:max-w-5xl mx-auto">
       <div className="text-center">
         <h2 className="text-4xl font-bold text-[#1E62D5]">
           Scholarship Details
@@ -49,7 +50,7 @@ const ScholarshipDetails = () => {
         <p className="font-bold text-3xl">{scholarship_name}</p>
       </div>
       {/* details */}
-      <div className="mt-10 md:max-w-5xl mx-auto flex flex-col md:flex-row md:p-4 gap-10 bg-[#E8F6FC] text-[#1E62D5] rounded-md">
+      <div className="mt-10  flex flex-col md:flex-row md:p-4 gap-10 bg-[#E8F6FC] text-[#1E62D5] rounded-md">
         <img className="w-56" src={university_logo} alt="" />
         <div className="flex-1">
           <h2 className="font-bold text-lg">
@@ -67,19 +68,35 @@ const ScholarshipDetails = () => {
             Scholarship Category:{scholarship_category}
           </h4>
           <h4 className="text-base font-bold">Tuition Fees: ${tuition_fees}</h4>
-          <h4 className="text-base font-bold">Application Fees: ${application_fees}</h4>
+          <h4 className="text-base font-bold">
+            Application Fees: ${application_fees}
+          </h4>
           <h4 className="text-base font-bold">
             Service Charge: ${service_charge}
           </h4>
-          <h4 className="text-base font-bold">Posted Date: {new Date(post_date).toLocaleDateString()}</h4>
+          <h4 className="text-base font-bold">
+            Posted Date: {new Date(post_date).toLocaleDateString()}
+          </h4>
           <div className="flex justify-between">
             <h4 className="text-base font-bold">
-              Application Deadline:  {new Date(deadline).toLocaleDateString()}
+              Application Deadline: {new Date(deadline).toLocaleDateString()}
             </h4>
             <Link
-            to={`/checkout/${_id}`}
-            className="text-white bg-[#007AFF] px-3 py-1 rounded-full">Apply</Link>
+              to={`/checkout/${_id}`}
+              className="text-white bg-[#007AFF] px-3 py-1 rounded-full"
+            >
+              Apply
+            </Link>
           </div>
+        </div>
+      </div>
+      <div className="mt-5">
+        <h2 className="text-center text-2xl font-bold text-[#1E62D5] underline">
+          Review of this Scholarship
+        </h2>
+        
+        <div className="mt-5">
+          <ReviewSlider id={id}></ReviewSlider>
         </div>
       </div>
     </div>
