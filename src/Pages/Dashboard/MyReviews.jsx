@@ -2,6 +2,8 @@ import { useQuery } from "@tanstack/react-query";
 import React from "react";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
 import useAuth from "../../hooks/useAuth";
+import { RingLoader } from "react-spinners";
+import MyReviewTable from "../../component/MyReviewTable";
 
 const MyReviews = () => {
   const { user } = useAuth();
@@ -15,7 +17,13 @@ const MyReviews = () => {
     },
     queryKey: ["my-reviews"],
   });
-
+  if (isLoading) {
+    return (
+      <div className="flex justify-center items-center">
+        <RingLoader className="" color="#1E62D5" />
+      </div>
+    );
+  }
   console.log(reviews);
   return (
     <div>
@@ -39,14 +47,13 @@ const MyReviews = () => {
               </tr>
             </thead>
             <tbody>
-              {/* row 1
-              {applications?.map((application, idx) => (
-                <MyApplicationTable
-                  key={application._id}
-                  idx={idx}
-                  application={application}
-                ></MyApplicationTable>
-              ))} */}
+             {
+                reviews?.map((review,idx)=><MyReviewTable
+                key={review._id}
+                idx={idx}
+                review={review}
+                ></MyReviewTable>)
+             }
             </tbody>
           </table>
         </div>
