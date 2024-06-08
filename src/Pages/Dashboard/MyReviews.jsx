@@ -24,7 +24,7 @@ const MyReviews = () => {
       </div>
     );
   }
-  console.log(reviews);
+
   return (
     <div>
       <div className="text-center">

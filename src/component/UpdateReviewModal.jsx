@@ -43,7 +43,7 @@ const UpdateReviewModal = ({id, review_comment, review_point }) => {
       </div>
       <div className="mt-5">
         <h2 className="text-3xl font-bold text-center text-[#247CFF]">
-          Submit A Review
+          Update Your Review
         </h2>
       </div>
       <div>
@@ -78,7 +78,7 @@ const UpdateReviewModal = ({id, review_comment, review_point }) => {
             />
           </div>
           <button className="bg-[#247CFF] w-full mt-3 py-1 text-lg rounded-md text-white">
-            Submit
+            Update
           </button>
         </form>
       </div>
