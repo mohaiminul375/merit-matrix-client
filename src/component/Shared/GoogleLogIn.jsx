@@ -10,8 +10,9 @@ const GoogleLogIn = () => {
   const axiosPublic = useAxiosPublic();
   const { googleLogin } = useContext(AuthContext);
   // const [error, setError] = useState("");
-  // const location = useLocation();
-  // const navigate = useNavigate();
+  const location = useLocation();
+  const navigate = useNavigate();
+  const from = location.state?.from?.pathname || "/";
   const handleGoogleLogin = () => {
     googleLogin()
       .then(async (result) => {
@@ -25,6 +26,7 @@ const GoogleLogIn = () => {
         console.log(data);
         console.log(result);
         Swal.fire("Login successfully");
+        navigate(from)
       })
       .catch((error) => {
         console.log(error.message);

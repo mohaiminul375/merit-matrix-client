@@ -29,10 +29,12 @@ const MyProfile = () => {
               <h2 className="font-bold text-xl underline">Email</h2>
               <p className="text-lg">{user?.email}</p>
             </div>
-            <div>
-              <h2 className="font-bold text-xl underline">Role</h2>
-              <p className="text-lg font-extrabold">{isAdminOrMod}</p>
-            </div>
+            {(isAdminOrMod === "Admin"  || isAdminOrMod==='Moderator')? (
+              <div>
+                <h2 className="font-bold text-xl underline">Role</h2>
+                <p className="text-lg font-extrabold">{isAdminOrMod}</p>
+              </div>
+            ):''}
           </div>
         </div>
       </div>

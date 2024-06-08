@@ -19,11 +19,13 @@ import MyApplication from "../Pages/MyApplication/MyApplication";
 import MyProfile from "../Pages/Dashboard/MyProfile";
 import ManageReview from "../Pages/Dashboard/ManageReview";
 import MyReviews from "../Pages/Dashboard/MyReviews";
+import ErrorPage from "../Pages/ErrorPage";
 
 export const router = createBrowserRouter([
   {
     path: "/",
     element: <Main></Main>,
+    errorElement: <ErrorPage></ErrorPage>,
     children: [
       {
         path: "/",
@@ -43,13 +45,20 @@ export const router = createBrowserRouter([
       },
       {
         path: "/scholarship-details/:id",
-        element: <PrivateRoute><ScholarshipDetails></ScholarshipDetails></PrivateRoute>,
+        element: (
+          <PrivateRoute>
+            <ScholarshipDetails></ScholarshipDetails>
+          </PrivateRoute>
+        ),
       },
       {
-        path:"/checkout/:id",
-        element:<PrivateRoute><Checkout></Checkout></PrivateRoute>
+        path: "/checkout/:id",
+        element: (
+          <PrivateRoute>
+            <Checkout></Checkout>
+          </PrivateRoute>
+        ),
       },
-     
     ],
   },
   // dashboard
@@ -68,32 +77,56 @@ export const router = createBrowserRouter([
       },
       {
         path: "manage-scholarship",
-        element: <AdminAndModeratorRoute><ManageScholarship></ManageScholarship>,</AdminAndModeratorRoute>
+        element: (
+          <AdminAndModeratorRoute>
+            <ManageScholarship></ManageScholarship>,
+          </AdminAndModeratorRoute>
+        ),
       },
       {
         path: "all-user",
         element: <AllUser></AllUser>,
       },
       {
-        path:'manage-applications',
-        element:<AdminAndModeratorRoute><ManageAppliedScholarship></ManageAppliedScholarship></AdminAndModeratorRoute>
+        path: "manage-applications",
+        element: (
+          <AdminAndModeratorRoute>
+            <ManageAppliedScholarship></ManageAppliedScholarship>
+          </AdminAndModeratorRoute>
+        ),
       },
       {
-        path:'my-application',
-        element:<PrivateRoute><MyApplication></MyApplication></PrivateRoute>
+        path: "my-application",
+        element: (
+          <PrivateRoute>
+            <MyApplication></MyApplication>
+          </PrivateRoute>
+        ),
       },
       {
-        path:'my-profile',
-        element:<PrivateRoute><MyProfile></MyProfile></PrivateRoute>
+        path: "my-profile",
+        element: (
+          <PrivateRoute>
+            <MyProfile></MyProfile>
+          </PrivateRoute>
+        ),
       },
       {
-        path:"all-review",
-        element:<AdminAndModeratorRoute><ManageReview></ManageReview></AdminAndModeratorRoute>
+        path: "all-review",
+        element: (
+          <AdminAndModeratorRoute>
+            <ManageReview></ManageReview>
+          </AdminAndModeratorRoute>
+        ),
       },
       {
-        path:"my-reviews",
-        element:<PrivateRoute><MyReviews></MyReviews></PrivateRoute>
-      }
+        path: "my-reviews",
+        element: (
+          <PrivateRoute>
+            <MyReviews></MyReviews>
+          </PrivateRoute>
+        ),
+      },
     ],
   },
 ]);

@@ -12,7 +12,7 @@ const Login = () => {
   const location = useLocation();
   const navigate = useNavigate();
   const from = location.state?.from?.pathname || "/";
-  console.log(location.state?.from?.pathname);
+  // console.log(location.state?.from?.pathname);
   const {
     register,
     handleSubmit,
@@ -32,7 +32,6 @@ const Login = () => {
     login(userData.email, userData.password)
       .then((result) => {
         Swal.fire("login successfully");
-
         navigate(from);
       })
       .catch((error) => {
@@ -107,8 +106,7 @@ const Login = () => {
         <span className="w-1/5 border-b border-[#1EA9E4] lg:w-1/5"></span>
       </div>
 
-      <GoogleLogIn
-      ></GoogleLogIn>
+      <GoogleLogIn></GoogleLogIn>
 
       <p className="mt-8 text-base font-semibold  text-center text-base-content">
         {" "}
