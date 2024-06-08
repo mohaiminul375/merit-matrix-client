@@ -18,6 +18,7 @@ import ManageAppliedScholarship from "../Pages/Dashboard/ManageAppliedScholarshi
 import MyApplication from "../Pages/MyApplication/MyApplication";
 import MyProfile from "../Pages/Dashboard/MyProfile";
 import ManageReview from "../Pages/Dashboard/ManageReview";
+import MyReviews from "../Pages/Dashboard/MyReviews";
 
 export const router = createBrowserRouter([
   {
@@ -87,6 +88,10 @@ export const router = createBrowserRouter([
       {
         path:"all-review",
         element:<AdminAndModeratorRoute><ManageReview></ManageReview></AdminAndModeratorRoute>
+      },
+      {
+        path:"my-reviews",
+        element:<PrivateRoute><MyReviews></MyReviews></PrivateRoute>
       }
     ],
   },

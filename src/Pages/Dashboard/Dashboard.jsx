@@ -186,6 +186,16 @@ const Dashboard = () => {
             >
               <span className="mx-4">My Application</span>
             </NavLink>
+            <NavLink
+              to="my-reviews"
+              className={({ isActive }) =>
+                isActive
+                  ? "text-lg font-medium w-full flex items-center px-4 py-1 rounded-full bg-[#0089F7] text-white"
+                  : ""
+              }
+            >
+              <span className="mx-4">My Reviews</span>
+            </NavLink>
           </nav>
         </div>
       </aside>
