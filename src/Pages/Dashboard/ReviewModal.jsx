@@ -1,30 +1,27 @@
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import useAuth from "../../hooks/useAuth";
+import { useMutation } from "@tanstack/react-query";
+import useAxiosSecure from "../../hooks/useAxiosSecure";
+import Swal from "sweetalert2";
 
 const ReviewModal = ({ application }) => {
-    const {user}=useAuth();
+  const axiosSecure = useAxiosSecure();
   const {
     _id,
     university_name,
     scholarship_name,
     applicant_name,
     applicant_email,
-    university_city,
-    university_country,
-    subject,
-    degree_name,
-    service_charge,
-    application_fees,
-    status,
-    feedback,
     scholarship_id,
+    subject,
   } = application;
   console.log(application);
   const [error, setError] = useState();
   const { register, handleSubmit, reset } = useForm();
+  // post method
 
-  const onSubmit = (review) => {
+  const onSubmit = async (review) => {
     if (review.review_point < 1 || review.review_point > 5) {
       setError("review must be 1-5 number");
       return;
@@ -34,12 +31,18 @@ const ReviewModal = ({ application }) => {
     review.scholarship_name = scholarship_name;
     review.university_name = university_name;
     review.scholarship_id = scholarship_id;
-    review.applicant_name=applicant_name;
-    review.applicant_email=applicant_email;
-    review.subject=subject;
-
+    review.applicant_name = applicant_name;
+    review.applicant_email = applicant_email;
+    review.subject = subject;
 
     console.log(review);
+
+    const { data } = await axiosSecure.post("/all-reviews", review);
+    console.log(data);
+    if (data.insertedId) {
+      Swal.fire("Review added successfully");
+      reset();
+    }
   };
   //   const handleSubmitReview = () => {
 
