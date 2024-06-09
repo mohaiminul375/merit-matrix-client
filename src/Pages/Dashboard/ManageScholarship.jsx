@@ -7,7 +7,7 @@ const ManageScholarship = () => {
   const axiosPublic = useAxiosPublic();
   const { data: scholarship, isLoading } = useQuery({
     queryFn: async () => {
-      const { data } = await axiosPublic.get("/all-scholarship");
+      const { data } = await axiosPublic.get("/all-scholarship-admin");
       return data;
     },
     queryKey: ["manage-scholarship"],

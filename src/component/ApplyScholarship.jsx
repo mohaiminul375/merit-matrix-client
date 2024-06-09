@@ -62,7 +62,7 @@ const ApplyScholarship = ({ scholarship_info, toggleForm: TrxID }) => {
     // additional info
     applicant_info.applicant_name = user?.displayName;
     applicant_info.applicant_email = user?.email;
-    applicant_info.apply_date = new Date();
+    applicant_info.apply_date = new Date().toISOString();
     applicant_info.scholarship_id = _id;
     applicant_info.service_charge = service_charge;
     applicant_info.application_fees = application_fees;

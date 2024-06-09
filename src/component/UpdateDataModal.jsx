@@ -61,7 +61,7 @@ const UpdateDataModal = ({ item }) => {
 
     data.university_logo = img_url;
     // date
-    data.deadline = startDate;
+    data.deadline = startDate.toISOString();
     console.log("update", data);
     await mutateAsync({ _id,data });
   };

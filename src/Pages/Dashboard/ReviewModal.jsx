@@ -26,7 +26,7 @@ const ReviewModal = ({ application }) => {
       setError("review must be 1-5 number");
       return;
     }
-    const current_date = new Date();
+    const current_date = new Date().toISOString();
     review.post_date = current_date;
     review.scholarship_name = scholarship_name;
     review.university_name = university_name;

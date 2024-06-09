@@ -20,7 +20,7 @@ const AddScholarship = () => {
 
   const onSubmit = async (data) => {
     // console.log()
-    const current = new Date();
+    const current = new Date().toISOString();
     const img = { image: data.university_logo[0] };
     console.log(img);
 
@@ -32,7 +32,7 @@ const AddScholarship = () => {
     // console.log(img_url);
     // add data
     data.posted_user = user?.email;
-    data.deadline = startDate;
+    data.deadline = startDate.toISOString();
     data.post_date = current;
     data.university_logo = img_url;
     console.log(data);
