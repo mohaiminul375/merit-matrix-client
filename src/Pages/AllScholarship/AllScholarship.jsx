@@ -2,7 +2,7 @@ import { useQuery } from "@tanstack/react-query";
 import useAxiosPublic from "../../hooks/useAxiosPublic";
 import { RingLoader } from "react-spinners";
 import ScholarshipCard from "./ScholarshipCard";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const AllScholarship = () => {
   const [itemPerPg, setItemPerPg] = useState(6);
@@ -22,14 +22,17 @@ const AllScholarship = () => {
     queryKey: ["all-scholarship", currentPg, itemPerPg, search],
   });
   // count
-  const { data: counts, isLoading: isPending } = useQuery({
-    queryFn: async () => {
-      const { data } = await axiosPublic.get("/all-scholarship-count");
+
+  useEffect(() => {
+    const getCount = async () => {
+      const { data } = await axiosPublic.get(
+        `all-scholarship-count?search=${search}`
+      );
       setCount(data.count);
-      return data;
-    },
-    queryKey: ["counts", currentPg, itemPerPg, search],
-  });
+    };
+    getCount();
+  }, [search]);
+
   console.log("scholarship", scholarship);
   if (isLoading) {
     return (
