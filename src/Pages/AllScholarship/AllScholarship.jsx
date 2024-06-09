@@ -8,14 +8,18 @@ const AllScholarship = () => {
   const [itemPerPg, setItemPerPg] = useState(6);
   const [count, setCount] = useState(0);
   const [currentPg, setCurrentPg] = useState(1);
+  const [search, setSearch] = useState("");
   const axiosPublic = useAxiosPublic();
+  console.log(search);
   const { data: scholarship, isLoading } = useQuery({
     queryFn: async () => {
-      const { data } = await axiosPublic.get(`/all-scholarship?page=${currentPg}&size=${itemPerPg}`);
+      const { data } = await axiosPublic.get(
+        `/all-scholarship?page=${currentPg}&size=${itemPerPg}&search=${search}`
+      );
 
       return data;
     },
-    queryKey: ["all-scholarship",currentPg],
+    queryKey: ["all-scholarship", currentPg, itemPerPg, search],
   });
   // count
   const { data: counts, isLoading: isPending } = useQuery({
@@ -24,7 +28,7 @@ const AllScholarship = () => {
       setCount(data.count);
       return data;
     },
-    queryKey: ["counts"],
+    queryKey: ["counts", currentPg, itemPerPg, search],
   });
   console.log("scholarship", scholarship);
   if (isLoading) {
@@ -37,7 +41,11 @@ const AllScholarship = () => {
 
   const numberOfPages = Math.ceil(count / itemPerPg);
   const pages = [...Array(numberOfPages).keys()].map((e) => e + 1);
-
+  const handleSearch = (e) => {
+    e.preventDefault();
+    const search_text = e.target.search_text.value;
+    setSearch(search_text);
+  };
   const handlePaginationBtn = (currentBtn) => {
     setCurrentPg(currentBtn);
   };
@@ -50,9 +58,10 @@ const AllScholarship = () => {
         </h2>
       </div>
       <div className="my-10 flex justify-center">
-        <form action="">
+        <form onSubmit={handleSearch}>
           <div className="join p-3 rounded-md shadow-lg">
             <input
+              name="search_text"
               className="input border-[#1E62D5] join-item"
               placeholder="Email"
             />
