@@ -74,6 +74,7 @@ const AllScholarship = () => {
           </div>
         </form>
       </div>
+      {scholarship.length === 0 && <h2 className="text-center text-red-600 text-2xl font-bold">No Scholarship/University Found</h2>}
       <div className="mt-10 grid md:grid-cols-3 gap-6">
         {scholarship?.map((item) => (
           <ScholarshipCard key={item._id} item={item}></ScholarshipCard>

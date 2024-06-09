@@ -4,15 +4,18 @@ import { useQuery } from "@tanstack/react-query";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
 import { RingLoader } from "react-spinners";
 import UsersTable from "../../component/UsersTable";
+import { useState } from "react";
 
 const AllUser = () => {
+  const [role,setRole]=useState('');
+  console.log(role)
   const axiosSecure = useAxiosSecure();
   const { data: users, isLoading } = useQuery({
     queryFn: async () => {
-      const { data } = await axiosSecure.get("/users");
+      const { data } = await axiosSecure.get(`/users?role=${role}`);
       return data;
     },
-    queryKey: ["all-user"],
+    queryKey: ["all-user",role],
   });
   if (isLoading) {
     return (
@@ -33,12 +36,12 @@ const AllUser = () => {
       <div className="mt-5 flex justify-end">
         {/* TODO:add filter */}
         <select
-        defaultValue={'all-user'}
+        defaultValue={role}
+        onChange={(e)=>setRole(e.target.value)}
         className="select select-bordered w-1/4">
-          <option value='' disabled>
-            filter user
-          </option>
-          <option value='all-user'>
+          
+          
+          <option value=''>
             All User
           </option>
           <option value='Admin'>Admin</option>
