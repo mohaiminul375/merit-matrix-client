@@ -75,7 +75,7 @@ const AppliedScholarshipTable = ({ idx, info }) => {
   };
   return (
     <>
-      <tr className="even:bg-[#E8F6FC] text-base font-bold">
+      <tr className="even:bg-[#E8F6FC] text-sm">
         <th>{idx + 1}</th>
         <td>{university_name}</td>
         <td>{scholarship_name}</td>

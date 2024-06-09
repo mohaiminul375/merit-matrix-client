@@ -13,11 +13,11 @@ const ScholarshipCard = ({ item }) => {
   } = item;
   console.log(item);
   return (
-    <div className="card card-compact w-96 bg-[#EEFAFC] shadow-xl text-[#247CFF]">
+    <div className="card card-compact w-96 bg-[#EEFAFC] shadow-xl text-[#247CFF] p-3">
       <figure>
         <img src={university_logo} alt="" />
       </figure>
-      <div className="card-body">
+      <div className="flex flex-col flex-grow space-y-3">
         <h2 className="font-bold text-lg">
           University Name: {university_name}
         </h2>
@@ -29,15 +29,16 @@ const ScholarshipCard = ({ item }) => {
           Scholarship Category: {scholarship_category}
         </p>
         <p className="font-semibold"> {application_fees}</p>
-        <div className="flex justify-center">
-          <Link
-            className="w-full btn bg-[#247CFF] text-white"
-            to={`/scholarship-details/${_id}`}
-          >
-            Details
-          </Link>
-        </div>
+          
       </div>
+      <div className="flex justify-center">
+            <Link
+              className="w-full btn bg-[#247CFF] text-white"
+              to={`/scholarship-details/${_id}`}
+            >
+              Details
+            </Link>
+          </div>
     </div>
   );
 };
