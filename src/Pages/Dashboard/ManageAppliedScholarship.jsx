@@ -10,7 +10,7 @@ import useAppliedDate from "../../hooks/useAppliedDate";
 const ManageAppliedScholarship = () => {
   const [deadline_date] = useAppliedDate();
   const axiosSecure = useAxiosSecure();
-  const axiosPublic = useAxiosPublic();
+  // const axiosPublic = useAxiosPublic();
 
   const [apply, setApply] = useState("");
   const [deadline, setDeadline] = useState("");
@@ -18,12 +18,12 @@ const ManageAppliedScholarship = () => {
   console.log(apply,deadline);
   const { data: applied_info, isLoading } = useQuery({
     queryFn: async () => {
-      const { data } = await axios.get(
-        `http://localhost:3000/applied-scholarship?apply=${apply}&deadline=${deadline}`
+      const { data } = await axiosSecure.get(
+        `/applied-scholarship?apply=${apply}&deadline=${deadline}`
       );
       return data;
     },
-    queryKey: ["applied-scholarship"],
+    queryKey: ["applied-scholarship",apply,deadline],
   });
   if (isLoading) {
     return (
@@ -52,10 +52,10 @@ const ManageAppliedScholarship = () => {
       <div className="my-5 flex justify-center gap-4">
         <select
           onChange={(e) => setApply(e.target.value)}
-          defaultValue="applied Date"
+          defaultValue={apply}
           className="select select-bordered w-full max-w-xs"
         >
-          <option value="" selected>
+          <option value=''>
             Applied Date
           </option>
           {uniqueDateApplied?.map((date, idx) => (
@@ -66,10 +66,10 @@ const ManageAppliedScholarship = () => {
         </select>
         <select
           onChange={(e) => setDeadline(e.target.value)}
-          defaultValue="Deadline Date"
+          defaultValue={deadline}
           className="select select-bordered w-full max-w-xs"
         >
-          <option value="" selected>
+          <option value="">
             Deadline Date
           </option>
           {deadline_date?.map((date, idx) => (
