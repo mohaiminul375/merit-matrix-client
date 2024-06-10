@@ -5,15 +5,17 @@ import { RingLoader } from "react-spinners";
 import AppliedScholarshipTable from "../../component/AppliedScholarshipTable";
 import useAxiosPublic from "../../hooks/useAxiosPublic";
 import axios from "axios";
+import useAppliedDate from "../../hooks/useAppliedDate";
 
 const ManageAppliedScholarship = () => {
+  const [deadline_date] = useAppliedDate();
   const axiosSecure = useAxiosSecure();
   const axiosPublic = useAxiosPublic();
- 
+
   const [apply, setApply] = useState("");
   const [deadline, setDeadline] = useState("");
-console.log(apply)
-console.log(deadline)
+  // console.log(deadline);
+  console.log(apply,deadline);
   const { data: applied_info, isLoading } = useQuery({
     queryFn: async () => {
       const { data } = await axios.get(
@@ -30,28 +32,15 @@ console.log(deadline)
       </div>
     );
   }
-console.log(applied_info)
+  console.log(applied_info);
   const uniqueDateApplied = [];
-  const uniqueDateDeadline = [];
-  // const applied_Date=applied_info.filter(date=>)
   applied_info?.forEach((date) => {
-    const applied_date = new Date(date.apply_date).toLocaleDateString();
+    const applied_date = date.apply_date;
     if (!uniqueDateApplied.includes(applied_date)) {
       uniqueDateApplied.push(applied_date);
     }
   });
-  applied_info?.forEach((date) => {
-    const deadline_date = new Date(date.deadline).toLocaleDateString();
-    // console.log(deadline_date)
-    if (!uniqueDateDeadline.includes(deadline_date)) {
-      uniqueDateDeadline.push(deadline_date);
-    }
-  });
   
-
-  // console.log();
-
-  // console.log(uniqueDateApplied);
   return (
     <div>
       <div className="text-center">
@@ -70,13 +59,12 @@ console.log(applied_info)
             Applied Date
           </option>
           {uniqueDateApplied?.map((date, idx) => (
-            <option
-            value={date}
-            key={idx}>{date}</option>
+            <option value={date} key={idx}>
+              {new Date(date).toLocaleDateString()}
+            </option>
           ))}
         </select>
         <select
-        
           onChange={(e) => setDeadline(e.target.value)}
           defaultValue="Deadline Date"
           className="select select-bordered w-full max-w-xs"
@@ -84,10 +72,10 @@ console.log(applied_info)
           <option value="" selected>
             Deadline Date
           </option>
-          {uniqueDateDeadline?.map((date, idx) => (
-            <option 
-            value={new Date(date).toISOString()}
-            key={idx}>{date}</option>
+          {deadline_date?.map((date, idx) => (
+            <option value={date} key={idx}>
+              {new Date(date).toLocaleDateString()}
+            </option>
           ))}
         </select>
       </div>

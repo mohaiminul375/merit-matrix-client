@@ -1,6 +1,7 @@
+import React from "react";
 import { Link } from "react-router-dom";
 
-const ScholarshipCard = ({ item }) => {
+const HomePgCard = ({ item }) => {
   const {
     _id,
     university_logo,
@@ -11,7 +12,6 @@ const ScholarshipCard = ({ item }) => {
     application_fees,
     subject,
   } = item;
-  console.log(item);
   return (
     <div className="card card-compact w-96 bg-[#EEFAFC] shadow-xl text-[#247CFF] p-3">
       <figure>
@@ -29,18 +29,17 @@ const ScholarshipCard = ({ item }) => {
           Scholarship Category: {scholarship_category}
         </p>
         <p className="font-semibold">Application Fess: {application_fees}</p>
-          
       </div>
       <div className="flex justify-center">
-            <Link
-              className="w-full btn bg-[#247CFF] text-white"
-              to={`/scholarship-details/${_id}`}
-            >
-              Details
-            </Link>
-          </div>
+        <Link
+          className="w-full btn bg-[#247CFF] text-white"
+          to={`/scholarship-details/${_id}`}
+        >
+          Details
+        </Link>
+      </div>
     </div>
   );
 };
 
-export default ScholarshipCard;
+export default HomePgCard;
