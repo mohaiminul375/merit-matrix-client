@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 import PhoneInput from "react-phone-number-input";
 import "react-phone-number-input/style.css";
+import { format } from 'date-fns';
 import useAuth from "../hooks/useAuth";
 import { useMutation } from "@tanstack/react-query";
 import useAxiosSecure from "../hooks/useAxiosSecure";
@@ -17,7 +18,7 @@ const ApplyScholarship = ({ scholarship_info, toggleForm: TrxID }) => {
   const image_hosting_api = `https://api.imgbb.com/1/upload?key=${image_hosting_key}`;
   const {
     _id,
-
+    deadline,
     university_name,
     scholarship_name,
     subject,
@@ -62,7 +63,8 @@ const ApplyScholarship = ({ scholarship_info, toggleForm: TrxID }) => {
     // additional info
     applicant_info.applicant_name = user?.displayName;
     applicant_info.applicant_email = user?.email;
-    applicant_info.apply_date = new Date().toISOString();
+    applicant_info.apply_date = format(new Date(), 'yyyy-MM-dd');
+    applicant_info.deadline=deadline;
     applicant_info.scholarship_id = _id;
     applicant_info.service_charge = service_charge;
     applicant_info.application_fees = application_fees;

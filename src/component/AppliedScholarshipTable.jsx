@@ -1,12 +1,12 @@
 import { FaEye } from "react-icons/fa6";
 import ManageAppliedModal from "../Pages/Dashboard/ManageAppliedModal";
 import ManageFeedback from "../Pages/Dashboard/ManageFeedback";
-import { useMutation } from "@tanstack/react-query";
+import { useMutation, useQueryClient } from "@tanstack/react-query";
 import useAxiosSecure from "../hooks/useAxiosSecure";
 import Swal from "sweetalert2";
 
 const AppliedScholarshipTable = ({ idx, info }) => {
-  
+  const queryClient = useQueryClient();
   // console.log(info);
   const axiosSecure = useAxiosSecure();
   const {
@@ -33,6 +33,8 @@ const AppliedScholarshipTable = ({ idx, info }) => {
       if (data.modifiedCount > 0) {
         Swal.fire("status updated successfully");
       }
+      queryClient.invalidateQueries({ queryKey: ["applied-scholarship"] });
+      queryClient.invalidateQueries({ queryKey: ["my-application"] });
     },
   });
   const handleUpdateStatus = (e) => {
@@ -45,7 +47,7 @@ const AppliedScholarshipTable = ({ idx, info }) => {
   const { mutateAsync: rejectedFunc } = useMutation({
     mutationFn: async () => {
       const { data } = await axiosSecure.patch(`/reject/${_id}`);
-      console.log(data);
+      console.log("reject", data);
       return data;
     },
     onSuccess: (data) => {
@@ -56,6 +58,8 @@ const AppliedScholarshipTable = ({ idx, info }) => {
           icon: "success",
         });
       }
+      queryClient.invalidateQueries({ queryKey: ["applied-scholarship"] });
+      queryClient.invalidateQueries({ queryKey: ["my-application"] });
     },
   });
   const handleRejected = () => {
@@ -90,7 +94,11 @@ const AppliedScholarshipTable = ({ idx, info }) => {
             disabled={status === "Canceled" || status === "Rejected"}
             defaultValue={status}
             onChange={handleUpdateStatus}
-            className={` ${status==='Rejected'?'border rounded-md border-red-600 bg-red-600 text-white':'border rounded-md border-[#1E62D5]'}`}
+            className={` ${
+              status === "Rejected"
+                ? "border rounded-md border-red-600 bg-red-600 text-white"
+                : "border rounded-md border-[#1E62D5]"
+            }`}
           >
             <option value="Pending">Pending</option>
             <option value="Processing">Processing</option>
@@ -98,7 +106,7 @@ const AppliedScholarshipTable = ({ idx, info }) => {
             <option disabled value="Canceled">
               Canceled
             </option>
-            <option  disabled value="Rejected">
+            <option disabled value="Rejected">
               Rejected
             </option>
           </select>
@@ -121,14 +129,18 @@ const AppliedScholarshipTable = ({ idx, info }) => {
           </button>
           <button
             onClick={handleRejected}
-            disabled={status === "Canceled" || status==='Rejected'}
+            disabled={status === "Canceled" || status === "Rejected"}
             className={`${
               status === "Rejected"
                 ? "bg-red-600 text-white rounded-md px-2 disabled:cursor-not-allowed"
                 : ""
             }bg-[#247CFF] text-white rounded-md px-2 disabled:cursor-not-allowed`}
           >
-            {status === "Rejected" ? "Rejected" : status==='Canceled'?'Canceled':'Cancel'}
+            {status === "Rejected"
+              ? "Rejected"
+              : status === "Canceled"
+              ? "Canceled"
+              : "Cancel"}
           </button>
         </td>
       </tr>

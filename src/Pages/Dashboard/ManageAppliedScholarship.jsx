@@ -9,6 +9,7 @@ import axios from "axios";
 const ManageAppliedScholarship = () => {
   const axiosSecure = useAxiosSecure();
   const axiosPublic = useAxiosPublic();
+ 
   const [apply, setApply] = useState("");
   const [deadline, setDeadline] = useState("");
 console.log(apply)
@@ -34,13 +35,13 @@ console.log(applied_info)
   const uniqueDateDeadline = [];
   // const applied_Date=applied_info.filter(date=>)
   applied_info?.forEach((date) => {
-    const applied_date = new Date(date.apply_date).toDateString();
+    const applied_date = new Date(date.apply_date).toLocaleDateString();
     if (!uniqueDateApplied.includes(applied_date)) {
       uniqueDateApplied.push(applied_date);
     }
   });
   applied_info?.forEach((date) => {
-    const deadline_date = new Date(date.deadline).toDateString();
+    const deadline_date = new Date(date.deadline).toLocaleDateString();
     // console.log(deadline_date)
     if (!uniqueDateDeadline.includes(deadline_date)) {
       uniqueDateDeadline.push(deadline_date);
@@ -70,7 +71,7 @@ console.log(applied_info)
           </option>
           {uniqueDateApplied?.map((date, idx) => (
             <option
-            value={new Date(date).toISOString()}
+            value={date}
             key={idx}>{date}</option>
           ))}
         </select>

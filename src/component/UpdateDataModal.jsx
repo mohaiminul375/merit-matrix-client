@@ -6,6 +6,7 @@ import { useForm } from "react-hook-form";
 import axios from "axios";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import Swal from "sweetalert2";
+import { format } from "date-fns";
 const UpdateDataModal = ({ item }) => {
   const axiosSecure = useAxiosSecure();
   //    const { user } = useAuth();
@@ -61,7 +62,7 @@ const UpdateDataModal = ({ item }) => {
 
     data.university_logo = img_url;
     // date
-    data.deadline = startDate.toISOString();
+    data.deadline = format(new Date(startDate), "yyyy-MM-dd");
     console.log("update", data);
     await mutateAsync({ _id,data });
   };

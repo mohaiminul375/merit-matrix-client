@@ -14,6 +14,8 @@ const ManageAppliedModal = ({ info }) => {
     scholarship_category,
     subject,
     degree_name,
+    ssc_result,
+    hsc_result,
     service_charge,
     application_fees,
     apply_date,
@@ -94,6 +96,18 @@ const ManageAppliedModal = ({ info }) => {
               Scholarship Category:
               <span className={`${scholarship_category || "text-red-600"}`}>
                 {scholarship_category || "missing"}
+              </span>
+            </p>
+            <p className="text-sm font-semibold text-[#247CFF]">
+              SSC Result:
+              <span className={`${ssc_result || "text-red-600"}`}>
+                {ssc_result || "missing"}
+              </span>
+            </p>
+            <p className="text-sm font-semibold text-[#247CFF]">
+            Hsc Result:
+              <span className={`${hsc_result || "text-red-600"}`}>
+                {hsc_result || "missing"}
               </span>
             </p>
             <p className="text-sm font-semibold text-[#247CFF]">

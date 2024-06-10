@@ -6,33 +6,30 @@ import useAuth from "../../hooks/useAuth";
 import axios from "axios";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
 import Swal from "sweetalert2";
+import { format } from "date-fns";
 const AddScholarship = () => {
   const axiosSecure = useAxiosSecure();
   const { user } = useAuth();
   const [startDate, setStartDate] = useState(new Date());
   const image_hosting_key = import.meta.env.VITE_IMG_HOST;
   const image_hosting_api = `https://api.imgbb.com/1/upload?key=${image_hosting_key}`;
-  const {
-    register,
-    handleSubmit,
-    reset
-  } = useForm();
+  const { register, handleSubmit, reset } = useForm();
 
   const onSubmit = async (data) => {
     // console.log()
-    const current = new Date().toISOString();
+    const current = format(new Date(), "yyyy-MM-dd");
     const img = { image: data.university_logo[0] };
     console.log(img);
 
-    // generate img
+    // // generate img
     const { data: res } = await axios.post(image_hosting_api, img, {
       headers: { "content-type": "multipart/form-data" },
     });
     const img_url = res.data.display_url;
-    // console.log(img_url);
+    console.log(img_url);
     // add data
     data.posted_user = user?.email;
-    data.deadline = startDate.toISOString();
+    data.deadline =  format(new Date(startDate), "yyyy-MM-dd");
     data.post_date = current;
     data.university_logo = img_url;
     console.log(data);
@@ -48,7 +45,9 @@ const AddScholarship = () => {
   return (
     <div>
       <div className="bg-[#E8F6FC] md:max-w-3xl lg:max-w-5xl mx-auto p-5 rounded-md">
-        <h2 className="text-center text-3xl font-bold font-cinzel text-[#247CFF]">Add A Scholarship</h2>
+        <h2 className="text-center text-3xl font-bold font-cinzel text-[#247CFF]">
+          Add A Scholarship
+        </h2>
         <div className="mt-10">
           <form onSubmit={handleSubmit(onSubmit)} className="card-body">
             {/* row 1 */}
@@ -171,7 +170,9 @@ const AddScholarship = () => {
                   <span className="label-text">Degree Name</span>
                 </label>
                 <select {...register("degree_name")} className="select w-full">
-                  <option disabled selected>Pick Your Degree Name</option>
+                  <option disabled selected>
+                    Pick Your Degree Name
+                  </option>
                   <option value="Diploma">Diploma</option>
                   <option value="Bachelor">Bachelor</option>
                   <option value="Maters">Masters</option>
@@ -184,7 +185,7 @@ const AddScholarship = () => {
                 <input
                   {...register("tuition_fees")}
                   type="number"
-                  placeholder="input university name"
+                  placeholder="input tuition fess"
                   className="input input-bordered"
                   required
                 />
@@ -198,7 +199,7 @@ const AddScholarship = () => {
                 </label>
                 <input
                   type="number"
-                  placeholder="input scholarship name"
+                  placeholder="input application fees"
                   className="input input-bordered"
                   required
                   {...register("application_fees")}
@@ -210,7 +211,7 @@ const AddScholarship = () => {
                 </label>
                 <input
                   type="number"
-                  placeholder="input university name"
+                  placeholder="input service charge"
                   className="input input-bordered"
                   required
                   {...register("service_charge")}

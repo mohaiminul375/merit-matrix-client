@@ -4,6 +4,7 @@ import useAuth from "../../hooks/useAuth";
 import { useMutation } from "@tanstack/react-query";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
 import Swal from "sweetalert2";
+import { format } from "date-fns";
 
 const ReviewModal = ({ application }) => {
   const axiosSecure = useAxiosSecure();
@@ -26,7 +27,7 @@ const ReviewModal = ({ application }) => {
       setError("review must be 1-5 number");
       return;
     }
-    const current_date = new Date().toISOString();
+    const current_date =  format(new Date(), "yyyy-MM-dd");
     review.post_date = current_date;
     review.scholarship_name = scholarship_name;
     review.university_name = university_name;
