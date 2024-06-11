@@ -1,8 +1,8 @@
 import { useQuery } from "@tanstack/react-query";
 import useAxiosPublic from "../../hooks/useAxiosPublic";
 import { RingLoader } from "react-spinners";
-import ScholarshipCard from "../AllScholarship/ScholarshipCard";
 import HomePgCard from "./HomePgCard";
+import { Link } from "react-router-dom";
 
 const TopScholarship = () => {
   const axiosPublic = useAxiosPublic();
@@ -20,7 +20,7 @@ const TopScholarship = () => {
       </div>
     );
   }
-  console.log(scholarship);
+ 
   return (
     <div className="mt-32">
       <div className="text-center">
@@ -33,6 +33,10 @@ const TopScholarship = () => {
         {scholarship?.map((item) => (
           <HomePgCard item={item} key={item._id}></HomePgCard>
         ))}
+      </div>
+      <div className="mt-5 flex justify-center">
+        <Link to='/all-scholarship'>
+        <button className="btn bg-[#247CFF] text-white">All scholarship</button></Link>
       </div>
     </div>
   );

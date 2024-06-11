@@ -6,9 +6,7 @@
 
 # website features
 - Default User:
-
 - Scholarship Search: Users can find suitable scholarships by searching for the scholarship name, degree name, or university name.
-
 - Application Process:
 - Apply for scholarships after completing a payment via Stripe.
 - Edit applications while they are in the processing status.
@@ -17,14 +15,11 @@
 
 
 - Moderator:
-
 - Moderator Dashboard: Access a dedicated dashboard for managing scholarships and applications.
-
 - Scholarship Management:
 - Add new scholarships.
 - Update existing scholarships.
 - Delete scholarships.
-
 - Application Management:
 - View and manage all applications.
 - Change application statuses to pending, processing, or complete.
@@ -32,10 +27,8 @@
 
 
 - Admin:
-
 - Admin Dashboard: Access a dedicated dashboard with comprehensive management features.
 - here admin can see some information
-
 - All Moderator Capabilities: All functionalities available to Moderators.
 - User Management:
 - Manage all users in the system.
@@ -47,10 +40,12 @@
 
 - Moderator email: zahid@gmail.com
 - Moderator password: 1235A20#
-
-
+# Technology
+- HTML, CSS, React (front-end)
+- Express.js, MongoDB(back-end)
+- Firebase,Vercel(host)
+- Stripe(payment)
 # npm and Packages
-
 - vite
 - react
 - react router dom
@@ -71,10 +66,6 @@
 - react-async-helmet
 - prop-types
 
-# Technology
-- HTML, CSS, React (front-end)
-- Express.js, MongoDB(back-end)
-- Firebase,Vercel(host)
-- Stripe(payment)
+
 
 
