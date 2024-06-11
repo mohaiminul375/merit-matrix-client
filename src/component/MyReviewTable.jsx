@@ -1,9 +1,8 @@
-import React from "react";
 import UpdateReviewModal from "./UpdateReviewModal";
 import Swal from "sweetalert2";
 import useAxiosSecure from "../hooks/useAxiosSecure";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
-
+import PropTypes from "prop-types";
 const MyReviewTable = ({ idx, review }) => {
   //   console.log(review);
   const axiosSecure = useAxiosSecure();
@@ -83,5 +82,8 @@ const MyReviewTable = ({ idx, review }) => {
     </tr>
   );
 };
-
+MyReviewTable.propTypes = {
+  review: PropTypes.object,
+  idx: PropTypes.number,
+};
 export default MyReviewTable;

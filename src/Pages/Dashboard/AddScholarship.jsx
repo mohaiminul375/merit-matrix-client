@@ -7,6 +7,7 @@ import axios from "axios";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
 import Swal from "sweetalert2";
 import { format } from "date-fns";
+import { Helmet } from "react-helmet-async";
 const AddScholarship = () => {
   const axiosSecure = useAxiosSecure();
   const { user } = useAuth();
@@ -44,6 +45,9 @@ const AddScholarship = () => {
   };
   return (
     <div>
+       <Helmet>
+        <title>merit-matrix | Dashboard add-scholarship</title>
+      </Helmet>
       <div className="bg-[#E8F6FC] md:max-w-3xl lg:max-w-5xl mx-auto p-5 rounded-md">
         <h2 className="text-center text-3xl font-bold font-cinzel text-[#247CFF]">
           Add A Scholarship

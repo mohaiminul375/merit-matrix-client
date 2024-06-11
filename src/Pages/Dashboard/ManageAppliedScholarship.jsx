@@ -1,17 +1,14 @@
 import { useQuery } from "@tanstack/react-query";
-import React, { useState } from "react";
+import{ useState } from "react";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
 import { RingLoader } from "react-spinners";
 import AppliedScholarshipTable from "../../component/AppliedScholarshipTable";
-import useAxiosPublic from "../../hooks/useAxiosPublic";
-import axios from "axios";
 import useAppliedDate from "../../hooks/useAppliedDate";
-
+import { Helmet } from "react-helmet-async";
 const ManageAppliedScholarship = () => {
   const [deadline_date] = useAppliedDate();
   const axiosSecure = useAxiosSecure();
   // const axiosPublic = useAxiosPublic();
-
   const [apply, setApply] = useState("");
   const [deadline, setDeadline] = useState("");
   // console.log(deadline);
@@ -32,6 +29,7 @@ const ManageAppliedScholarship = () => {
       </div>
     );
   }
+  
   console.log(applied_info);
   const uniqueDateApplied = [];
   applied_info?.forEach((date) => {
@@ -43,6 +41,9 @@ const ManageAppliedScholarship = () => {
   
   return (
     <div>
+       <Helmet>
+        <title>merit-matrix | Dashboard applied scholarship</title>
+      </Helmet>
       <div className="text-center">
         <h4 className="font-bold text-lg">Manage Applied Scholarship</h4>
         <h2 className="font-bold text-3xl font-cinzel text-[#1E62D5]">

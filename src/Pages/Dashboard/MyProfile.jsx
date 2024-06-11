@@ -1,12 +1,15 @@
-import React from "react";
 import useAuth from "../../hooks/useAuth";
 import useAdmin from "../../hooks/useAdmin";
+import { Helmet } from "react-helmet-async";
 
 const MyProfile = () => {
   const { isAdminOrMod } = useAdmin();
   const { user } = useAuth();
   return (
     <div className="md:max-w-xl mx-auto bg-[#E8F6FC] rounded-md  p-10 text-[#1E62D5]">
+       <Helmet>
+        <title>merit-matrix | Profile</title>
+      </Helmet>
       <div className="text-center font-bold text-3xl text-[#1E62D5] ">
         <h2 className="font-cinzel">My Profile</h2>
       </div>

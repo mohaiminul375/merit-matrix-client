@@ -1,6 +1,7 @@
 import { NavLink, Outlet } from "react-router-dom";
 import useAuth from "../../hooks/useAuth";
 import useAdmin from "../../hooks/useAdmin";
+import { Helmet } from "react-helmet-async";
 
 const Dashboard = () => {
   const { user } = useAuth();
@@ -8,6 +9,9 @@ const Dashboard = () => {
   console.log(isAdminOrMod);
   return (
     <div className="sm:drawer md:flex font-inter">
+       <Helmet>
+        <title>merit-matrix | Dashboard</title>
+      </Helmet>
       <aside className="min-h-screen flex flex-col  md:max-w-64 px-4 py-8 overflow-y-auto bg-[#E8F6FC] border-r rtl:border-r-0 rtl:border-l">
         <label
           htmlFor="my-drawer"

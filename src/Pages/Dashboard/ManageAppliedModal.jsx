@@ -1,10 +1,8 @@
-import React from "react";
+import PropTypes from "prop-types";
 
 const ManageAppliedModal = ({ info }) => {
   const {
-    _id,
     applicant_name,
-    applicant_email,
     district_name,
     country_name,
     village_name,
@@ -19,7 +17,6 @@ const ManageAppliedModal = ({ info }) => {
     service_charge,
     application_fees,
     apply_date,
-    status,
   } = info;
   return (
     <div className="modal-box  md:max-w-3xl">
@@ -105,7 +102,7 @@ const ManageAppliedModal = ({ info }) => {
               </span>
             </p>
             <p className="text-sm font-semibold text-[#247CFF]">
-            Hsc Result:
+              Hsc Result:
               <span className={`${hsc_result || "text-red-600"}`}>
                 {hsc_result || "missing"}
               </span>
@@ -134,5 +131,7 @@ const ManageAppliedModal = ({ info }) => {
     </div>
   );
 };
-
+ManageAppliedModal.propTypes = {
+  info: PropTypes.object,
+};
 export default ManageAppliedModal;

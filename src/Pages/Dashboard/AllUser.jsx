@@ -5,6 +5,7 @@ import useAxiosSecure from "../../hooks/useAxiosSecure";
 import { RingLoader } from "react-spinners";
 import UsersTable from "../../component/UsersTable";
 import { useState } from "react";
+import { Helmet } from "react-helmet-async";
 
 const AllUser = () => {
   const [role,setRole]=useState('');
@@ -27,6 +28,9 @@ const AllUser = () => {
   //   console.log(users);
   return (
     <div>
+       <Helmet>
+        <title>merit-matrix | Dashboard- all-users</title>
+      </Helmet>
       <div className="text-center">
         <h4 className="font-bold text-lg">Manage User</h4>
         <h2 className="font-bold text-3xl font-cinzel text-[#1E62D5]">

@@ -1,9 +1,9 @@
 import { useQuery } from "@tanstack/react-query";
-import React from "react";
 import { Link, useParams } from "react-router-dom";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
 import { RingLoader } from "react-spinners";
 import ReviewSlider from "../../component/ReviewSlider";
+import { Helmet } from "react-helmet-async";
 
 const ScholarshipDetails = () => {
   const axiosSecure = useAxiosSecure();
@@ -43,6 +43,9 @@ const ScholarshipDetails = () => {
   } = details;
   return (
     <div className="mt-20 md:max-w-5xl mx-auto">
+       <Helmet>
+        <title>merit-matrix | Details</title>
+      </Helmet>
       <div className="text-center">
         <h2 className="text-4xl font-bold font-cinzel text-[#1E62D5]">
           Scholarship Details

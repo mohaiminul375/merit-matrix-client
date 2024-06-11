@@ -2,12 +2,13 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 import PhoneInput from "react-phone-number-input";
 import "react-phone-number-input/style.css";
-import { format } from 'date-fns';
+import { format } from "date-fns";
 import useAuth from "../hooks/useAuth";
 import { useMutation } from "@tanstack/react-query";
 import useAxiosSecure from "../hooks/useAxiosSecure";
 import Swal from "sweetalert2";
 import { useNavigate } from "react-router-dom";
+import PropTypes from "prop-types";
 import axios from "axios";
 const ApplyScholarship = ({ scholarship_info, toggleForm: TrxID }) => {
   const navigate = useNavigate();
@@ -32,7 +33,6 @@ const ApplyScholarship = ({ scholarship_info, toggleForm: TrxID }) => {
   const {
     register,
     handleSubmit,
-    reset,
     formState: { errors },
   } = useForm();
   console.log(errors);
@@ -63,19 +63,19 @@ const ApplyScholarship = ({ scholarship_info, toggleForm: TrxID }) => {
     // additional info
     applicant_info.applicant_name = user?.displayName;
     applicant_info.applicant_email = user?.email;
-    applicant_info.apply_date = format(new Date(), 'yyyy-MM-dd');
-    applicant_info.deadline=deadline;
+    applicant_info.apply_date = format(new Date(), "yyyy-MM-dd");
+    applicant_info.deadline = deadline;
     applicant_info.scholarship_id = _id;
     applicant_info.service_charge = service_charge;
     applicant_info.application_fees = application_fees;
-    applicant_info.scholarship_name=scholarship_name;
-    applicant_info.university_city=university_city;
-    applicant_info.university_country=university_country;
+    applicant_info.scholarship_name = scholarship_name;
+    applicant_info.university_city = university_city;
+    applicant_info.university_country = university_country;
     applicant_info.status = "Pending";
     applicant_info.TrxID = TrxID;
     console.log(applicant_info);
 
-    mutateAsync({applicant_info})
+    mutateAsync({ applicant_info });
   };
   return (
     <div>
@@ -285,5 +285,8 @@ const ApplyScholarship = ({ scholarship_info, toggleForm: TrxID }) => {
     </div>
   );
 };
-
+ApplyScholarship.propTypes = {
+  scholarship_info: PropTypes.object,
+  toggleForm: PropTypes.string,
+};
 export default ApplyScholarship;

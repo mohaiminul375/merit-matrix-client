@@ -3,6 +3,7 @@ import useAuth from "../../hooks/useAuth";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
 import { RingLoader } from "react-spinners";
 import MyApplicationTable from "../../component/MyApplicationTable";
+import { Helmet } from "react-helmet-async";
 
 const MyApplication = () => {
   const { user } = useAuth();
@@ -27,6 +28,9 @@ const MyApplication = () => {
 //   console.log(data);
   return (
     <div>
+       <Helmet>
+        <title>merit-matrix | My-Application</title>
+      </Helmet>
       <div className="text-center">
         <h2 className="font-bold text-3xl text-[#1E62D5] font-cinzel">My Application</h2>
       </div>

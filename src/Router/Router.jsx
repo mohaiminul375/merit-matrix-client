@@ -4,7 +4,6 @@ import Home from "../Pages/Home/Home";
 import Login from "../Pages/Login/Login";
 import Register from "../Pages/Register/Register";
 import Dashboard from "../Pages/Dashboard/Dashboard";
-import { GiSchoolBag } from "react-icons/gi";
 import AddScholarship from "../Pages/Dashboard/AddScholarship";
 import AdminHome from "../Pages/Dashboard/AdminHome";
 import ManageScholarship from "../Pages/Dashboard/ManageScholarship";
@@ -85,7 +84,7 @@ export const router = createBrowserRouter([
       },
       {
         path: "all-user",
-        element:<OnlyAdminRoute> <AllUser></AllUser></OnlyAdminRoute>,
+        element:<OnlyAdminRoute><AllUser></AllUser></OnlyAdminRoute>,
       },
       {
         path: "manage-applications",

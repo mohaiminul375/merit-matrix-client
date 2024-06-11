@@ -5,7 +5,7 @@ import Swal from "sweetalert2";
 import useAxiosSecure from "../hooks/useAxiosSecure";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import UpdateDataModal from "./UpdateDataModal";
-
+import PropTypes from "prop-types";
 const ScholarshipTable = ({ idx, item }) => {
   const queryClient = useQueryClient();
   const axiosSecure = useAxiosSecure();
@@ -23,7 +23,7 @@ const ScholarshipTable = ({ idx, item }) => {
   const { mutateAsync } = useMutation({
     mutationFn: async ({ id }) => {
       const { data } = await axiosSecure.delete(`/all-scholarship/${id}`);
-      console.log("res delete", data);
+      // console.log("res delete", data);
       return data;
     },
     onSuccess: () => {
@@ -85,5 +85,8 @@ const ScholarshipTable = ({ idx, item }) => {
     </>
   );
 };
-
+ScholarshipTable.propTypes = {
+  item: PropTypes.object,
+  idx: PropTypes.number,
+};
 export default ScholarshipTable;

@@ -2,6 +2,7 @@ import { useQuery } from "@tanstack/react-query";
 import useAxiosPublic from "../../hooks/useAxiosPublic";
 import { RingLoader } from "react-spinners";
 import ScholarshipTable from "../../component/ScholarshipTable";
+import { Helmet } from "react-helmet-async";
 
 const ManageScholarship = () => {
   const axiosPublic = useAxiosPublic();
@@ -22,6 +23,9 @@ const ManageScholarship = () => {
   }
   return (
     <div>
+       <Helmet>
+        <title>merit-matrix | Manage Scholarship</title>
+      </Helmet>
       <div className="text-center">
         <h4 className="font-bold text-lg">Manage Scholarship</h4>
         <h2 className="font-bold text-3xl text-[#1E62D5] font-cinzel">

@@ -2,7 +2,7 @@ import { FaTrash } from "react-icons/fa6";
 import Swal from "sweetalert2";
 import useAxiosSecure from "../hooks/useAxiosSecure";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
-
+import PropTypes from 'prop-types';
 const ReviewCard = ({ review }) => {
   const axiosSecure = useAxiosSecure();
   const queryClient = useQueryClient();
@@ -80,5 +80,7 @@ const ReviewCard = ({ review }) => {
     </div>
   );
 };
-
+ReviewCard.propTypes = {
+  review: PropTypes.object,
+};
 export default ReviewCard;

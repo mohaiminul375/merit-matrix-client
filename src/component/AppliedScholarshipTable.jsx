@@ -1,10 +1,9 @@
-import { FaEye } from "react-icons/fa6";
 import ManageAppliedModal from "../Pages/Dashboard/ManageAppliedModal";
 import ManageFeedback from "../Pages/Dashboard/ManageFeedback";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import useAxiosSecure from "../hooks/useAxiosSecure";
 import Swal from "sweetalert2";
-
+import PropTypes from "prop-types";
 const AppliedScholarshipTable = ({ idx, info }) => {
   const queryClient = useQueryClient();
   // console.log(info);
@@ -153,5 +152,8 @@ const AppliedScholarshipTable = ({ idx, info }) => {
     </>
   );
 };
-
+AppliedScholarshipTable.propTypes = {
+  info: PropTypes.object,
+  idx: PropTypes.number,
+};
 export default AppliedScholarshipTable;

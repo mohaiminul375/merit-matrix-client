@@ -4,7 +4,7 @@ import Swal from "sweetalert2";
 import useAxiosSecure from "../hooks/useAxiosSecure";
 import UpdateMyApplication from "../Pages/MyApplication/UpdateMyApplication";
 import ReviewModal from "../Pages/Dashboard/ReviewModal";
-
+import PropTypes from "prop-types";
 const MyApplicationTable = ({ idx, application }) => {
   const axiosSecure = useAxiosSecure();
   const queryClient = useQueryClient();
@@ -124,12 +124,12 @@ const MyApplicationTable = ({ idx, application }) => {
       </td>
       <td>
         <button
-        onClick={()=> document.getElementById(`review_${_id}`).showModal()}
-        className="bg-[#247CFF] text-white rounded-md px-2"
-      >
-         Add review
-      </button>
-       </td>
+          onClick={() => document.getElementById(`review_${_id}`).showModal()}
+          className="bg-[#247CFF] text-white rounded-md px-2"
+        >
+          Add review
+        </button>
+      </td>
       <td className="flex justify-center items-center flex-col  gap-1">
         <Link to={`/scholarship-details/${scholarship_id}`}>
           <button className="bg-[#247CFF] text-white rounded-md px-2">
@@ -186,10 +186,13 @@ const MyApplicationTable = ({ idx, application }) => {
         </dialog>
       )}
       <dialog id={`review_${_id}`} className="modal">
-       <ReviewModal application={application}></ReviewModal>
+        <ReviewModal application={application}></ReviewModal>
       </dialog>
     </tr>
   );
 };
-
+MyApplicationTable.propTypes = {
+  application: PropTypes.object,
+  idx: PropTypes.string,
+};
 export default MyApplicationTable;

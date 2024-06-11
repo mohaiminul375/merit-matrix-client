@@ -7,6 +7,7 @@ import useAxiosSecure from "../../hooks/useAxiosSecure";
 import { RingLoader } from "react-spinners";
 import { useState } from "react";
 import ApplyScholarship from "../../component/ApplyScholarship";
+import { Helmet } from "react-helmet-async";
 // import React from "react";
 
 const stripePromise = loadStripe(import.meta.env.VITE_Payment_Secret_key);
@@ -42,6 +43,9 @@ const Checkout = () => {
   } = scholarship_info;
   return (
     <div className="mt-20">
+       <Helmet>
+        <title>merit-matrix | Checkout</title>
+      </Helmet>
       {toggleForm ? (
         <ApplyScholarship
           toggleForm={toggleForm}

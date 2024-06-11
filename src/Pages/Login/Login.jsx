@@ -5,6 +5,7 @@ import useAuth from "../../hooks/useAuth";
 import Swal from "sweetalert2";
 import { useState } from "react";
 import { FaRegCircleXmark } from "react-icons/fa6";
+import { Helmet } from "react-helmet-async";
 
 const Login = () => {
   const { login } = useAuth();
@@ -16,10 +17,7 @@ const Login = () => {
   const {
     register,
     handleSubmit,
-    // watch,
-    // formState: { errors },
   } = useForm();
-  // TODO: Error handling
   const onSubmit = (userData) => {
     if (userData.password.length < 6) {
       console.log("password error");
@@ -48,6 +46,9 @@ const Login = () => {
   };
   return (
     <div className="w-full max-w-sm p-6 m-auto mx-auto bg-[#E8F6FC] rounded-lg shadow-2xl mt-12">
+       <Helmet>
+        <title>merit-matrix | Login</title>
+      </Helmet>
       <h2 className="text-center text-3xl font-bold text-[#1EA9E4]">Login</h2>
       {error && (
         <p className="text-center my-3 text-base font-semibold text-red-600 flex items-center gap-2 justify-center">

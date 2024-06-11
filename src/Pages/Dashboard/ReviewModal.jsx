@@ -1,15 +1,12 @@
 import { useState } from "react";
 import { useForm } from "react-hook-form";
-import useAuth from "../../hooks/useAuth";
-import { useMutation } from "@tanstack/react-query";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
 import Swal from "sweetalert2";
 import { format } from "date-fns";
-
+import PropTypes from "prop-types";
 const ReviewModal = ({ application }) => {
   const axiosSecure = useAxiosSecure();
   const {
-    _id,
     university_name,
     scholarship_name,
     applicant_name,
@@ -27,7 +24,7 @@ const ReviewModal = ({ application }) => {
       setError("review must be 1-5 number");
       return;
     }
-    const current_date =  format(new Date(), "yyyy-MM-dd");
+    const current_date = format(new Date(), "yyyy-MM-dd");
     review.post_date = current_date;
     review.scholarship_name = scholarship_name;
     review.university_name = university_name;
@@ -45,11 +42,7 @@ const ReviewModal = ({ application }) => {
       reset();
     }
   };
-  //   const handleSubmitReview = () => {
 
-  //
-  //     console.log(review_point,review_comment)
-  //   };
   return (
     <div className="modal-box">
       <div className="flex justify-end">
@@ -100,5 +93,7 @@ const ReviewModal = ({ application }) => {
     </div>
   );
 };
-
+ReviewModal.propTypes = {
+  application: PropTypes.object,
+};
 export default ReviewModal;

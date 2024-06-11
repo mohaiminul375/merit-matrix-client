@@ -1,5 +1,5 @@
 import { useMutation } from "@tanstack/react-query";
-import axios from "axios";
+import PropTypes from "prop-types";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
 import Swal from "sweetalert2";
 
@@ -7,16 +7,17 @@ const ManageFeedback = ({ id }) => {
   const axiosSecure = useAxiosSecure();
   const { mutateAsync } = useMutation({
     mutationFn: async ({ id, feedback }) => {
-      const { data } = await axiosSecure.patch(`/send-feedback/${id}`, { feedback });
-    //   console.log('res inside tan',data)
+      const { data } = await axiosSecure.patch(`/send-feedback/${id}`, {
+        feedback,
+      });
+      //   console.log('res inside tan',data)
       return data;
     },
     onSuccess: (data) => {
       if (data.modifiedCount > 0) {
         Swal.fire("send feedback successfully");
       }
-    //   TODO:add muted func
-    
+      //   TODO:add muted func
     },
   });
   const handleSubmitFeedback = (e) => {
@@ -60,5 +61,7 @@ const ManageFeedback = ({ id }) => {
     </div>
   );
 };
-
+ManageFeedback.propTypes = {
+  id: PropTypes.string,
+};
 export default ManageFeedback;

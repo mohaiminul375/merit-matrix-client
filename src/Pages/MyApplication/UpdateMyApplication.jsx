@@ -6,6 +6,7 @@ import PhoneInput from "react-phone-number-input";
 import "react-phone-number-input/style.css";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
 import Swal from "sweetalert2";
+import PropTypes from 'prop-types';
 const UpdateMyApplication = ({ application }) => {
   const axiosSecure = useAxiosSecure();
   const image_hosting_key = import.meta.env.VITE_IMG_HOST;
@@ -244,5 +245,7 @@ const UpdateMyApplication = ({ application }) => {
     </div>
   );
 };
-
+UpdateMyApplication.propTypes = {
+  application: PropTypes.object,
+};
 export default UpdateMyApplication;

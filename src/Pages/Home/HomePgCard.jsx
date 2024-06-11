@@ -1,6 +1,5 @@
-import React from "react";
 import { Link } from "react-router-dom";
-
+import PropTypes from 'prop-types';
 const HomePgCard = ({ item }) => {
   const {
     _id,
@@ -41,5 +40,8 @@ const HomePgCard = ({ item }) => {
     </div>
   );
 };
+HomePgCard.propTypes = {
+  item: PropTypes.object,
 
+};
 export default HomePgCard;

@@ -2,9 +2,7 @@ import { FaTrash } from "react-icons/fa6";
 import Swal from "sweetalert2";
 import useAxiosSecure from "../hooks/useAxiosSecure";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
-import { useState } from "react";
-
-
+import PropTypes from "prop-types";
 const UsersTable = ({ idx, user }) => {
   const axiosSecure = useAxiosSecure();
   const { _id, email, name, role } = user;
@@ -116,5 +114,8 @@ const UsersTable = ({ idx, user }) => {
     </tr>
   );
 };
-
+UsersTable.propTypes = {
+  user: PropTypes.object,
+  idx: PropTypes.string,
+};
 export default UsersTable;

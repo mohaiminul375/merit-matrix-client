@@ -7,9 +7,10 @@ import { AuthContext } from "../../Provider/AuthProvider";
 import Swal from "sweetalert2";
 import axios from "axios";
 import useAxiosPublic from "../../hooks/useAxiosPublic";
+import { Helmet } from "react-helmet-async";
 
 const Register = () => {
-  const { createUser, updateUserProfile, setUser } = useContext(AuthContext);
+  const { createUser, updateUserProfile } = useContext(AuthContext);
   const location = useLocation();
   const navigate = useNavigate();
   const from = location.state?.from?.pathname || "/";
@@ -21,8 +22,6 @@ const Register = () => {
   const {
     register,
     handleSubmit,
-    // watch,
-    // formState: { errors },
   } = useForm();
 
   const onSubmit = async (userData) => {
@@ -79,6 +78,9 @@ const Register = () => {
   };
   return (
     <div className="w-full max-w-sm p-6 m-auto mx-auto rounded-lg shadow-2xl mt-12 bg-[#E8F6FC]">
+       <Helmet>
+        <title>merit-matrix | Register</title>
+      </Helmet>
       <h2 className="text-center text-3xl font-bold text-[#1EA9E4]">
         Register
       </h2>
