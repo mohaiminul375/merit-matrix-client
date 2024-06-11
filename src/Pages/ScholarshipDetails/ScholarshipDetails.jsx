@@ -54,7 +54,7 @@ const ScholarshipDetails = () => {
       </div>
       {/* details */}
       <div className="mt-10  flex flex-col md:flex-row md:p-4 gap-10 bg-[#E8F6FC] text-[#1E62D5] rounded-md">
-        <img className="w-56" src={university_logo} alt="" />
+        <img className="w-56 mx-auto" src={university_logo} alt="" />
         <div className="flex-1">
           <h2 className="font-bold text-lg">
             University Name: {university_name}

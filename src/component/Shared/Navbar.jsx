@@ -62,7 +62,7 @@ const Navbar = () => {
     </>
   );
   return (
-    <div className="navbar bg-base-100 justify-between px-5 shadow-xl">
+    <div className="navbar bg-base-100 justify-between md:px-5 shadow-xl z-10">
       <div className="w">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -83,14 +83,14 @@ const Navbar = () => {
           </div>
           <ul
             tabIndex={0}
-            className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
+            className="menu menu-sm dropdown-content mt-3 z-10 p-2 shadow bg-base-100 rounded-box w-52"
           >
             {navLins}
           </ul>
         </div>
         <div className="flex items-center gap-3">
-          <img className="w-16" src={logo} alt="" />
-          <h2 className="font-dancing-Script font-bold text-3xl">
+          <img className="w-10 md:w-16" src={logo} alt="" />
+          <h2 className="font-dancing-Script font-bold text-sm md:text-3xl">
             MeritMatrix
           </h2>
         </div>
