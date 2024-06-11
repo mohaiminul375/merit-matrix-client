@@ -19,7 +19,8 @@ import MyProfile from "../Pages/Dashboard/MyProfile";
 import ManageReview from "../Pages/Dashboard/ManageReview";
 import MyReviews from "../Pages/Dashboard/MyReviews";
 import ErrorPage from "../Pages/ErrorPage";
-import OnlyAdminRoute from "../Router/OnlyAdminRoute"
+import OnlyAdminRoute from "../Router/OnlyAdminRoute";
+import ModeratorHome from "../Pages/Dashboard/ModeratorHome";
 export const router = createBrowserRouter([
   {
     path: "/",
@@ -63,16 +64,33 @@ export const router = createBrowserRouter([
   // dashboard
   {
     path: "dashboard",
-    element: <PrivateRoute><Dashboard></Dashboard></PrivateRoute>,
+    element: (
+      <PrivateRoute>
+        <Dashboard></Dashboard>
+      </PrivateRoute>
+    ),
     children: [
       // admin
       {
         path: "admin-Home",
-        element: <OnlyAdminRoute><AdminHome></AdminHome></OnlyAdminRoute>
+        element: (
+          <OnlyAdminRoute>
+            <AdminHome></AdminHome>
+          </OnlyAdminRoute>
+        ),
+      },
+      {
+        path: "moderator-Home",
+        element: <AdminAndModeratorRoute><ModeratorHome
+        ></ModeratorHome></AdminAndModeratorRoute>,
       },
       {
         path: "add-scholarship",
-        element: <AdminAndModeratorRoute><AddScholarship></AddScholarship></AdminAndModeratorRoute>,
+        element: (
+          <AdminAndModeratorRoute>
+            <AddScholarship></AddScholarship>
+          </AdminAndModeratorRoute>
+        ),
       },
       {
         path: "manage-scholarship",
@@ -84,7 +102,11 @@ export const router = createBrowserRouter([
       },
       {
         path: "all-user",
-        element:<OnlyAdminRoute><AllUser></AllUser></OnlyAdminRoute>,
+        element: (
+          <OnlyAdminRoute>
+            <AllUser></AllUser>
+          </OnlyAdminRoute>
+        ),
       },
       {
         path: "manage-applications",

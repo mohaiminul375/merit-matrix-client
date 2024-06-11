@@ -1,5 +1,4 @@
 import { useState } from "react";
-import useAuth from "../hooks/useAuth";
 import useAxiosSecure from "../hooks/useAxiosSecure";
 import DatePicker from "react-datepicker";
 import { useForm } from "react-hook-form";
@@ -7,10 +6,12 @@ import axios from "axios";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import Swal from "sweetalert2";
 import { format } from "date-fns";
+import { FaXmark } from "react-icons/fa6";
+import PropTypes from "prop-types";
 const UpdateDataModal = ({ item }) => {
   const axiosSecure = useAxiosSecure();
   //    const { user } = useAuth();
-  const queryClient=useQueryClient();
+  const queryClient = useQueryClient();
   const image_hosting_key = import.meta.env.VITE_IMG_HOST;
   const image_hosting_api = `https://api.imgbb.com/1/upload?key=${image_hosting_key}`;
   const {
@@ -34,7 +35,7 @@ const UpdateDataModal = ({ item }) => {
   const { register, handleSubmit } = useForm();
   // tan stack query
   const { mutateAsync } = useMutation({
-    mutationFn: async ({ _id,data: update_data }) => {
+    mutationFn: async ({ _id, data: update_data }) => {
       const { data } = await axiosSecure.patch(
         `/all-scholarship/${_id}`,
         update_data
@@ -42,9 +43,9 @@ const UpdateDataModal = ({ item }) => {
       console.log(data);
       return data;
     },
-    onSuccess:()=>{
-        Swal.fire('data update successfully')
-        queryClient.invalidateQueries({ queryKey: ["manage-scholarship"] })
+    onSuccess: () => {
+      Swal.fire("data update successfully");
+      queryClient.invalidateQueries({ queryKey: ["manage-scholarship"] });
     },
   });
   const onSubmit = async (data) => {
@@ -64,14 +65,16 @@ const UpdateDataModal = ({ item }) => {
     // date
     data.deadline = format(new Date(startDate), "yyyy-MM-dd");
     console.log("update", data);
-    await mutateAsync({ _id,data });
+    await mutateAsync({ _id, data });
   };
   return (
-    <div className="modal-box w-11/12 max-w-5xl">
+    <div className="modal-box  md:max-w-5xl">
       <form method="dialog">
         {/* if there is a button, it will close the modal */}
         <div className="flex justify-end">
-          <button className="">Close</button>
+          <button className="text-xl p-1 rounded-full border-red-600 bg-red-600 text-white">
+            <FaXmark></FaXmark>
+          </button>
         </div>
       </form>
       <div>
@@ -290,5 +293,7 @@ const UpdateDataModal = ({ item }) => {
     </div>
   );
 };
-
+UpdateDataModal.propTypes = {
+  item: PropTypes.object,
+};
 export default UpdateDataModal;

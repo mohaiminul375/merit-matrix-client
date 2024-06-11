@@ -1,13 +1,11 @@
-import { Link, NavLink } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import logo from "../../assets/logo.jpg";
-import { useContext } from "react";
-import { AuthContext } from "../../Provider/AuthProvider";
-import useAuth from "../../hooks/useAuth";
 import { IoLogOutOutline } from "react-icons/io5";
 import useAdmin from "../../hooks/useAdmin";
+import useAuth from "../../hooks/useAuth";
 const Navbar = () => {
   const { isAdminOrMod } = useAdmin();
-  console.log(isAdminOrMod)
+  console.log(isAdminOrMod);
   // const {user}=useContext(AuthContext);
   const { user, logOut } = useAuth();
   console.log(user);
@@ -44,12 +42,12 @@ const Navbar = () => {
           className={({ isActive }) =>
             isActive ? "text-lg font-bold underline text-[#0089F7]" : "text-lg"
           }
-          to="/dashboard"
+          to="/dashboard/moderator-Home"
         >
           Dashboard
         </NavLink>
       )}
-      {isAdminOrMod === 'User'&& (
+      {isAdminOrMod === "User" && (
         <NavLink
           className={({ isActive }) =>
             isActive ? "text-lg font-bold underline text-[#0089F7]" : "text-lg"

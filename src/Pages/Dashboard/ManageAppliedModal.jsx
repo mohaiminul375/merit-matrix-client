@@ -1,4 +1,5 @@
 import PropTypes from "prop-types";
+import { FaXmark } from "react-icons/fa6";
 
 const ManageAppliedModal = ({ info }) => {
   const {
@@ -22,7 +23,9 @@ const ManageAppliedModal = ({ info }) => {
     <div className="modal-box  md:max-w-3xl">
       <div className="flex justify-end">
         <form method="dialog">
-          <button className="btn">Close</button>
+        <button className="text-xl p-1 rounded-full border-red-600 bg-red-600 text-white">
+              <FaXmark></FaXmark>
+            </button>
         </form>
       </div>
       <div className="mt-5">

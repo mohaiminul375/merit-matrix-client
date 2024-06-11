@@ -4,6 +4,7 @@ import useAxiosSecure from "../../hooks/useAxiosSecure";
 import Swal from "sweetalert2";
 import { format } from "date-fns";
 import PropTypes from "prop-types";
+import { FaXmark } from "react-icons/fa6";
 const ReviewModal = ({ application }) => {
   const axiosSecure = useAxiosSecure();
   const {
@@ -47,8 +48,9 @@ const ReviewModal = ({ application }) => {
     <div className="modal-box">
       <div className="flex justify-end">
         <form method="dialog">
-          {/* if there is a button in form, it will close the modal */}
-          <button className="btn">Close</button>
+        <button className="text-xl p-1 rounded-full border-red-600 bg-red-600 text-white">
+              <FaXmark></FaXmark>
+            </button>
         </form>
       </div>
       <div className="mt-5">

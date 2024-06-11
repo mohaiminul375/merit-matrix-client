@@ -6,7 +6,8 @@ import PhoneInput from "react-phone-number-input";
 import "react-phone-number-input/style.css";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
 import Swal from "sweetalert2";
-import PropTypes from 'prop-types';
+import PropTypes from "prop-types";
+import { FaXmark } from "react-icons/fa6";
 const UpdateMyApplication = ({ application }) => {
   const axiosSecure = useAxiosSecure();
   const image_hosting_key = import.meta.env.VITE_IMG_HOST;
@@ -64,6 +65,15 @@ const UpdateMyApplication = ({ application }) => {
   return (
     <div className="modal-box w-full md:max-w-5xl">
       <div className="bg-[#E8F6FC] md:max-w-3xl lg:max-w-5xl mx-auto p-5 rounded-md">
+        <form method="dialog">
+          {/* if there is a button, it will close the modal */}
+          <div className="flex justify-end">
+            <button className="text-xl p-1 rounded-full border-red-600 bg-red-600 text-white">
+              <FaXmark></FaXmark>
+            </button>
+          </div>
+        </form>
+
         <h2 className="text-center text-3xl font-bold">
           Applicant Information
         </h2>
