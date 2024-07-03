@@ -5,17 +5,29 @@
 # Assignment12_category_0021
 
 # Run the Project Locally
-1. Clone the Repository:
-   git clone https://github.com/mohaiminul375/merit-matrix-client.git
+
+1. **Clone the Repository**:
+
+    ```sh
+      git clone https://github.com/mohaiminul375/merit-matrix-client.git
    cd merit-matrix-client
+    ```
 
-2. Install Dependencies:
-   npm install
+2. **Install Dependencies**:
 
-3. Set Up Environment Variables: Create a .env.local file in the root directory and add the necessary environment variables. (Important!)
-4. Run the Application:
-   npm run dev
-5. Access the Site: Open your browser and go to http://localhost:5173/ or http://192.168.1.12:5173/ from other devices on the same network to view the application.
+    ```sh
+    npm install
+    ```
+
+3. **Set Up Environment Variables**: Create a `.env.local` file in the root directory and add the necessary environment variables. (**Important!**)
+
+4. **Run the Application**:
+
+    ```sh
+    npm run dev -- --host
+    ```
+
+5. **Access the Site**: Open your browser and go to `http://localhost:5173/` or `http://192.168.1.12:5173/` from other devices on the same network to view the application.
 
 
 # website features
