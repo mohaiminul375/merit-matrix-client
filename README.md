@@ -10,7 +10,7 @@
 
     ```sh
       git clone https://github.com/mohaiminul375/merit-matrix-client.git
-   cd merit-matrix-client
+      cd merit-matrix-client
     ```
 
 2. **Install Dependencies**:
