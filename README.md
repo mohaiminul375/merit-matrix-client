@@ -4,6 +4,32 @@
 # Live_site: https://merit-matrix-375m.web.app
 # Assignment12_category_0021
 
+# Run the Project Locally
+
+1. **Clone the Repository**:
+
+    ```sh
+      git clone https://github.com/mohaiminul375/merit-matrix-client.git
+      cd merit-matrix-client
+    ```
+
+2. **Install Dependencies**:
+
+    ```sh
+    npm install
+    ```
+
+3. **Set Up Environment Variables**: Create a `.env.local` file in the root directory and add the necessary environment variables. (**Important!**)
+
+4. **Run the Application**:
+
+    ```sh
+    npm run dev -- --host
+    ```
+
+5. **Access the Site**: Open your browser and go to `http://localhost:5173/` or `http://192.168.1.12:5173/` from other devices on the same network to view the application.
+
+
 # website features
 - Default User:
 - Scholarship Search: Users can find suitable scholarships by searching for the scholarship name, degree name, or university name.
