@@ -12,7 +12,7 @@ const HomePgCard = ({ item }) => {
     subject,
   } = item;
   return (
-    <div className="card card-compact w-96 bg-[#EEFAFC] shadow-xl text-[#247CFF] p-3">
+    <div className="card card-compact md:w-96 bg-[#EEFAFC] shadow-xl text-[#247CFF] p-3">
       <figure>
         <img src={university_logo} alt="" />
       </figure>

@@ -65,8 +65,8 @@ const AllScholarship = () => {
         </h2>
       </div>
       <div className="my-10 ">
-        <form className="w-full flex justify-center" onSubmit={handleSearch}>
-          <div className="join w-1/3 mx-auto p-3 rounded-md shadow-lg">
+        <form className="flex px-5 md:px0 justify-center" onSubmit={handleSearch}>
+          <div className="join  md:w-1/3 mx-auto p-3 rounded-md shadow-lg">
             <input
               name="search_text"
               className="input border-[#1E62D5] join-item w-full"
