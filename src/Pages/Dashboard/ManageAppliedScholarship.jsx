@@ -7,6 +7,7 @@ import useAppliedDate from "../../hooks/useAppliedDate";
 import { Helmet } from "react-helmet-async";
 const ManageAppliedScholarship = () => {
   const [deadline_date] = useAppliedDate();
+  // console.log(deadline_date);
   const axiosSecure = useAxiosSecure();
   // const axiosPublic = useAxiosPublic();
   const [apply, setApply] = useState("");

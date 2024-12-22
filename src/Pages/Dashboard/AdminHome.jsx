@@ -78,7 +78,7 @@ const AdminHome = () => {
           <YAxis />
           <Tooltip shared={false} trigger="click" />
           {/* <Legend /> */}
-          <Bar dataKey="count" fill="#247CFF" />
+          <Bar dataKey="count" fill="#890C25" />
         </BarChart>
         {/* </ResponsiveContainer> */}
       </div>

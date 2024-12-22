@@ -4,7 +4,7 @@ import { RiseLoader } from "react-spinners";
 
 const useAppliedDate = () => {
   const axiosPublic = useAxiosPublic();
-  const { data: scholarship, isLoading } = useQuery({
+  const { data: scholarship } = useQuery({
     queryFn: async () => {
       const { data } = await axiosPublic.get("/all-scholarship-admin");
       return data;
@@ -12,13 +12,6 @@ const useAppliedDate = () => {
     queryKey: ["manage-scholarship-date"],
   });
 
-  if (isLoading) {
-    return (
-      <div className="flex justify-center items-center min-h-screen">
-        <RiseLoader className="" color="#890C25" />
-      </div>
-    );
-  }
   console.log("scholarship", scholarship);
 
   const deadline_date = [];

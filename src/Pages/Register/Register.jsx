@@ -74,11 +74,12 @@ const Register = () => {
     setError("");
   };
   return (
-    <div className="w-full max-w-sm p-6 m-auto mx-auto rounded-lg shadow-2xl mt-12 bg-primary text-white">
+    <section className="w-full max-w-lg sm:max-w-md p-6 m-auto rounded-lg shadow-2xl mt-12 bg-primary text-white">
       <Helmet>
         <title>merit-matrix | Register</title>
       </Helmet>
-      <h2 className="text-center text-3xl font-bold">Register</h2>
+      <h2 className="text-center text-3xl font-bold mb-6">Register</h2>
+
       {error && (
         <p className="text-center my-3 text-base font-semibold text-red-600 flex items-center gap-2 justify-center">
           {error}
@@ -88,7 +89,8 @@ const Register = () => {
           />
         </p>
       )}
-      <form onSubmit={handleSubmit(onSubmit)} className="mt-6">
+
+      <form onSubmit={handleSubmit(onSubmit)} className="mt-6 space-y-4">
         <div className="form-control">
           <label className="label">
             <span className="label-text font-semibold text-white">
@@ -97,32 +99,33 @@ const Register = () => {
           </label>
           <input
             type="text"
-            placeholder="input your name"
-            className="input input-bordered text-primary"
+            placeholder="Enter your name"
+            className="input input-bordered text-primary w-full"
             required
             {...register("userName")}
           />
         </div>
+
         <div className="form-control">
           <label className="label">
             <span className="label-text font-semibold text-white">Photo</span>
           </label>
           <input
             type="file"
-            placeholder="input email"
-            className="w-full"
+            className="w-full text-primary"
             required
             {...register("userPhoto")}
           />
         </div>
+
         <div className="form-control">
           <label className="label">
             <span className="label-text font-semibold text-white">Email</span>
           </label>
           <input
             type="email"
-            placeholder="input email"
-            className="input input-bordered text-primary"
+            placeholder="Enter your email"
+            className="input input-bordered text-primary w-full"
             required
             {...register("email")}
           />
@@ -136,15 +139,15 @@ const Register = () => {
           </label>
           <input
             type="password"
-            placeholder="input password"
-            className="input input-bordered text-primary"
+            placeholder="Enter your password"
+            className="input input-bordered text-primary w-full"
             required
             {...register("password")}
           />
           <span className="text-white text-xs mt-1">
             <span className="font-semibold">*Note: </span>Password must be 6
-            character or more and must have one uppercase and one special
-            character
+            characters or more and include one uppercase and one special
+            character.
           </span>
         </div>
 
@@ -158,23 +161,22 @@ const Register = () => {
       <div className="flex items-center justify-between mt-4">
         <span className="w-1/5 border-b border-white lg:w-1/5"></span>
 
-        <p href="#" className="text-xs text-center font-bold text-white">
+        <p className="text-xs text-center font-bold text-white">
           or Register with Social Media
         </p>
 
         <span className="w-1/5 border-b border-white lg:w-1/5"></span>
       </div>
 
-      <GoogleLogIn></GoogleLogIn>
+      <GoogleLogIn />
 
-      <p className="mt-8 text-base font-semibold  text-center text-white">
-        {" "}
+      <p className="mt-8 text-base font-semibold text-center text-white">
         Already have an account?{" "}
-        <Link to="/login" href="#" className="text-white underline">
+        <Link to="/login" className="text-white underline">
           Please Login
         </Link>
       </p>
-    </div>
+    </section>
   );
 };
 

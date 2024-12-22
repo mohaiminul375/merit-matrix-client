@@ -94,7 +94,7 @@ const Dashboard = () => {
                 >
                   <span className="mx-4">Manage Review</span>
                 </NavLink>
-                <hr className="border-[#0089F7] border-b-2 w-full mt-5"></hr>
+                <hr className="border-white border-b-2 w-full mt-5"></hr>
               </>
             )}
             {/* moderator */}
@@ -151,7 +151,7 @@ const Dashboard = () => {
                 >
                   <span className="mx-4">Manage Review</span>
                 </NavLink>
-                <hr className="border-[#0089F7] border-b-2 w-full mt-5"></hr>
+                <hr className="border-white border-b-2 w-full mt-5"></hr>
               </>
             )}
             {/* All User */}

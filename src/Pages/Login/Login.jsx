@@ -42,11 +42,12 @@ const Login = () => {
     setError("");
   };
   return (
-    <div className="w-full max-w-sm p-6 m-auto mx-auto bg-primary rounded-lg shadow-2xl mt-12 text-white">
+    <section className="w-full max-w-lg sm:max-w-md p-6 m-auto bg-primary rounded-lg shadow-2xl mt-12 text-white">
       <Helmet>
         <title>merit-matrix | Login</title>
       </Helmet>
-      <h2 className="text-center text-3xl font-bold">Login</h2>
+      <h2 className="text-center text-3xl font-bold mb-4">Login</h2>
+
       {error && (
         <p className="text-center my-3 text-base font-semibold text-red-600 flex items-center gap-2 justify-center">
           {error}
@@ -56,15 +57,16 @@ const Login = () => {
           />
         </p>
       )}
-      <form onSubmit={handleSubmit(onSubmit)} className="mt-6">
+
+      <form onSubmit={handleSubmit(onSubmit)} className="mt-6 space-y-4">
         <div className="form-control">
           <label className="label">
             <span className="label-text font-semibold text-white">Email</span>
           </label>
           <input
             type="email"
-            placeholder="input email"
-            className="input input-bordered text-primary"
+            placeholder="Enter your email"
+            className="input input-bordered text-primary w-full"
             required
             {...register("email")}
           />
@@ -78,8 +80,8 @@ const Login = () => {
           </label>
           <input
             type="password"
-            placeholder="input password"
-            className="input input-bordered text-primary"
+            placeholder="Enter your password"
+            className="input input-bordered text-primary w-full"
             required
             {...register("password")}
           />
@@ -94,24 +96,21 @@ const Login = () => {
 
       <div className="flex items-center justify-between mt-4">
         <span className="w-1/5 border-b border-white lg:w-1/5"></span>
-
-        <p href="#" className="text-xs text-center font-bold  text-white">
+        <p className="text-xs text-center font-bold text-white">
           or login with Social Media
         </p>
-
         <span className="w-1/5 border-b border-white lg:w-1/5"></span>
       </div>
 
-      <GoogleLogIn></GoogleLogIn>
+      <GoogleLogIn />
 
-      <p className="mt-8 text-white font-semibold  text-center">
-        {" "}
+      <p className="mt-8 text-white font-semibold text-center">
         Are you new here?{" "}
-        <Link to="/register" href="#" className="text-white underline">
+        <Link to="/register" className="text-white underline">
           Please register
         </Link>
       </p>
-    </div>
+    </section>
   );
 };
 
