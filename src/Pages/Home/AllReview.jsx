@@ -43,21 +43,17 @@ const AllReview = () => {
         }}
         navigation={true}
         modules={[Autoplay, Pagination, Navigation]}
-        className="mySwiper bg-[#EBF1FA]"
+        className="mySwiper bg-primary rounded-md text-white"
       >
         {reviews?.map((review) => (
           <SwiperSlide key={review._id}>
             <div className="flex flex-col justify-center items-center h-56 rounded-sm">
-              <h2 className="text-2xl font-bold text-[#247CFF]">
-                {review.university_name}
-              </h2>
-              <h2 className="text-2xl font-bold text-[#247CFF]">
-                {review.applicant_name}
-              </h2>
-              <p className="font-bold text-base text-[#247CFF] mb-4">
+              <h2 className="text-2xl font-bold">{review.university_name}</h2>
+              <h2 className="text-2xl font-bold">{review.applicant_name}</h2>
+              <p className="font-bold text-base mb-4">
                 Review Date: {new Date(review.post_date).toLocaleDateString()}
               </p>
-              <p className="flex items-center text-xl font-bold text-[#247CFF]">
+              <p className="flex items-center text-xl font-bold">
                 {review.review_point}
                 <Rating
                   style={{ maxWidth: 150 }}
@@ -65,7 +61,7 @@ const AllReview = () => {
                   readOnly
                 />
               </p>
-              <p className="text-xl text-[#247CFF]">{review.review_comment}</p>
+              <p className="text-xl">{review.review_comment}</p>
             </div>
           </SwiperSlide>
         ))}

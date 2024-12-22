@@ -64,7 +64,7 @@ const Navbar = () => {
       <div className=" bg-white flex justify-center items-center font-bold text-primary">
         <p>***Website Under Maintenance***</p>
       </div>
-      <div className="navbar bg-primary text-white justify-between md:px-5 shadow-xl z-10">
+      <div className="navbar bg-primary text-white justify-between md:px-5 shadow-xl z-10 h-20">
         <div className="w">
           <div className="dropdown">
             <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -91,8 +91,8 @@ const Navbar = () => {
             </ul>
           </div>
           <div className="flex items-center gap-3">
-            <img className="w-10 md:w-16" src={logo} alt="" />
-            <h2 className="font-dancing-Script font-bold text-sm md:text-3xl">
+            <img className="w-10 md:w-12 rounded-full" src={logo} alt="" />
+            <h2 className="font-dancing-Script font-bold text-lg md:text-3xl">
               MeritMatrix
             </h2>
           </div>

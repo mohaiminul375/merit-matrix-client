@@ -9,7 +9,7 @@ const Home = () => {
       <Helmet>
         <title>merit-matrix | Home</title>
       </Helmet>
-      <Banner></Banner>
+      {/* <Banner></Banner> */}
       <TopScholarship></TopScholarship>
       <AllReview></AllReview>
     </div>

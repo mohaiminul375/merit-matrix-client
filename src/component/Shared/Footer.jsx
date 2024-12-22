@@ -11,19 +11,19 @@ import {
 import stripe from "../../assets/stripe.png";
 const Footer = () => {
   return (
-    <footer className="bg-[#EEFAFC] mt-36 font-inter">
+    <footer className="bg-primary mt-36 font-inter">
       <div className="container p-6 mx-auto">
         <div className="lg:flex">
           <div className="w-full -mx-6 lg:w-2/5">
             <div className="px-6">
               <div className="flex items-center gap-3">
                 <img className="w-10" src={logo} alt="" />
-                <h2 className="font-dancing-Script font-bold text-2xl">
+                <h2 className="font-dancing-Script font-bold text-2xl text-white">
                   Merit-Matrix
                 </h2>
               </div>
 
-              <p className="max-w-sm mt-2 text-[#247CFF]">
+              <p className="max-w-sm mt-2 text-white">
                 Funding Futures, Inspiring Success.
               </p>
 
@@ -33,7 +33,7 @@ const Footer = () => {
 
           <div className="mt-6 lg:mt-0 lg:flex-1">
             <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
-              <div className="text-[#247CFF]">
+              <div className="text-white">
                 <h3 className=" uppercase font-bold">Contact</h3>
 
                 <span className="mt-2 text-sm hover:underline flex items-center">
@@ -47,7 +47,7 @@ const Footer = () => {
                 </span>
               </div>
 
-              <div className="text-[#247CFF] ">
+              <div className="text-white ">
                 <h3 className="uppercase font-bold">Find us on</h3>
                 <Link to="https://play.google.com">
                   <img className="w-32" src={playStore} alt="" />
@@ -57,7 +57,7 @@ const Footer = () => {
                 </Link>
               </div>
 
-              <div className="text-[#247CFF] ">
+              <div className="text-white">
                 <h3 className="uppercase font-bold mb-5">Follow us on</h3>
                 <div className="text-xl flex gap-5">
                   <Link target="_blank" to="https://www.facebook.com">
@@ -72,7 +72,7 @@ const Footer = () => {
                 </div>
               </div>
 
-              <div className="text-[#247CFF] ">
+              <div className="text-white">
                 <h3 className="uppercase font-bold">Payment</h3>
 
                 <img className="w-32" src={stripe} alt="" />
@@ -81,10 +81,10 @@ const Footer = () => {
           </div>
         </div>
 
-        <hr className="h-px my-6 bg-[#247CFF]" />
+        <hr className="h-px my-6 bg-white" />
 
         <div>
-          <p className="text-center text-[#247CFF]">
+          <p className="text-center text-white">
             © 2024 - All rights reserved by merit-matrix
           </p>
         </div>

@@ -24,7 +24,7 @@ const TopScholarship = () => {
   return (
     <div className="mt-32">
       <div className="text-center">
-        <h2 className="text-4xl font-bold font-cinzel text-[#247CFF]">
+        <h2 className="text-4xl font-bold font-cinzel text-primary">
           Top Scholarship
         </h2>
         <h4 className="font-bold mt-2 tex-base">Explore Our top scholarship</h4>
