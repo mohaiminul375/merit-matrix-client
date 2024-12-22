@@ -2,7 +2,7 @@ import { FaTrash } from "react-icons/fa6";
 import Swal from "sweetalert2";
 import useAxiosSecure from "../hooks/useAxiosSecure";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
-import PropTypes from 'prop-types';
+import PropTypes from "prop-types";
 const ReviewCard = ({ review }) => {
   const axiosSecure = useAxiosSecure();
   const queryClient = useQueryClient();
@@ -49,26 +49,24 @@ const ReviewCard = ({ review }) => {
   };
 
   return (
-    <div className="card w-80 bg-[#EEFAFC] shadow-xl">
+    <div className="card w-80 bg-base-100 border border-primary shadow-xl">
       <div className="flex flex-col p-4">
         <div>
-          <h2 className="text-xl font-bold text-[#1E62D5]">
+          <h2 className="text-xl font-bold text-primary">
             University Name: {university_name}
           </h2>
-          <p className="text-sm font-bold text-[#1E62D5]">Subject: {subject}</p>
-          <hr className="border-[#247CFF] my-3" />
+          <p className="text-sm font-bold text-primary">Subject: {subject}</p>
+          <hr className="border-primary my-3" />
         </div>
         <div>
-          <h2 className="text-xl font-bold text-[#1E62D5]">
+          <h2 className="text-xl font-bold ">
             Reviewer Name: {applicant_name}
           </h2>
-          <p className="text-sm font-bold text-[#1E62D5]">
+          <p className="text-sm font-bold">
             {new Date(post_date).toLocaleDateString()}
           </p>
-          <p className="text-base text-[#1E62D5]">
-            Rating Point: {review_point}
-          </p>
-          <p className="text-base text-[#1E62D5]">{review_comment}</p>
+          <p className="text-base">Rating Point: {review_point}</p>
+          <p className="text-base">{review_comment}</p>
         </div>
         <div className="flex justify-end">
           <FaTrash

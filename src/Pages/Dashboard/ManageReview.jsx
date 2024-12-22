@@ -28,7 +28,7 @@ const ManageReview = () => {
       </Helmet>
       <div className="text-center">
         <h4 className="font-bold text-lg">Manage Review</h4>
-        <h2 className="font-bold text-3xl text-[#1E62D5]">
+        <h2 className="font-bold text-3xl text-primary">
           Manage All Review Data
         </h2>
       </div>

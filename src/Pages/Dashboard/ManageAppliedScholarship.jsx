@@ -46,7 +46,7 @@ const ManageAppliedScholarship = () => {
       </Helmet>
       <div className="text-center">
         <h4 className="font-bold text-lg">Manage Applied Scholarship</h4>
-        <h2 className="font-bold text-3xl font-cinzel text-[#1E62D5]">
+        <h2 className="font-bold text-3xl font-cinzel text-primary">
           Manage All Applied Scholarship Data
         </h2>
       </div>
@@ -84,7 +84,7 @@ const ManageAppliedScholarship = () => {
         <div className="overflow-x-auto">
           <table className="table">
             {/* head */}
-            <thead className="border bg-[#E8F6FC] text-[#1E62D5] font-bold">
+            <thead className="border bg-primary text-white font-bold">
               <tr>
                 <th>Sl No</th>
                 <th>University Name</th>

@@ -23,12 +23,12 @@ const ManageScholarship = () => {
   }
   return (
     <div>
-       <Helmet>
+      <Helmet>
         <title>merit-matrix | Manage Scholarship</title>
       </Helmet>
       <div className="text-center">
         <h4 className="font-bold text-lg">Manage Scholarship</h4>
-        <h2 className="font-bold text-3xl text-[#1E62D5] font-cinzel">
+        <h2 className="font-bold text-3xl text-primary font-cinzel">
           Manage All Scholarship Data
         </h2>
       </div>
@@ -36,7 +36,7 @@ const ManageScholarship = () => {
         <div className="overflow-x-auto">
           <table className="table">
             {/* head */}
-            <thead className="border bg-[#E8F6FC] text-[#1E62D5] font-bold">
+            <thead className="border bg-primary text-white font-bold">
               <tr>
                 <th>Sl No</th>
                 <th>Scholarship Name</th>

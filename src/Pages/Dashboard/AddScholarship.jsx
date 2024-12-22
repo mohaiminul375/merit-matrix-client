@@ -30,26 +30,27 @@ const AddScholarship = () => {
     console.log(img_url);
     // add data
     data.posted_user = user?.email;
-    data.deadline =  format(new Date(startDate), "yyyy-MM-dd");
+    data.deadline = format(new Date(startDate), "yyyy-MM-dd");
     data.post_date = current;
     data.university_logo = img_url;
     console.log(data);
     const { data: scholarship_post } = await axiosSecure.post(
-      "/all-scholarship",data
+      "/all-scholarship",
+      data
     );
     console.log(scholarship_post);
-    if(scholarship_post.insertedId){
-        reset()
-        Swal.fire("Scholarship added successfully");
+    if (scholarship_post.insertedId) {
+      reset();
+      Swal.fire("Scholarship added successfully");
     }
   };
   return (
     <div>
-       <Helmet>
+      <Helmet>
         <title>merit-matrix | Dashboard add-scholarship</title>
       </Helmet>
-      <div className="bg-[#E8F6FC] md:max-w-3xl lg:max-w-5xl mx-auto p-5 rounded-md">
-        <h2 className="text-center text-3xl font-bold font-cinzel text-[#247CFF]">
+      <div className="bg-base-100 border border-primary md:max-w-3xl lg:max-w-5xl mx-auto p-5 rounded-md">
+        <h2 className="text-center text-3xl font-bold font-cinzel text-primary">
           Add A Scholarship
         </h2>
         <div className="mt-10">
@@ -58,24 +59,28 @@ const AddScholarship = () => {
             <div className="md:flex gap-6">
               <div className="form-control md:w-1/2">
                 <label className="label">
-                  <span className="label-text">Scholarship Name</span>
+                  <span className="label-text text-primary">
+                    Scholarship Name
+                  </span>
                 </label>
                 <input
                   type="text"
                   placeholder="input scholarship name"
-                  className="input input-bordered"
+                  className="input input-bordered text-primary"
                   required
                   {...register("scholarship_name")}
                 />
               </div>
               <div className="form-control md:w-1/2">
                 <label className="label">
-                  <span className="label-text">University Name</span>
+                  <span className="label-text text-primary">
+                    University Name
+                  </span>
                 </label>
                 <input
                   type="text"
                   placeholder="input university name"
-                  className="input input-bordered"
+                  className="input input-bordered text-primary"
                   required
                   {...register("university_name")}
                 />
@@ -85,11 +90,12 @@ const AddScholarship = () => {
             <div className="md:flex gap-6">
               <div className="form-control w-full md:w-1/2">
                 <label className="label">
-                  <span className="label-text">University Logo</span>
+                  <span className="label-text text-primary">
+                    University Logo
+                  </span>
                 </label>
                 <input
                   type="file"
-                  placeholder="input scholarship name"
                   className=""
                   required
                   {...register("university_logo")}
@@ -97,12 +103,14 @@ const AddScholarship = () => {
               </div>
               <div className="form-control full md:w-1/2">
                 <label className="label">
-                  <span className="label-text">University Country</span>
+                  <span className="label-text text-primary">
+                    University Country
+                  </span>
                 </label>
                 <input
                   type="text"
                   placeholder="input university country"
-                  className="input input-bordered"
+                  className="input input-bordered text-primary"
                   required
                   {...register("university_country")}
                 />
@@ -111,24 +119,28 @@ const AddScholarship = () => {
             <div className="md:flex gap-6">
               <div className="form-control w-full md:w-1/2">
                 <label className="label">
-                  <span className="label-text">University City</span>
+                  <span className="label-text text-primary">
+                    University City
+                  </span>
                 </label>
                 <input
                   type="text"
                   placeholder="input university city"
-                  className="input input-bordered"
+                  className="input input-bordered text-primary"
                   required
                   {...register("university_city")}
                 />
               </div>
               <div className="form-control w-full md:w-1/2">
                 <label className="label">
-                  <span className="label-text">University Rank</span>
+                  <span className="label-text text-primary">
+                    University Rank
+                  </span>
                 </label>
                 <input
                   type="number"
                   placeholder="input university rank number"
-                  className="input input-bordered"
+                  className="input input-bordered text-primary"
                   required
                   {...register("university_rank")}
                 />
@@ -138,7 +150,9 @@ const AddScholarship = () => {
             <div className="md:flex gap-6">
               <div className="form-control md:w-1/2">
                 <label className="label">
-                  <span className="label-text">Subject Category</span>
+                  <span className="label-text text-primary">
+                    Subject Category
+                  </span>
                 </label>
                 <select {...register("subject")} className="select w-full">
                   <option disabled selected>
@@ -152,7 +166,9 @@ const AddScholarship = () => {
               </div>
               <div className="form-control md:w-1/2">
                 <label className="label">
-                  <span className="label-text">Scholarship Category</span>
+                  <span className="label-text text-primary">
+                    Scholarship Category
+                  </span>
                 </label>
                 <select
                   {...register("scholarship_category")}
@@ -171,7 +187,7 @@ const AddScholarship = () => {
             <div className="md:flex gap-6">
               <div className="form-control md:w-1/2">
                 <label className="label">
-                  <span className="label-text">Degree Name</span>
+                  <span className="label-text text-primary">Degree Name</span>
                 </label>
                 <select {...register("degree_name")} className="select w-full">
                   <option disabled selected>
@@ -184,7 +200,7 @@ const AddScholarship = () => {
               </div>
               <div className="form-control md:w-1/2">
                 <label className="label">
-                  <span className="label-text">Tuition Fess</span>
+                  <span className="label-text text-primary">Tuition Fess</span>
                 </label>
                 <input
                   {...register("tuition_fees")}
@@ -199,7 +215,9 @@ const AddScholarship = () => {
             <div className="md:flex gap-6">
               <div className="form-control md:w-1/2">
                 <label className="label">
-                  <span className="label-text">Application Fees</span>
+                  <span className="label-text text-primary">
+                    Application Fees
+                  </span>
                 </label>
                 <input
                   type="number"
@@ -211,7 +229,9 @@ const AddScholarship = () => {
               </div>
               <div className="form-control md:w-1/2">
                 <label className="label">
-                  <span className="label-text">Service Charge</span>
+                  <span className="label-text text-primary">
+                    Service Charge
+                  </span>
                 </label>
                 <input
                   type="number"
@@ -226,7 +246,9 @@ const AddScholarship = () => {
             <div className="md:flex gap-6">
               <div className="form-control md:w-1/2">
                 <label className="label">
-                  <span className="label-text">Application Deadline</span>
+                  <span className="label-text text-primary">
+                    Application Deadline
+                  </span>
                 </label>
                 <DatePicker
                   className="input input-bordered w-full"
@@ -236,7 +258,7 @@ const AddScholarship = () => {
               </div>
             </div>
             <div className="mt-3">
-              <button className="w-full bg-[#1EA9E4] text-white py-2 text-lg rounded-md">
+              <button className="w-full bg-primary text-white py-2 text-lg rounded-md hover:rounded-2xl transition-all duration-300">
                 Add Scholarship
               </button>
             </div>

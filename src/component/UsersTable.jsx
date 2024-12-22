@@ -89,7 +89,7 @@ const UsersTable = ({ idx, user }) => {
     });
   };
   return (
-    <tr className="even:bg-[#E8F6FC] text-base">
+    <tr className="even:bg-primary even:text-white text-base">
       <th>{idx + 1}</th>
       <td>{name}</td>
       <td>{email}</td>
@@ -97,7 +97,7 @@ const UsersTable = ({ idx, user }) => {
         <select
           defaultValue={role}
           onChange={handleUpdateRole}
-          className="border rounded-md border-[#1E62D5]"
+          className="border rounded-md border-black text-black"
         >
           <option>User</option>
           <option>Moderator</option>

@@ -6,11 +6,11 @@ const MyProfile = () => {
   const { isAdminOrMod } = useAdmin();
   const { user } = useAuth();
   return (
-    <div className="md:max-w-xl mx-auto bg-[#E8F6FC] rounded-md  p-10 text-[#1E62D5]">
+    <div className="md:max-w-xl mx-auto bg-base-100 border border-primary rounded-md  p-10 text-primary">
        <Helmet>
         <title>merit-matrix | Profile</title>
       </Helmet>
-      <div className="text-center font-bold text-3xl text-[#1E62D5] ">
+      <div className="text-center font-bold text-3xl text-primary ">
         <h2 className="font-cinzel">My Profile</h2>
       </div>
       <div className="">

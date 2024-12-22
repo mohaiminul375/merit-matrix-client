@@ -99,7 +99,7 @@ const MyApplicationTable = ({ idx, application }) => {
         <span
           className={`${
             status == "Pending" || status === "Processing"
-              ? "bg-[#247CFF] text-white font-bold p-1 rounded-full"
+              ? "bg-primary text-white font-bold p-1 rounded-full"
               : ""
           } ${
             status == "Canceled" || status === "Rejected"
@@ -117,7 +117,7 @@ const MyApplicationTable = ({ idx, application }) => {
       <td>
         <button
           onClick={() => document.getElementById(`feedback_${_id}`).showModal()}
-          className="bg-[#247CFF] text-white rounded-md px-2"
+          className="bg-primary text-white rounded-md px-2"
         >
           See feedback
         </button>

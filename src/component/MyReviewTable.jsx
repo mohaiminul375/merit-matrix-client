@@ -61,7 +61,7 @@ const MyReviewTable = ({ idx, review }) => {
       <td className="flex flex-col items-center gap-2">
         <button
           onClick={() => document.getElementById(`edit_${_id}`).showModal()}
-          className="bg-[#247CFF] text-white rounded-md px-2"
+          className="bg-primary text-white rounded-md px-2"
         >
           Edit
         </button>

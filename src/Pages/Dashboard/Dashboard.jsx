@@ -9,10 +9,10 @@ const Dashboard = () => {
   console.log(isAdminOrMod);
   return (
     <div className="sm:drawer md:flex font-inter">
-       <Helmet>
+      <Helmet>
         <title>merit-matrix | Dashboard</title>
       </Helmet>
-      <aside className="min-h-screen flex flex-col  md:max-w-64 px-4 py-8 overflow-y-auto bg-[#E8F6FC] border-r rtl:border-r-0 rtl:border-l">
+      <aside className="min-h-screen flex flex-col  md:max-w-64 px-4 py-8 overflow-y-auto bg-primary text-white border-r rtl:border-r-0 rtl:border-l">
         <label
           htmlFor="my-drawer"
           aria-label="close sidebar"
@@ -24,12 +24,8 @@ const Dashboard = () => {
             src={user?.photoURL}
             alt="avatar"
           />
-          <h4 className="mx-2 mt-2 font-medium text-black">
-            {user?.displayName}
-          </h4>
-          <p className="mx-2 mt-1 text-sm font-medium text-black">
-            {user?.email}
-          </p>
+          <h4 className="mx-2 mt-2 font-medium">{user?.displayName}</h4>
+          <p className="mx-2 mt-1 text-sm font-medium">{user?.email}</p>
         </div>
 
         <div className="flex flex-col justify-between flex-1 mt-6">
@@ -41,7 +37,7 @@ const Dashboard = () => {
                   to="admin-Home"
                   className={({ isActive }) =>
                     isActive
-                      ? "text-lg w-full font-medium flex items-center px-4 py-1 rounded-full bg-[#0089F7] text-white"
+                      ? "text-lg w-full font-medium flex items-center px-4 py-1 rounded-full bg-primary border-white  border shadow-2xl text-white"
                       : ""
                   }
                 >
@@ -52,7 +48,7 @@ const Dashboard = () => {
                   to="add-scholarship"
                   className={({ isActive }) =>
                     isActive
-                      ? "text-lg font-bold w-full flex items-center px-4 py-1 rounded-full bg-[#0089F7] text-white"
+                      ? "text-lg font-bold w-full flex items-center px-4 py-1 rounded-full bg-primary border border-white text-white shadow-2xl"
                       : ""
                   }
                 >
@@ -62,7 +58,7 @@ const Dashboard = () => {
                   to="manage-scholarship"
                   className={({ isActive }) =>
                     isActive
-                      ? "text-lg w-full font-medium flex items-center px-4 py-1 rounded-full bg-[#0089F7] text-white"
+                      ? "text-lg w-full font-medium flex items-center px-4 py-1 rounded-full bg-primary border border-white text-white shadow-2xl"
                       : ""
                   }
                 >
@@ -72,7 +68,7 @@ const Dashboard = () => {
                   to="manage-applications"
                   className={({ isActive }) =>
                     isActive
-                      ? "text-lg font-medium w-full flex items-center px-4 py-1 rounded-full bg-[#0089F7] text-white"
+                      ? "text-lg font-medium w-full flex items-center px-4 py-1 rounded-full bg-primary border border-white text-white shadow-2xl"
                       : ""
                   }
                 >
@@ -82,7 +78,7 @@ const Dashboard = () => {
                   to="all-user"
                   className={({ isActive }) =>
                     isActive
-                      ? "text-lg font-medium w-full flex items-center px-4 py-1 rounded-full bg-[#0089F7] text-white"
+                      ? "text-lg font-medium w-full flex items-center px-4 py-1 rounded-full bg-primary border border-white text-white shadow-2xl"
                       : ""
                   }
                 >
@@ -92,7 +88,7 @@ const Dashboard = () => {
                   to="all-review"
                   className={({ isActive }) =>
                     isActive
-                      ? "text-lg font-medium w-full flex items-center px-4 py-1 rounded-full bg-[#0089F7] text-white"
+                      ? "text-lg font-medium w-full flex items-center px-4 py-1 rounded-full bg-primary border border-white text-white shadow-2xl"
                       : ""
                   }
                 >
@@ -108,7 +104,7 @@ const Dashboard = () => {
                   to="moderator-Home"
                   className={({ isActive }) =>
                     isActive
-                      ? "text-lg w-full font-medium flex items-center px-4 py-1 rounded-full bg-[#0089F7] text-white"
+                      ? "text-lg w-full font-medium flex items-center px-4 py-1 rounded-full bg-primary border border-white text-white"
                       : ""
                   }
                 >
@@ -119,7 +115,7 @@ const Dashboard = () => {
                   to="add-scholarship"
                   className={({ isActive }) =>
                     isActive
-                      ? "text-lg font-bold w-full flex items-center px-4 py-1 rounded-full bg-[#0089F7] text-white"
+                      ? "text-lg font-bold w-full flex items-center px-4 py-1 rounded-full bg-primary border border-white text-white shadow-2xl"
                       : ""
                   }
                 >
@@ -129,7 +125,7 @@ const Dashboard = () => {
                   to="manage-scholarship"
                   className={({ isActive }) =>
                     isActive
-                      ? "text-lg w-full font-medium flex items-center px-4 py-1 rounded-full bg-[#0089F7] text-white"
+                      ? "text-lg w-full font-medium flex items-center px-4 py-1 rounded-full bg-primary border border-white text-white shadow-2xl"
                       : ""
                   }
                 >
@@ -139,7 +135,7 @@ const Dashboard = () => {
                   to="manage-applications"
                   className={({ isActive }) =>
                     isActive
-                      ? "text-lg font-medium w-full flex items-center px-4 py-1 rounded-full bg-[#0089F7] text-white"
+                      ? "text-lg font-medium w-full flex items-center px-4 py-1 rounded-full bg-primary border border-white text-white shadow-2xl"
                       : ""
                   }
                 >
@@ -149,7 +145,7 @@ const Dashboard = () => {
                   to="all-review"
                   className={({ isActive }) =>
                     isActive
-                      ? "text-lg font-medium w-full flex items-center px-4 py-1 rounded-full bg-[#0089F7] text-white"
+                      ? "text-lg font-medium w-full flex items-center px-4 py-1 rounded-full bg-primary border border-white text-white shadow-2xl"
                       : ""
                   }
                 >
@@ -163,7 +159,7 @@ const Dashboard = () => {
               to="/"
               className={({ isActive }) =>
                 isActive
-                  ? "text-lg font-medium w-full flex items-center px-4 py-1 rounded-full bg-[#0089F7] text-white"
+                  ? "text-lg font-medium w-full flex items-center px-4 py-1 rounded-full bg-primary border border-white shadow-2xl text-white"
                   : ""
               }
             >
@@ -174,7 +170,7 @@ const Dashboard = () => {
               to="my-profile"
               className={({ isActive }) =>
                 isActive
-                  ? "text-lg font-medium w-full flex items-center px-4 py-1 rounded-full bg-[#0089F7] text-white"
+                  ? "text-lg font-medium w-full flex items-center px-4 py-1 rounded-full bg-primary border border-white shadow-2xl text-white"
                   : ""
               }
             >
@@ -184,7 +180,7 @@ const Dashboard = () => {
               to="my-application"
               className={({ isActive }) =>
                 isActive
-                  ? "text-lg font-medium w-full flex items-center px-4 py-1 rounded-full bg-[#0089F7] text-white"
+                  ? "text-lg font-medium w-full flex items-center px-4 py-1 rounded-full bg-primary border border-white shadow-2xl text-white"
                   : ""
               }
             >
@@ -194,7 +190,7 @@ const Dashboard = () => {
               to="my-reviews"
               className={({ isActive }) =>
                 isActive
-                  ? "text-lg font-medium w-full flex items-center px-4 py-1 rounded-full bg-[#0089F7] text-white"
+                  ? "text-lg font-medium w-full flex items-center px-4 py-1 rounded-full bg-primary border border-white shadow-2xl text-white"
                   : ""
               }
             >

@@ -78,7 +78,7 @@ const AppliedScholarshipTable = ({ idx, info }) => {
   };
   return (
     <>
-      <tr className="even:bg-[#E8F6FC] text-sm">
+      <tr className="even:bg-primary even:text-white text-sm">
         <th>{idx + 1}</th>
         <td>{university_name}</td>
         <td>{scholarship_name}</td>
@@ -95,8 +95,8 @@ const AppliedScholarshipTable = ({ idx, info }) => {
             onChange={handleUpdateStatus}
             className={` ${
               status === "Rejected"
-                ? "border rounded-md border-red-600 bg-red-600 text-white"
-                : "border rounded-md border-[#1E62D5]"
+                ? "border rounded-md border-red-600 bg-red-600 text-black"
+                : "border rounded-md border-[#1E62D5] text-black"
             }`}
           >
             <option value="Pending">Pending</option>
