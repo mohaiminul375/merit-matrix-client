@@ -1,7 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 import { Link, useParams } from "react-router-dom";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
-import { RingLoader } from "react-spinners";
+import { RiseLoader } from "react-spinners";
 import ReviewSlider from "../../component/ReviewSlider";
 import { Helmet } from "react-helmet-async";
 
@@ -18,8 +18,8 @@ const ScholarshipDetails = () => {
   });
   if (isLoading) {
     return (
-      <div className="flex justify-center items-center">
-        <RingLoader className="" color="#1E62D5" />
+      <div className="flex justify-center items-center min-h-screen">
+        <RiseLoader className="" color="#890C25" />
       </div>
     );
   }

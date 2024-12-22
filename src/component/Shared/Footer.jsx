@@ -26,8 +26,6 @@ const Footer = () => {
               <p className="max-w-sm mt-2 text-white">
                 Funding Futures, Inspiring Success.
               </p>
-
-             
             </div>
           </div>
 
@@ -63,10 +61,10 @@ const Footer = () => {
                   <Link target="_blank" to="https://www.facebook.com">
                     <FaFacebook />
                   </Link>
-                  <Link target="_blank" to='https://x.com'>
+                  <Link target="_blank" to="https://x.com">
                     <FaXTwitter />
                   </Link>
-                  <Link target="_blank"  to="https://www.instagram.com">
+                  <Link target="_blank" to="https://www.instagram.com">
                     <FaInstagram />
                   </Link>
                 </div>
@@ -87,6 +85,15 @@ const Footer = () => {
           <p className="text-center text-white">
             © 2024 - All rights reserved by merit-matrix
           </p>
+        </div>
+        <div className="flex flex-col items-end text-white space-y-2 text-sm md:text-sm">
+          <p>
+            Design & Developed by:{" "}
+            <Link to="https://mohaiminul-dev.web.app" className="underline hover:text-gray-300">
+              Mohaiminul Islam
+            </Link>
+          </p>
+          {/* <p>Version: V2 | Last Update: 22-Dec-2024</p> */}
         </div>
       </div>
     </footer>

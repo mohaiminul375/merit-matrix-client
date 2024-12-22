@@ -1,7 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
 import useAuth from "../../hooks/useAuth";
-import { RingLoader } from "react-spinners";
+import { RiseLoader } from "react-spinners";
 import MyReviewTable from "../../component/MyReviewTable";
 
 const MyReviews = () => {
@@ -18,8 +18,8 @@ const MyReviews = () => {
   });
   if (isLoading) {
     return (
-      <div className="flex justify-center items-center">
-        <RingLoader className="" color="#1E62D5" />
+      <div className="flex justify-center items-center min-h-screen">
+        <RiseLoader className="" color="#890C25" />
       </div>
     );
   }
@@ -27,7 +27,9 @@ const MyReviews = () => {
   return (
     <div>
       <div className="text-center">
-        <h2 className="font-bold text-3xl text-primary font-cinzel">My Reviews</h2>
+        <h2 className="font-bold text-3xl text-primary font-cinzel">
+          My Reviews
+        </h2>
       </div>
 
       <div className="mt-5">
@@ -46,13 +48,13 @@ const MyReviews = () => {
               </tr>
             </thead>
             <tbody>
-             {
-                reviews?.map((review,idx)=><MyReviewTable
-                key={review._id}
-                idx={idx}
-                review={review}
-                ></MyReviewTable>)
-             }
+              {reviews?.map((review, idx) => (
+                <MyReviewTable
+                  key={review._id}
+                  idx={idx}
+                  review={review}
+                ></MyReviewTable>
+              ))}
             </tbody>
           </table>
         </div>

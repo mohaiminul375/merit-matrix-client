@@ -1,6 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
-import { RingLoader } from "react-spinners";
+import { RiseLoader } from "react-spinners";
 import ReviewCard from "../../component/ReviewCard";
 import { Helmet } from "react-helmet-async";
 
@@ -15,15 +15,15 @@ const ManageReview = () => {
   });
   if (isLoading) {
     return (
-      <div className="flex justify-center items-center">
-        <RingLoader className="" color="#1E62D5" />
+      <div className="flex justify-center items-center min-h-screen">
+        <RiseLoader className="" color="#890C25" />
       </div>
     );
   }
   console.log(reviews);
   return (
     <div>
-       <Helmet>
+      <Helmet>
         <title>merit-matrix | Dashboard Manage-Review</title>
       </Helmet>
       <div className="text-center">
@@ -33,10 +33,9 @@ const ManageReview = () => {
         </h2>
       </div>
       <div className="mt-5 grid md:grid-cols-3 gap-3">
-        {
-            reviews?.map(review=><ReviewCard key={review._id} review={review}></ReviewCard>)
-        }
-        
+        {reviews?.map((review) => (
+          <ReviewCard key={review._id} review={review}></ReviewCard>
+        ))}
       </div>
     </div>
   );

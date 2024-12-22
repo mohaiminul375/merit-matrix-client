@@ -1,34 +1,33 @@
-
 // import useAxiosPublic from "../../hooks/useAxiosPublic";
 import { useQuery } from "@tanstack/react-query";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
-import { RingLoader } from "react-spinners";
+import { RiseLoader } from "react-spinners";
 import UsersTable from "../../component/UsersTable";
 import { useState } from "react";
 import { Helmet } from "react-helmet-async";
 
 const AllUser = () => {
-  const [role,setRole]=useState('');
-  console.log(role)
+  const [role, setRole] = useState("");
+  console.log(role);
   const axiosSecure = useAxiosSecure();
   const { data: users, isLoading } = useQuery({
     queryFn: async () => {
       const { data } = await axiosSecure.get(`/users?role=${role}`);
       return data;
     },
-    queryKey: ["all-user",role],
+    queryKey: ["all-user", role],
   });
   if (isLoading) {
     return (
-      <div className="flex justify-center items-center">
-        <RingLoader className="" color="#1E62D5" />
+      <div className="flex justify-center items-center min-h-screen">
+        <RiseLoader className="" color="#890C25" />
       </div>
     );
   }
   //   console.log(users);
   return (
     <div>
-       <Helmet>
+      <Helmet>
         <title>merit-matrix | Dashboard- all-users</title>
       </Helmet>
       <div className="text-center">
@@ -40,18 +39,14 @@ const AllUser = () => {
       <div className="mt-5 flex justify-end">
         {/* TODO:add filter */}
         <select
-        defaultValue={role}
-        onChange={(e)=>setRole(e.target.value)}
-        className="select select-bordered w-1/4">
-          
-          
-          <option value=''>
-            All User
-          </option>
-          <option value='Admin'>Admin</option>
-          <option value='Moderator'>Moderator</option>
-          <option value='User'>User</option>
-
+          defaultValue={role}
+          onChange={(e) => setRole(e.target.value)}
+          className="select select-bordered w-1/4"
+        >
+          <option value="">All User</option>
+          <option value="Admin">Admin</option>
+          <option value="Moderator">Moderator</option>
+          <option value="User">User</option>
         </select>
       </div>
       <div className="mt-5">

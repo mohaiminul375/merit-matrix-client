@@ -4,7 +4,7 @@ import CheckoutForm from "./CheckoutForm";
 import { useParams } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
-import { RingLoader } from "react-spinners";
+import { RiseLoader } from "react-spinners";
 import { useState } from "react";
 import ApplyScholarship from "../../component/ApplyScholarship";
 import { Helmet } from "react-helmet-async";
@@ -28,8 +28,8 @@ const Checkout = () => {
   // console.log(scholarship_info)
   if (isLoading) {
     return (
-      <div className="flex justify-center items-center">
-        <RingLoader className="" color="#1E62D5" />
+      <div className="flex justify-center items-center min-h-screen">
+        <RiseLoader className="" color="#890C25" />
       </div>
     );
   }

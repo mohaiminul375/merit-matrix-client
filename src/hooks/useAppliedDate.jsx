@@ -1,7 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
-import React from "react";
 import useAxiosPublic from "./useAxiosPublic";
-import { RingLoader } from "react-spinners";
+import { RiseLoader } from "react-spinners";
 
 const useAppliedDate = () => {
   const axiosPublic = useAxiosPublic();
@@ -13,17 +12,17 @@ const useAppliedDate = () => {
     queryKey: ["manage-scholarship-date"],
   });
 
-  //   if (isLoading) {
-  //     return (
-  //       <div className="flex justify-center items-center">
-  //         <RingLoader className="" color="#1E62D5" />
-  //       </div>
-  //     );
-  //   }
+  if (isLoading) {
+    return (
+      <div className="flex justify-center items-center min-h-screen">
+        <RiseLoader className="" color="#890C25" />
+      </div>
+    );
+  }
   console.log("scholarship", scholarship);
- 
+
   const deadline_date = [];
- 
+
   scholarship?.forEach((date) => {
     const check_deadline = date.deadline;
     if (!deadline_date.includes(check_deadline)) {

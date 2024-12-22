@@ -1,7 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
-import{ useState } from "react";
+import { useState } from "react";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
-import { RingLoader } from "react-spinners";
+import { RiseLoader } from "react-spinners";
 import AppliedScholarshipTable from "../../component/AppliedScholarshipTable";
 import useAppliedDate from "../../hooks/useAppliedDate";
 import { Helmet } from "react-helmet-async";
@@ -12,7 +12,7 @@ const ManageAppliedScholarship = () => {
   const [apply, setApply] = useState("");
   const [deadline, setDeadline] = useState("");
   // console.log(deadline);
-  console.log(apply,deadline);
+  console.log(apply, deadline);
   const { data: applied_info, isLoading } = useQuery({
     queryFn: async () => {
       const { data } = await axiosSecure.get(
@@ -20,16 +20,16 @@ const ManageAppliedScholarship = () => {
       );
       return data;
     },
-    queryKey: ["applied-scholarship",apply,deadline],
+    queryKey: ["applied-scholarship", apply, deadline],
   });
   if (isLoading) {
     return (
-      <div className="flex justify-center items-center">
-        <RingLoader className="" color="#1E62D5" />
+      <div className="flex justify-center items-center min-h-screen">
+        <RiseLoader className="" color="#890C25" />
       </div>
     );
   }
-  
+
   console.log(applied_info);
   const uniqueDateApplied = [];
   applied_info?.forEach((date) => {
@@ -38,10 +38,10 @@ const ManageAppliedScholarship = () => {
       uniqueDateApplied.push(applied_date);
     }
   });
-  
+
   return (
     <div>
-       <Helmet>
+      <Helmet>
         <title>merit-matrix | Dashboard applied scholarship</title>
       </Helmet>
       <div className="text-center">
@@ -56,9 +56,7 @@ const ManageAppliedScholarship = () => {
           defaultValue={apply}
           className="select select-bordered w-full max-w-xs"
         >
-          <option value=''>
-            Applied Date
-          </option>
+          <option value="">Applied Date</option>
           {uniqueDateApplied?.map((date, idx) => (
             <option value={date} key={idx}>
               {new Date(date).toLocaleDateString()}
@@ -70,9 +68,7 @@ const ManageAppliedScholarship = () => {
           defaultValue={deadline}
           className="select select-bordered w-full max-w-xs"
         >
-          <option value="">
-            Deadline Date
-          </option>
+          <option value="">Deadline Date</option>
           {deadline_date?.map((date, idx) => (
             <option value={date} key={idx}>
               {new Date(date).toLocaleDateString()}

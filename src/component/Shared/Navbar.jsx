@@ -1,4 +1,4 @@
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import logo from "../../assets/logo.jpg";
 import { IoLogOutOutline } from "react-icons/io5";
 import useAdmin from "../../hooks/useAdmin";
@@ -62,7 +62,7 @@ const Navbar = () => {
   return (
     <>
       <div className=" bg-white flex justify-center items-center font-bold text-primary">
-        <p>***Website Under Maintenance***</p>
+        <p>***Website Under Maintenance (V2 Trial Version)***</p>
       </div>
       <div className="navbar bg-primary text-white justify-between md:px-5 shadow-xl z-10 h-20">
         <div className="w">
@@ -90,12 +90,12 @@ const Navbar = () => {
               {navLins}
             </ul>
           </div>
-          <div className="flex items-center gap-3">
+          <Link to="/" className="flex items-center gap-3">
             <img className="w-10 md:w-12 rounded-full" src={logo} alt="" />
             <h2 className="font-dancing-Script font-bold text-lg md:text-3xl">
               MeritMatrix
             </h2>
-          </div>
+          </Link>
         </div>
         {/* right */}
         {
