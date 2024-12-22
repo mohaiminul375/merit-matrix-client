@@ -19,10 +19,7 @@ const Register = () => {
   const axiosPublic = useAxiosPublic();
   const image_hosting_key = import.meta.env.VITE_IMG_HOST;
   const image_hosting_api = `https://api.imgbb.com/1/upload?key=${image_hosting_key}`;
-  const {
-    register,
-    handleSubmit,
-  } = useForm();
+  const { register, handleSubmit } = useForm();
 
   const onSubmit = async (userData) => {
     setError("");
@@ -77,13 +74,11 @@ const Register = () => {
     setError("");
   };
   return (
-    <div className="w-full max-w-sm p-6 m-auto mx-auto rounded-lg shadow-2xl mt-12 bg-[#E8F6FC]">
-       <Helmet>
+    <div className="w-full max-w-sm p-6 m-auto mx-auto rounded-lg shadow-2xl mt-12 bg-primary text-white">
+      <Helmet>
         <title>merit-matrix | Register</title>
       </Helmet>
-      <h2 className="text-center text-3xl font-bold text-[#1EA9E4]">
-        Register
-      </h2>
+      <h2 className="text-center text-3xl font-bold">Register</h2>
       {error && (
         <p className="text-center my-3 text-base font-semibold text-red-600 flex items-center gap-2 justify-center">
           {error}
@@ -96,23 +91,21 @@ const Register = () => {
       <form onSubmit={handleSubmit(onSubmit)} className="mt-6">
         <div className="form-control">
           <label className="label">
-            <span className="label-text font-semibold text-[#1EA9E4]">
+            <span className="label-text font-semibold text-white">
               Your Name
             </span>
           </label>
           <input
             type="text"
             placeholder="input your name"
-            className="input input-bordered text-[#1EA9E4]"
+            className="input input-bordered text-primary"
             required
             {...register("userName")}
           />
         </div>
         <div className="form-control">
           <label className="label">
-            <span className="label-text font-semibold text-[#1EA9E4]">
-              Photo
-            </span>
+            <span className="label-text font-semibold text-white">Photo</span>
           </label>
           <input
             type="file"
@@ -124,14 +117,12 @@ const Register = () => {
         </div>
         <div className="form-control">
           <label className="label">
-            <span className="label-text font-semibold text-[#1EA9E4]">
-              Email
-            </span>
+            <span className="label-text font-semibold text-white">Email</span>
           </label>
           <input
             type="email"
             placeholder="input email"
-            className="input input-bordered text-[#1EA9E4]"
+            className="input input-bordered text-primary"
             required
             {...register("email")}
           />
@@ -139,18 +130,18 @@ const Register = () => {
 
         <div className="form-control">
           <label className="label">
-            <span className="label-text font-semibold text-[#1EA9E4]">
+            <span className="label-text font-semibold text-white">
               Password
             </span>
           </label>
           <input
             type="password"
             placeholder="input password"
-            className="input input-bordered text-[#1EA9E4]"
+            className="input input-bordered text-primary"
             required
             {...register("password")}
           />
-          <span className="text-[#1EA9E4] text-xs mt-1">
+          <span className="text-white text-xs mt-1">
             <span className="font-semibold">*Note: </span>Password must be 6
             character or more and must have one uppercase and one special
             character
@@ -158,28 +149,28 @@ const Register = () => {
         </div>
 
         <div className="mt-6">
-          <button className="w-full px-6 py-2.5 bg-[#1EA9E4] text-white rounded-md font-semibold">
+          <button className="w-full text-black hover:rounded-2xl transition-all duration-300 px-6 py-2.5 bg-[#F8EDEB] rounded-md font-semibold">
             Register
           </button>
         </div>
       </form>
 
       <div className="flex items-center justify-between mt-4">
-        <span className="w-1/5 border-b border-[#1EA9E4] lg:w-1/5"></span>
+        <span className="w-1/5 border-b border-white lg:w-1/5"></span>
 
-        <p href="#" className="text-xs text-center font-bold text-base-content">
+        <p href="#" className="text-xs text-center font-bold text-white">
           or Register with Social Media
         </p>
 
-        <span className="w-1/5 border-b border-[#1EA9E4] lg:w-1/5"></span>
+        <span className="w-1/5 border-b border-white lg:w-1/5"></span>
       </div>
 
       <GoogleLogIn></GoogleLogIn>
 
-      <p className="mt-8 text-base font-semibold  text-center text-base-content">
+      <p className="mt-8 text-base font-semibold  text-center text-white">
         {" "}
         Already have an account?{" "}
-        <Link to="/login" href="#" className="text-[#1EA9E4] underline">
+        <Link to="/login" href="#" className="text-white underline">
           Please Login
         </Link>
       </p>

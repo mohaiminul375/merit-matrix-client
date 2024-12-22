@@ -14,10 +14,7 @@ const Login = () => {
   const navigate = useNavigate();
   const from = location.state?.from?.pathname || "/";
   // console.log(location.state?.from?.pathname);
-  const {
-    register,
-    handleSubmit,
-  } = useForm();
+  const { register, handleSubmit } = useForm();
   const onSubmit = (userData) => {
     if (userData.password.length < 6) {
       console.log("password error");
@@ -45,11 +42,11 @@ const Login = () => {
     setError("");
   };
   return (
-    <div className="w-full max-w-sm p-6 m-auto mx-auto bg-[#E8F6FC] rounded-lg shadow-2xl mt-12">
-       <Helmet>
+    <div className="w-full max-w-sm p-6 m-auto mx-auto bg-primary rounded-lg shadow-2xl mt-12 text-white">
+      <Helmet>
         <title>merit-matrix | Login</title>
       </Helmet>
-      <h2 className="text-center text-3xl font-bold text-[#1EA9E4]">Login</h2>
+      <h2 className="text-center text-3xl font-bold">Login</h2>
       {error && (
         <p className="text-center my-3 text-base font-semibold text-red-600 flex items-center gap-2 justify-center">
           {error}
@@ -62,14 +59,12 @@ const Login = () => {
       <form onSubmit={handleSubmit(onSubmit)} className="mt-6">
         <div className="form-control">
           <label className="label">
-            <span className="label-text font-semibold text-[#1EA9E4]">
-              Email
-            </span>
+            <span className="label-text font-semibold text-white">Email</span>
           </label>
           <input
             type="email"
             placeholder="input email"
-            className="input input-bordered text-[#1EA9E4]"
+            className="input input-bordered text-primary"
             required
             {...register("email")}
           />
@@ -77,42 +72,42 @@ const Login = () => {
 
         <div className="form-control">
           <label className="label">
-            <span className="label-text font-semibold text-[#1EA9E4]">
+            <span className="label-text font-semibold text-white">
               Password
             </span>
           </label>
           <input
             type="password"
             placeholder="input password"
-            className="input input-bordered text-[#1EA9E4]"
+            className="input input-bordered text-primary"
             required
             {...register("password")}
           />
         </div>
 
         <div className="mt-6">
-          <button className="w-full text-white px-6 py-2.5 bg-[#1EA9E4] rounded-md font-semibold">
+          <button className="w-full text-black hover:rounded-2xl transition-all duration-300 px-6 py-2.5 bg-[#F8EDEB] rounded-md font-semibold">
             LogIn
           </button>
         </div>
       </form>
 
       <div className="flex items-center justify-between mt-4">
-        <span className="w-1/5 border-b border-[#1EA9E4] lg:w-1/5"></span>
+        <span className="w-1/5 border-b border-white lg:w-1/5"></span>
 
-        <p href="#" className="text-xs text-center font-bold text-base-content">
+        <p href="#" className="text-xs text-center font-bold  text-white">
           or login with Social Media
         </p>
 
-        <span className="w-1/5 border-b border-[#1EA9E4] lg:w-1/5"></span>
+        <span className="w-1/5 border-b border-white lg:w-1/5"></span>
       </div>
 
       <GoogleLogIn></GoogleLogIn>
 
-      <p className="mt-8 text-base font-semibold  text-center text-base-content">
+      <p className="mt-8 text-white font-semibold  text-center">
         {" "}
         Are you new here?{" "}
-        <Link to="/register" href="#" className="text-[#1EA9E4] underline">
+        <Link to="/register" href="#" className="text-white underline">
           Please register
         </Link>
       </p>

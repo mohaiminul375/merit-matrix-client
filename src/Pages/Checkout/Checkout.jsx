@@ -43,7 +43,7 @@ const Checkout = () => {
   } = scholarship_info;
   return (
     <div className="mt-20">
-       <Helmet>
+      <Helmet>
         <title>merit-matrix | Checkout</title>
       </Helmet>
       {toggleForm ? (
@@ -53,10 +53,10 @@ const Checkout = () => {
         ></ApplyScholarship>
       ) : (
         <div className="md:max-w-xl mx-auto">
-          <h2 className="text-center text-4xl font-bold text-[#1E62D5]">
+          <h2 className="text-center text-4xl font-bold text-primary">
             Payment
           </h2>
-          <div className="mt-5 bg-[#EEFAFC] p-5 rounded-md border-2 border-[#1EA9E4] flex flex-col-reverse">
+          <div className="mt-5 bg-primary text-white p-5 rounded-md border-2 border-white flex flex-col-reverse">
             {/* strip payment */}
             <div className="mt-5">
               <Elements stripe={stripePromise}>
@@ -66,9 +66,9 @@ const Checkout = () => {
                 />
               </Elements>
             </div>
-            <hr className="border-4 border-[#1EA9E4] w-full my-5" />
+            <hr className="border-4 border-white w-full my-5" />
             {/* info */}
-            <div className="text-[#247CFF]">
+            <div className="">
               <h3 className="font-semibold text-lg">
                 Scholarship_name: {scholarship_name}
               </h3>

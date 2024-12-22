@@ -111,7 +111,7 @@ const Navbar = () => {
                 <div
                   tabIndex={0}
                   role="button"
-                  className="btn btn-ghost btn-circle border-2 border-[#0089F7] avatar "
+                  className="btn btn-ghost btn-circle border-2 border-white avatar "
                 >
                   <div title={user?.displayName} className="w-10 rounded-full ">
                     <img
@@ -123,7 +123,7 @@ const Navbar = () => {
                 </div>
                 <ul
                   tabIndex={0}
-                  className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-[#E8F6FC]   rounded-box w-52"
+                  className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-primary  rounded-box w-52"
                 >
                   <li className="text-center font-bold">
                     <h3 className="flex justify-center text-base mb-3">

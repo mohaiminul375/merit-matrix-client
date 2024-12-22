@@ -20,7 +20,7 @@ const TopScholarship = () => {
       </div>
     );
   }
- 
+
   return (
     <div className="mt-32">
       <div className="text-center">
@@ -35,8 +35,11 @@ const TopScholarship = () => {
         ))}
       </div>
       <div className="mt-5 flex justify-center">
-        <Link to='/all-scholarship'>
-        <button className="btn bg-[#247CFF] text-white">All scholarship</button></Link>
+        <Link to="/all-scholarship">
+          <button className="w-full text-center py-2 rounded-md bg-primary text-white hover:rounded-2xl duration-300 transition-all px-2">
+            All scholarship
+          </button>
+        </Link>
       </div>
     </div>
   );
