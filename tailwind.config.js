@@ -8,6 +8,10 @@ export default {
         inter: '"Inter", sans-serif',
         cinzel: '"Cinzel", serif',
       },
+      colors: {
+        'primary': '#890C25',
+        "background-Primary": "#F9F8FE"
+      }
     },
   },
   plugins: [require("daisyui")],
