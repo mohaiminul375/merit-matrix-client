@@ -3,6 +3,7 @@ import useAxiosPublic from "../../hooks/useAxiosPublic";
 import { RiseLoader } from "react-spinners";
 import HomePgCard from "./HomePgCard";
 import { Link } from "react-router-dom";
+import { Slide } from "react-awesome-reveal";
 
 const TopScholarship = () => {
   const axiosPublic = useAxiosPublic();
@@ -29,11 +30,13 @@ const TopScholarship = () => {
         </h2>
         <h4 className="font-bold mt-2 tex-base">Explore Our top scholarship</h4>
       </div>
-      <div className="mt-5 grid md:grid-cols-2 lg:grid-cols-3 gap-4">
-        {scholarship?.map((item) => (
-          <HomePgCard item={item} key={item._id}></HomePgCard>
-        ))}
-      </div>
+      <Slide direction="up" triggerOnce={true}>
+        <div className="mt-5 grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+          {scholarship?.map((item) => (
+            <HomePgCard item={item} key={item._id}></HomePgCard>
+          ))}
+        </div>
+      </Slide>
       <div className="mt-5 flex justify-center">
         <Link to="/all-scholarship">
           <button className="w-full text-center py-2 rounded-md bg-primary text-white hover:rounded-2xl duration-300 transition-all px-2">
