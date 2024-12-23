@@ -78,7 +78,7 @@ const AppliedScholarshipTable = ({ idx, info }) => {
   };
   return (
     <>
-      <tr className="even:bg-primary even:text-white text-sm">
+      <tr className="text-sm border-black">
         <th>{idx + 1}</th>
         <td>{university_name}</td>
         <td>{scholarship_name}</td>
@@ -113,7 +113,7 @@ const AppliedScholarshipTable = ({ idx, info }) => {
         <td className="flex justify-center items-center flex-col  gap-1">
           <button
             onClick={() => document.getElementById(`${_id}`).showModal()}
-            className="bg-[#247CFF] text-white rounded-md px-2"
+            className="bg-primary text-white rounded-md px-2"
           >
             Details
           </button>
@@ -122,7 +122,7 @@ const AppliedScholarshipTable = ({ idx, info }) => {
             onClick={() =>
               document.getElementById(`feedback_${_id}`).showModal()
             }
-            className="bg-[#247CFF] text-white rounded-md px-2 disabled:cursor-not-allowed"
+            className="bg-primary text-white rounded-md px-2 disabled:cursor-not-allowed"
           >
             Feed back
           </button>
@@ -133,7 +133,7 @@ const AppliedScholarshipTable = ({ idx, info }) => {
               status === "Rejected"
                 ? "bg-red-600 text-white rounded-md px-2 disabled:cursor-not-allowed"
                 : ""
-            }bg-[#247CFF] text-white rounded-md px-2 disabled:cursor-not-allowed`}
+            }bg-primary text-white rounded-md px-2 disabled:cursor-not-allowed`}
           >
             {status === "Rejected"
               ? "Rejected"

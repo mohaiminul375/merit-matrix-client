@@ -1,9 +1,8 @@
 import useAxiosPublic from "../../hooks/useAxiosPublic";
 import { useQuery } from "@tanstack/react-query";
-import { RingLoader, RiseLoader } from "react-spinners";
+import {  RiseLoader } from "react-spinners";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Rating } from "@smastrom/react-rating";
-
 import "@smastrom/react-rating/style.css";
 import "swiper/css";
 import "swiper/css/pagination";
@@ -27,7 +26,7 @@ const AllReview = () => {
       </div>
     );
   }
-  console.log(reviews);
+
   return (
     <div className="md:max-w-4xl mx-auto rounded-md mt-32 px-4">
       <Swiper
@@ -66,7 +65,7 @@ const AllReview = () => {
                 />
               </p>
               <p className="text-sm md:text-lg text-center mt-4">
-                "{review.review_comment}"
+                {review.review_comment}
               </p>
             </div>
           </SwiperSlide>

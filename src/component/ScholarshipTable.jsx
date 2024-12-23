@@ -57,7 +57,7 @@ const ScholarshipTable = ({ idx, item }) => {
   };
   return (
     <>
-      <tr className="even:bg-[#E8F6FC] text-base">
+      <tr className="even:bg-[#E8F6FC] text-base border-black">
         <th>{idx + 1}</th>
         <td>{scholarship_name}</td>
         <td>{university_name}</td>

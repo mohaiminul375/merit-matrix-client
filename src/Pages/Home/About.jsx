@@ -37,7 +37,7 @@ const About = () => {
           scholarships; you’re taking the first step toward achieving academic
           and professional excellence.
         </p>
-        <button className="px-6 py-3 bg-primary text-white font-bold rounded-md hover:bg-opacity-90 transition-all duration-300">
+        <button className="px-6 py-2 bg-primary text-white font-bold rounded-md hover:rounded-2xl transition-all duration-300">
           Learn More
         </button>
       </div>

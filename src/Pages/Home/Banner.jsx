@@ -20,7 +20,7 @@ const Banner = () => {
           </p>
           <Link
             to="/all-scholarship"
-            className="mt-6 px-6 py-3 bg-primary rounded-md text-white font-bold hover:bg-opacity-90 transition-all duration-300"
+            className="mt-6 px-6 py-3 bg-primary rounded-md text-white font-bold hover:rounded-2xl transition-all duration-300"
           >
             Start Your Search Today
           </Link>

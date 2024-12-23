@@ -6,39 +6,43 @@ const MyProfile = () => {
   const { isAdminOrMod } = useAdmin();
   const { user } = useAuth();
   return (
-    <div className="md:max-w-xl mx-auto bg-base-100 border border-primary rounded-md  p-10 text-primary">
-       <Helmet>
+    <div className="md:max-w-xl mx-auto bg-base-100 border border-primary rounded-lg p-8 shadow-lg">
+      <Helmet>
         <title>merit-matrix | Profile</title>
       </Helmet>
-      <div className="text-center font-bold text-3xl text-primary ">
+      <div className="text-center font-bold text-4xl text-primary mb-6">
         <h2 className="font-cinzel">My Profile</h2>
       </div>
-      <div className="">
-        <div className="flex flex-col items-center mt-8 space-y-8">
+      <div className="flex flex-col items-center justify-center space-y-10">
+        <div className="text-center">
+          <h2 className="font-semibold text-2xl text-primary mb-4">
+            Profile Photo
+          </h2>
+          <img
+            className="object-cover w-28 h-28 rounded-full border-2 border-primary shadow-md"
+            src={user?.photoURL}
+            alt="User Avatar"
+          />
+        </div>
+        <div className="w-full text-center space-y-6">
           <div>
-            <h2 className="font-bold text-xl underline">Profile Photo</h2>
-            <img
-              className="object-cover w-24 h-24 mx-2 rounded-full"
-              src={user?.photoURL}
-              alt="avatar"
-            />
+            <h2 className="font-semibold text-2xl text-primary mb-2">Name</h2>
+            <p className="text-lg text-gray-700">
+              {user?.displayName || "Not Provided"}
+            </p>
           </div>
-          <div className="space-y-3 flex-col justify-center items-center text-center">
-            <div>
-              <h2 className="font-bold text-xl underline">Name</h2>
-              <p className="text-lg">{user?.displayName}</p>
-            </div>
-            <div>
-              <h2 className="font-bold text-xl underline">Email</h2>
-              <p className="text-lg">{user?.email}</p>
-            </div>
-            {(isAdminOrMod === "Admin"  || isAdminOrMod==='Moderator')? (
-              <div>
-                <h2 className="font-bold text-xl underline">Role</h2>
-                <p className="text-lg font-extrabold">{isAdminOrMod}</p>
-              </div>
-            ):''}
+          <div>
+            <h2 className="font-semibold text-2xl text-primary mb-2">Email</h2>
+            <p className="text-lg text-gray-700">
+              {user?.email || "Not Provided"}
+            </p>
           </div>
+          {isAdminOrMod === "Admin" || isAdminOrMod === "Moderator" ? (
+            <div>
+              <h2 className="font-semibold text-2xl text-primary mb-2">Role</h2>
+              <p className="text-lg font-bold text-green-600">{isAdminOrMod}</p>
+            </div>
+          ) : null}
         </div>
       </div>
     </div>

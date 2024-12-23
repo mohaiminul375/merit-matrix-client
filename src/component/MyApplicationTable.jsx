@@ -125,14 +125,14 @@ const MyApplicationTable = ({ idx, application }) => {
       <td>
         <button
           onClick={() => document.getElementById(`review_${_id}`).showModal()}
-          className="bg-[#247CFF] text-white rounded-md px-2"
+          className="bg-primary text-white rounded-md px-2"
         >
           Add review
         </button>
       </td>
       <td className="flex justify-center items-center flex-col  gap-1">
         <Link to={`/scholarship-details/${scholarship_id}`}>
-          <button className="bg-[#247CFF] text-white rounded-md px-2">
+          <button className="bg-primary text-white rounded-md px-2">
             Details
           </button>
         </Link>
@@ -143,14 +143,14 @@ const MyApplicationTable = ({ idx, application }) => {
               ? document.getElementById(`update_${_id}`).showModal()
               : handleStatus();
           }}
-          className="bg-[#247CFF] text-white rounded-md px-2 disabled:cursor-not-allowed"
+          className="bg-primary text-white rounded-md px-2 disabled:cursor-not-allowed"
         >
           Edit
         </button>
         <button
           disabled={status === "Canceled" || status === "Rejected"}
           onClick={handleStatusCancel}
-          className={`bg-[#247CFF] text-white rounded-md px-2 disabled:cursor-not-allowed ${
+          className={`bg-primary text-white rounded-md px-2 disabled:cursor-not-allowed ${
             status == "Rejected" && "bg-red-600 text-white rounded-md px-2"
           }  ${
             status == "Canceled" && "bg-red-600 text-white rounded-md px-2"

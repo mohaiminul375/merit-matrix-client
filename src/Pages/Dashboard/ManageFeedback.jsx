@@ -2,6 +2,7 @@ import { useMutation } from "@tanstack/react-query";
 import PropTypes from "prop-types";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
 import Swal from "sweetalert2";
+import { FaXmark } from "react-icons/fa6";
 
 const ManageFeedback = ({ id }) => {
   const axiosSecure = useAxiosSecure();
@@ -29,12 +30,17 @@ const ManageFeedback = ({ id }) => {
   return (
     <div className="modal-box md:max-w-2xl">
       <div className="flex justify-end">
-        <form method="dialog">
-          <button className="btn">Close</button>
-        </form>
+       <form method="dialog">
+                 <button
+                   className="text-xl p-2 rounded-full bg-red-600 text-white hover:bg-red-700 transition duration-200"
+                   aria-label="Close Modal"
+                 >
+                   <FaXmark />
+                 </button>
+               </form>
       </div>
       <div className="mt-5">
-        <h2 className="font-bold text-3xl text-center text-[#247CFF]">
+        <h2 className="font-bold text-3xl text-center text-primary">
           Submit feedback for this application
         </h2>
       </div>
@@ -53,7 +59,7 @@ const ManageFeedback = ({ id }) => {
               id=""
             ></textarea>
           </div>
-          <button className="text-center bg-[#247CFF] text-white px-2 py-1 text-base rounded-md">
+          <button className="text-center bg-primary text-white px-3 py-2 text-base rounded-md mt-2 hover:rounded-2xl duration-300 translate-all">
             Submit
           </button>
         </form>

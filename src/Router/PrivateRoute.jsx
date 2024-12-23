@@ -1,4 +1,4 @@
-import { RingLoader } from "react-spinners";
+import { RiseLoader } from "react-spinners";
 import useAuth from "../hooks/useAuth";
 import { Navigate, useLocation } from "react-router-dom";
 
@@ -7,8 +7,8 @@ const PrivateRoute = ({ children }) => {
   const location = useLocation();
   if (loading) {
     return (
-      <div className="flex justify-center items-center">
-        <RingLoader className="" color="#1E62D5" />
+      <div className="flex justify-center items-center min-h-screen">
+        <RiseLoader className="" color="#890C25" />
       </div>
     );
   }

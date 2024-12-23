@@ -78,16 +78,18 @@ const UpdateDataModal = ({ item }) => {
         </div>
       </form>
       <div>
-        <h2 className="text-center font-bold text-3xl text-[#007AFF]">
+        <h2 className="text-center font-bold text-3xl text-primary">
           Update Scholarship Information
         </h2>
-        <div className="mt-10 bg-[#E8F6FC] rounded-md">
+        <div className="mt-10 bg-base-100 border-2 border-primary rounded-md">
           <form onSubmit={handleSubmit(onSubmit)} className="card-body">
             {/* row 1 */}
             <div className="md:flex gap-6">
               <div className="form-control md:w-1/2">
                 <label className="label">
-                  <span className="label-text">Scholarship Name</span>
+                  <span className="label-text text-primary">
+                    Scholarship Name
+                  </span>
                 </label>
                 <input
                   defaultValue={scholarship_name}
@@ -100,7 +102,9 @@ const UpdateDataModal = ({ item }) => {
               </div>
               <div className="form-control md:w-1/2">
                 <label className="label">
-                  <span className="label-text">University Name</span>
+                  <span className="label-text text-primary">
+                    University Name
+                  </span>
                 </label>
                 <input
                   type="text"
@@ -116,7 +120,9 @@ const UpdateDataModal = ({ item }) => {
             <div className="md:flex gap-6">
               <div className="form-control w-full md:w-1/2">
                 <label className="label">
-                  <span className="label-text">University Logo</span>
+                  <span className="label-text text-primary">
+                    University Logo
+                  </span>
                 </label>
                 <input
                   type="file"
@@ -129,7 +135,9 @@ const UpdateDataModal = ({ item }) => {
               </div>
               <div className="form-control full md:w-1/2">
                 <label className="label">
-                  <span className="label-text">University Country</span>
+                  <span className="label-text text-primary">
+                    University Country
+                  </span>
                 </label>
                 <input
                   type="text"
@@ -144,7 +152,9 @@ const UpdateDataModal = ({ item }) => {
             <div className="md:flex gap-6">
               <div className="form-control w-full md:w-1/2">
                 <label className="label">
-                  <span className="label-text">University City</span>
+                  <span className="label-text text-primary">
+                    University City
+                  </span>
                 </label>
                 <input
                   type="text"
@@ -157,7 +167,9 @@ const UpdateDataModal = ({ item }) => {
               </div>
               <div className="form-control w-full md:w-1/2">
                 <label className="label">
-                  <span className="label-text">University Rank</span>
+                  <span className="label-text text-primary">
+                    University Rank
+                  </span>
                 </label>
                 <input
                   type="number"
@@ -173,12 +185,14 @@ const UpdateDataModal = ({ item }) => {
             <div className="md:flex gap-6">
               <div className="form-control md:w-1/2">
                 <label className="label">
-                  <span className="label-text">Subject Category</span>
+                  <span className="label-text text-primary">
+                    Subject Category
+                  </span>
                 </label>
                 <select
                   {...register("subject")}
                   defaultValue={subject}
-                  className="select w-full"
+                  className="select w-full border border-primary"
                 >
                   <option disabled selected>
                     Select Your Subject
@@ -191,12 +205,14 @@ const UpdateDataModal = ({ item }) => {
               </div>
               <div className="form-control md:w-1/2">
                 <label className="label">
-                  <span className="label-text">Scholarship Category</span>
+                  <span className="label-text text-primary">
+                    Scholarship Category
+                  </span>
                 </label>
                 <select
                   defaultValue={scholarship_category}
                   {...register("scholarship_category")}
-                  className="select w-full"
+                  className="select w-full  border border-primary"
                 >
                   <option disabled selected>
                     Pick Your Scholarship Category
@@ -211,12 +227,12 @@ const UpdateDataModal = ({ item }) => {
             <div className="md:flex gap-6">
               <div className="form-control md:w-1/2">
                 <label className="label">
-                  <span className="label-text">Degree Name</span>
+                  <span className="label-text text-primary">Degree Name</span>
                 </label>
                 <select
                   {...register("degree_name")}
                   defaultValue={degree_name}
-                  className="select w-full"
+                  className="select w-full border border-primary"
                 >
                   <option disabled selected>
                     Pick Your Degree Name
@@ -228,7 +244,7 @@ const UpdateDataModal = ({ item }) => {
               </div>
               <div className="form-control md:w-1/2">
                 <label className="label">
-                  <span className="label-text">Tuition Fess</span>
+                  <span className="label-text text-primary">Tuition Fess</span>
                 </label>
                 <input
                   {...register("tuition_fees")}
@@ -244,7 +260,9 @@ const UpdateDataModal = ({ item }) => {
             <div className="md:flex gap-6">
               <div className="form-control md:w-1/2">
                 <label className="label">
-                  <span className="label-text">Application Fees</span>
+                  <span className="label-text text-primary">
+                    Application Fees
+                  </span>
                 </label>
                 <input
                   type="number"
@@ -257,7 +275,9 @@ const UpdateDataModal = ({ item }) => {
               </div>
               <div className="form-control md:w-1/2">
                 <label className="label">
-                  <span className="label-text">Service Charge</span>
+                  <span className="label-text text-primary">
+                    Service Charge
+                  </span>
                 </label>
                 <input
                   type="number"
@@ -273,7 +293,9 @@ const UpdateDataModal = ({ item }) => {
             <div className="md:flex gap-6">
               <div className="form-control md:w-1/2">
                 <label className="label">
-                  <span className="label-text">Application Deadline</span>
+                  <span className="label-text text-primary">
+                    Application Deadline
+                  </span>
                 </label>
                 <DatePicker
                   className="input input-bordered w-full"
@@ -283,7 +305,7 @@ const UpdateDataModal = ({ item }) => {
               </div>
             </div>
             <div className="mt-3">
-              <button className="w-full bg-[#1EA9E4] text-white py-2 text-lg rounded-md">
+              <button className="w-full bg-primary text-white py-2 text-lg rounded-md hover:rounded-2xl duration-300 transition-all">
                 Update Scholarship
               </button>
             </div>
