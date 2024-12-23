@@ -93,7 +93,7 @@ const Footer = () => {
               Mohaiminul Islam
             </Link>
           </p>
-          {/* <p>Version: V2 | Last Update: 22-Dec-2024</p> */}
+          <p>Version: V2 | Last Update: 23-Dec-2024, 9:50 A.M (BDT)</p>
         </div>
       </div>
     </footer>

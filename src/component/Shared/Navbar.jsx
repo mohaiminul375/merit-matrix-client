@@ -62,7 +62,7 @@ const Navbar = () => {
   return (
     <>
       <div className=" bg-white flex justify-center items-center font-bold text-primary">
-        <p>***Website Under Maintenance (V2 Trial Version)***</p>
+        <p>***V2 Trial Version***</p>
       </div>
       <div className="navbar bg-primary text-white justify-between md:px-5 shadow-xl z-10 h-20">
         <div className="w">

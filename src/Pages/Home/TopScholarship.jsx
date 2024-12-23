@@ -36,7 +36,7 @@ const TopScholarship = () => {
             <HomePgCard item={item} key={item._id}></HomePgCard>
           ))}
         </div>
-      </Slide>
+      </Slide>  
       <div className="mt-5 flex justify-center">
         <Link to="/all-scholarship">
           <button className="w-full text-center py-2 rounded-md bg-primary text-white hover:rounded-2xl duration-300 transition-all px-2">

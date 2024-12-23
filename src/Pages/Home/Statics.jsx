@@ -23,14 +23,14 @@ const Statics = () => {
             </div>
           </Slide>
           {/* Card 3 */}
-          <Slide direction="left" triggerOnce={true}>
+          <Slide direction="right" triggerOnce={true}>
             <div className="bg-white text-primary p-3 rounded-lg shadow-md text-center">
               <h3 className="text-2xl font-bold">100+</h3>
               <p className="text-lg mt-2">Countries Covered</p>
             </div>
           </Slide>
           {/* Card 4 */}
-          <Slide direction="right" triggerOnce={true}>
+          <Slide direction="left" triggerOnce={true}>
             <div className="bg-white text-primary p-3 rounded-lg shadow-md text-center">
               <h3 className="text-2xl font-bold">1M+</h3>
               <p className="text-lg mt-2">Students Helped</p>
