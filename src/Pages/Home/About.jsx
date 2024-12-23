@@ -15,7 +15,7 @@ const About = () => {
 
       {/* Content Section */}
       <div className="w-full md:w-1/2 mt-8 md:mt-0 md:ml-8">
-        <h2 className="text-3xl md:text-4xl font-bold text-primary mb-4">
+        <h2 className="text-3xl md:text-4xl font-bold text-primary mb-4 font-cinzel">
           About Us
         </h2>
         <p className="text-base md:text-lg text-gray-700 mb-4">

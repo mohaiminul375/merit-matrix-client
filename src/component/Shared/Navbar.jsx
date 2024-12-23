@@ -85,13 +85,13 @@ const Navbar = () => {
             </div>
             <ul
               tabIndex={0}
-              className="menu menu-sm dropdown-content mt-3 z-10 p-2 shadow bg-base-100 rounded-box w-52"
+              className="menu menu-sm dropdown-content mt-3 z-10 p-2 shadow bg-primary rounded-box w-52 text-white"
             >
               {navLins}
             </ul>
           </div>
-          <Link to="/" className="flex items-center gap-3">
-            <img className="w-10 md:w-12 rounded-full" src={logo} alt="" />
+          <Link to="/" className="flex items-center md:gap-3 gap-1">
+            <img className="w-6 md:w-12 rounded-full" src={logo} alt="" />
             <h2 className="font-dancing-Script font-bold text-lg md:text-3xl">
               MeritMatrix
             </h2>
@@ -136,7 +136,7 @@ const Navbar = () => {
                   <li className="mt-2">
                     <button
                       onClick={logOut}
-                      className="bg-[#1EA9E4] text-white text-center hover:border-2 flex items-center gap-2 justify-center"
+                      className="bg-white text-black text-center hover:border-2 flex items-center gap-2 justify-center"
                     >
                       Logout <IoLogOutOutline />
                     </button>
@@ -147,7 +147,9 @@ const Navbar = () => {
               <div className="">
                 <NavLink
                   className={({ isActive }) =>
-                    isActive ? "text-lg font-bold underline " : "text-lg"
+                    isActive
+                      ? "text-xs md:text-lg font-bold underline "
+                      : "text-xs md:text-lg"
                   }
                   to="/login"
                 >
@@ -156,8 +158,8 @@ const Navbar = () => {
                 <NavLink
                   className={({ isActive }) =>
                     isActive
-                      ? "text-lg text-black  border-2 rounded-full p-2 border-background-Primary bg-background-Primary ml-6"
-                      : "text-black text-lg border-2 rounded-full p-2 border-background-Primary bg-background-Primary ml-6"
+                      ? "text-lg text-black  border-2 rounded-full md:p-2 border-background-Primary bg-background-Primary ml-6"
+                      : "text-black text-xs md:text-lg border-2 rounded-full md:p-2 p-1 border-background-Primary bg-background-Primary md:ml-6 ml-2"
                   }
                   to="/register"
                 >
