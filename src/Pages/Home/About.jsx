@@ -7,7 +7,7 @@ const About = () => {
     <div className="flex flex-col md:flex-row items-center md:max-w-6xl mx-auto my-16 px-4 mt-32">
       {/* Image Section */}
       <div className="w-full md:w-1/2">
-        <Slide direction="left" triggerOnce={true}>
+        <Slide direction="left" triggerOnce={true} duration={2000}>
           <img
             src={about}
             alt="About Merit Matrix"
@@ -18,7 +18,7 @@ const About = () => {
 
       {/* Content Section */}
       <div className="w-full md:w-1/2 mt-8 md:mt-0 md:ml-8">
-        <Slide direction="right" triggerOnce={true}>
+        <Slide direction="right" triggerOnce={true} duration={2000}>
           <h2 className="text-3xl md:text-4xl font-bold text-primary mb-4 font-cinzel">
             About Us
           </h2>

@@ -7,6 +7,8 @@ export default {
         "dancing-Script": '"Dancing Script", cursive',
         inter: '"Inter", sans-serif',
         cinzel: '"Cinzel", serif',
+        Righteous: '"Righteous", serif',
+        "Madimi-One": '"Madimi One", serif'
       },
       colors: {
         'primary': '#890C25',

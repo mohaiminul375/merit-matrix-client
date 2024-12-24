@@ -59,12 +59,13 @@ const Navbar = () => {
       )}
     </>
   );
+  // Navbar start
   return (
     <>
-      <div className=" bg-white flex justify-center items-center font-bold text-primary">
+      {/* <div className=" bg-white flex justify-center items-center font-bold text-primary">
         <p>***V2 Trial Version***</p>
-      </div>
-      <div className="navbar bg-primary text-white justify-between md:px-5 shadow-xl z-10 h-20">
+      </div> */}
+      <nav className="navbar bg-primary text-white justify-between md:px-5 shadow-xl z-10 h-20">
         <div className="w">
           <div className="dropdown">
             <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -92,8 +93,8 @@ const Navbar = () => {
           </div>
           <Link to="/" className="flex items-center md:gap-3 gap-1">
             <img className="w-6 md:w-12 rounded-full" src={logo} alt="" />
-            <h2 className="font-dancing-Script font-bold text-lg md:text-3xl">
-              MeritMatrix
+            <h2 className="font-Madimi-One font-bold text-lg md:text-2xl">
+              Merit-Matrix
             </h2>
           </Link>
         </div>
@@ -169,7 +170,7 @@ const Navbar = () => {
             )}
           </div>
         }
-      </div>
+      </nav>
     </>
   );
 };

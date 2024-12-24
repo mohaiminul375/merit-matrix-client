@@ -30,13 +30,13 @@ const TopScholarship = () => {
         </h2>
         <h4 className="font-bold mt-2 tex-base">Explore Our top scholarship</h4>
       </div>
-      <Slide direction="up" triggerOnce={true}>
+      <Slide direction="up" triggerOnce={true} duration={1000}>
         <div className="mt-5 grid md:grid-cols-2 lg:grid-cols-3 gap-4">
           {scholarship?.map((item) => (
             <HomePgCard item={item} key={item._id}></HomePgCard>
           ))}
         </div>
-      </Slide>  
+      </Slide>
       <div className="mt-5 flex justify-center">
         <Link to="/all-scholarship">
           <button className="w-full text-center py-2 rounded-md bg-primary text-white hover:rounded-2xl duration-300 transition-all px-2">

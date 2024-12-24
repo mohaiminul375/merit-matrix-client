@@ -95,9 +95,10 @@ const UsersTable = ({ idx, user }) => {
       <td>{email}</td>
       <td>
         <select
+          disabled={email == "admin1@mearit-metrix.com"}
           defaultValue={role}
           onChange={handleUpdateRole}
-          className="border rounded-md border-black text-black"
+          className="border rounded-md border-black text-black disabled:cursor-none"
         >
           <option>User</option>
           <option>Moderator</option>
@@ -105,11 +106,16 @@ const UsersTable = ({ idx, user }) => {
         </select>
       </td>
       <td>
-        <FaTrash
-          onClick={() => handleDelete(_id)}
-          title="delete user"
-          className="bg-red-600 p-1 rounded-md text-2xl cursor-pointer"
-        />
+        <button
+          className="cursor-pointer disabled:cursor-none"
+          disabled={email == "admin1@mearit-metrix.com"}
+        >
+          <FaTrash
+            onClick={() => handleDelete(_id)}
+            title="delete user"
+            className="bg-red-600 p-1 rounded-md text-2xl "
+          />
+        </button>
       </td>
     </tr>
   );

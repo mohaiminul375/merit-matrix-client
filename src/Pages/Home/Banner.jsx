@@ -10,12 +10,12 @@ const Banner = () => {
         style={{ backgroundImage: `url(${banner})` }}
       >
         <div className="absolute inset-0 bg-black bg-opacity-60 flex flex-col justify-center items-center text-center text-white px-4 rounded-md">
-          <Fade triggerOnce={true} direction="up">
+          <Fade triggerOnce={true} direction="up" duration={2000}>
             <h1 className="text-3xl md:text-5xl font-extrabold leading-tight drop-shadow-md">
               Empower Your Dreams with Global Scholarships
             </h1>
           </Fade>
-          <Slide triggerOnce={true} direction="up">
+          <Slide triggerOnce={true} direction="up" duration={2000}>
             <p className="mt-4 text-lg md:text-xl drop-shadow-sm">
               Find the perfect scholarship for your education journey. Explore
               opportunities, unlock your potential, and achieve academic

@@ -17,13 +17,13 @@ const Footer = () => {
           <div className="w-full -mx-6 lg:w-2/5">
             <div className="px-6">
               <div className="flex items-center gap-3">
-                <img className="w-10" src={logo} alt="" />
-                <h2 className="font-dancing-Script font-bold text-2xl text-white">
+                <img className="w-10 rounded-full" src={logo} alt="" />
+                <h2 className="font-Madimi-One font-bold text-2xl text-white">
                   Merit-Matrix
                 </h2>
               </div>
 
-              <p className="max-w-sm mt-2 text-white">
+              <p className="max-w-sm mt-2 text-white italic">
                 Funding Futures, Inspiring Success.
               </p>
             </div>
@@ -83,17 +83,20 @@ const Footer = () => {
 
         <div>
           <p className="text-center text-white">
-            © 2024 - All rights reserved by merit-matrix
+            © 2025 - All rights reserved by merit-matrix
           </p>
         </div>
         <div className="flex flex-col items-end text-white space-y-2 text-sm md:text-sm">
           <p>
             Design & Developed by:{" "}
-            <Link to="https://mohaiminul-dev.web.app" className="underline hover:text-gray-300">
+            <Link
+              to="https://mohaiminul-dev.web.app"
+              className="underline hover:text-gray-300"
+            >
               Mohaiminul Islam
             </Link>
           </p>
-          <p>Version: V2 | Last Update: 23-Dec-2024, 9:50 A.M (BDT)</p>
+          <p>Version: V2 | Last Update: 24-Dec-2024, 12:55 P.M (BDT)</p>
         </div>
       </div>
     </footer>
