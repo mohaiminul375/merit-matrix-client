@@ -90,6 +90,7 @@ const Footer = () => {
           <p>
             Design & Developed by:{" "}
             <Link
+              target="_blank"
               to="https://mohaiminul-dev.web.app"
               className="underline hover:text-gray-300"
             >
