@@ -26,7 +26,7 @@ const Banner = () => {
           <div className="mt-6">
             <Link
               to="/all-scholarship"
-              className="mt-6 px-6 py-3 bg-primary rounded-md text-white font-bold hover:bg-opacity-90 hover:scale-105 transition-all duration-300 ease-in-out shadow-md"
+              className="mt-6 px-6 py-3 bg-primaryBg rounded-md text-white font-bold hover:rounded-2xl transition-all duration-300 shadow-md"
             >
               Start Your Search Today
             </Link>

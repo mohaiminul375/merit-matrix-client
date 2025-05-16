@@ -11,7 +11,7 @@ import {
 import stripe from "../../assets/stripe.png";
 const Footer = () => {
   return (
-    <footer className="bg-primary mt-28 font-inter">
+    <footer className="bg-primary mt-28 font-inter border-t-2 border-primaryBg">
       <div className="container p-6 mx-auto">
         <div className="lg:flex">
           <div className="w-full -mx-6 lg:w-2/5">

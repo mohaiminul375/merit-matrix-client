@@ -25,7 +25,7 @@ const TopScholarship = () => {
   return (
     <div className="mt-32">
       <div className="text-center">
-        <h2 className="text-4xl font-bold font-cinzel text-primary">
+        <h2 className="text-4xl font-bold font-cinzel text-primaryBg">
           Top Scholarship
         </h2>
         <h4 className="font-bold mt-2 tex-base">Explore Our top scholarship</h4>
@@ -39,7 +39,7 @@ const TopScholarship = () => {
       </Slide>
       <div className="mt-5 flex justify-center">
         <Link to="/all-scholarship">
-          <button className="w-full text-center py-2 rounded-md bg-primary text-white hover:rounded-2xl duration-300 transition-all px-2">
+          <button className="w-full text-center py-2 rounded-md bg-primaryBg text-white hover:rounded-2xl duration-300 transition-all px-2">
             All scholarship
           </button>
         </Link>

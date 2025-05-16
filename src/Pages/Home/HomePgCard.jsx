@@ -22,24 +22,24 @@ const HomePgCard = ({ item }) => {
       </figure>
       <div className="flex flex-col flex-grow space-y-3 mt-2">
         <div>
-          <h2 className="font-bold text-lg hover:text-primary">
+          <h2 className="font-bold text-lg hover:text-primaryBg">
             University Name: {university_name}
           </h2>
-          <p className="font-bold hover:text-primary">
+          <p className="font-bold hover:text-primaryBg">
             {university_city},{university_country}
           </p>
         </div>
-        <p className="font-semibold hover:text-primary">Subject: {subject}</p>
-        <p className="font-semibold hover:text-primary">
+        <p className="font-semibold hover:text-primaryBg">Subject: {subject}</p>
+        <p className="font-semibold hover:text-primaryBg">
           Scholarship Category: {scholarship_category}
         </p>
-        <p className="font-semibold hover:text-primary">
+        <p className="font-semibold hover:text-primaryBg">
           Application Fess: {application_fees}
         </p>
       </div>
       <div className="flex justify-center mt-2">
         <Link
-          className="w-full text-center py-2 rounded-md bg-primary text-white hover:rounded-2xl duration-300 transition-all"
+          className="w-full text-center py-2 rounded-md bg-primaryBg text-white hover:rounded-2xl duration-300 transition-all"
           to={`/scholarship-details/${_id}`}
         >
           Details
