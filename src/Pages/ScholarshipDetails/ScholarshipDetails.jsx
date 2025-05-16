@@ -47,14 +47,14 @@ const ScholarshipDetails = () => {
         <title>Merit Matrix | Scholarship Details</title>
       </Helmet>
       <div className="text-center mb-8">
-        <h2 className="text-4xl font-bold font-cinzel text-primary">
+        <h2 className="text-4xl font-bold font-cinzel text-primaryBg">
           Scholarship Details
         </h2>
         <p className="font-bold text-3xl mt-2">{scholarship_name}</p>
       </div>
 
       {/* Scholarship Details */}
-      <div className="flex flex-col md:flex-row md:gap-8 bg-base-100 text-primary border border-primary shadow-2xl rounded-lg overflow-hidden">
+      <div className="flex flex-col md:flex-row md:gap-8 bg-base-100 text-primaryBg border border-primary shadow-2xl rounded-lg overflow-hidden">
         <div className="flex justify-center items-center bg-gray-100 p-4">
           <img
             className="w-40 md:w-56"
@@ -95,7 +95,7 @@ const ScholarshipDetails = () => {
             </p>
             <Link
               to={`/checkout/${_id}`}
-              className="text-white bg-primary px-4 py-2 rounded-md hover:rounded-2xl transition-all duration-300"
+              className="text-white bg-primaryBg px-4 py-2 rounded-md hover:rounded-2xl transition-all duration-300"
             >
               Apply Now
             </Link>
@@ -105,7 +105,7 @@ const ScholarshipDetails = () => {
 
       {/* Review Section */}
       <div className="mt-10">
-        <h2 className="text-center text-2xl font-bold font-cinzel text-primary underline">
+        <h2 className="text-center text-2xl font-bold font-cinzel text-primaryBg underline">
           Review of this Scholarship
         </h2>
         <div className="mt-5">

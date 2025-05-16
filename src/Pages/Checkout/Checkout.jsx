@@ -53,7 +53,7 @@ const Checkout = () => {
         ></ApplyScholarship>
       ) : (
         <div className="md:max-w-xl mx-auto">
-          <h2 className="text-center text-4xl font-bold text-primary">
+          <h2 className="text-center text-4xl font-bold text-primaryBg">
             Payment
           </h2>
           <div className="mt-5 bg-primary text-white p-5 rounded-md border-2 border-white flex flex-col-reverse">

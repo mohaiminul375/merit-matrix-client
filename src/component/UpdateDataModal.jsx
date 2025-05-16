@@ -78,7 +78,7 @@ const UpdateDataModal = ({ item }) => {
         </div>
       </form>
       <div>
-        <h2 className="text-center font-bold text-3xl text-primary">
+        <h2 className="text-center font-bold text-3xl text-primaryBg">
           Update Scholarship Information
         </h2>
         <div className="mt-10 bg-base-100 border-2 border-primary rounded-md">
@@ -87,7 +87,7 @@ const UpdateDataModal = ({ item }) => {
             <div className="md:flex gap-6">
               <div className="form-control md:w-1/2">
                 <label className="label">
-                  <span className="label-text text-primary">
+                  <span className="label-text text-primaryBg">
                     Scholarship Name
                   </span>
                 </label>
@@ -102,7 +102,7 @@ const UpdateDataModal = ({ item }) => {
               </div>
               <div className="form-control md:w-1/2">
                 <label className="label">
-                  <span className="label-text text-primary">
+                  <span className="label-text text-primaryBg">
                     University Name
                   </span>
                 </label>
@@ -120,7 +120,7 @@ const UpdateDataModal = ({ item }) => {
             <div className="md:flex gap-6">
               <div className="form-control w-full md:w-1/2">
                 <label className="label">
-                  <span className="label-text text-primary">
+                  <span className="label-text text-primaryBg">
                     University Logo
                   </span>
                 </label>
@@ -135,7 +135,7 @@ const UpdateDataModal = ({ item }) => {
               </div>
               <div className="form-control full md:w-1/2">
                 <label className="label">
-                  <span className="label-text text-primary">
+                  <span className="label-text text-primaryBg">
                     University Country
                   </span>
                 </label>
@@ -152,7 +152,7 @@ const UpdateDataModal = ({ item }) => {
             <div className="md:flex gap-6">
               <div className="form-control w-full md:w-1/2">
                 <label className="label">
-                  <span className="label-text text-primary">
+                  <span className="label-text text-primaryBg">
                     University City
                   </span>
                 </label>
@@ -167,7 +167,7 @@ const UpdateDataModal = ({ item }) => {
               </div>
               <div className="form-control w-full md:w-1/2">
                 <label className="label">
-                  <span className="label-text text-primary">
+                  <span className="label-text text-primaryBg">
                     University Rank
                   </span>
                 </label>
@@ -185,7 +185,7 @@ const UpdateDataModal = ({ item }) => {
             <div className="md:flex gap-6">
               <div className="form-control md:w-1/2">
                 <label className="label">
-                  <span className="label-text text-primary">
+                  <span className="label-text text-primaryBg">
                     Subject Category
                   </span>
                 </label>
@@ -205,7 +205,7 @@ const UpdateDataModal = ({ item }) => {
               </div>
               <div className="form-control md:w-1/2">
                 <label className="label">
-                  <span className="label-text text-primary">
+                  <span className="label-text text-primaryBg">
                     Scholarship Category
                   </span>
                 </label>
@@ -227,7 +227,7 @@ const UpdateDataModal = ({ item }) => {
             <div className="md:flex gap-6">
               <div className="form-control md:w-1/2">
                 <label className="label">
-                  <span className="label-text text-primary">Degree Name</span>
+                  <span className="label-text text-primaryBg">Degree Name</span>
                 </label>
                 <select
                   {...register("degree_name")}
@@ -244,7 +244,7 @@ const UpdateDataModal = ({ item }) => {
               </div>
               <div className="form-control md:w-1/2">
                 <label className="label">
-                  <span className="label-text text-primary">Tuition Fess</span>
+                  <span className="label-text text-primaryBg">Tuition Fess</span>
                 </label>
                 <input
                   {...register("tuition_fees")}
@@ -260,7 +260,7 @@ const UpdateDataModal = ({ item }) => {
             <div className="md:flex gap-6">
               <div className="form-control md:w-1/2">
                 <label className="label">
-                  <span className="label-text text-primary">
+                  <span className="label-text text-primaryBg">
                     Application Fees
                   </span>
                 </label>
@@ -275,7 +275,7 @@ const UpdateDataModal = ({ item }) => {
               </div>
               <div className="form-control md:w-1/2">
                 <label className="label">
-                  <span className="label-text text-primary">
+                  <span className="label-text text-primaryBg">
                     Service Charge
                   </span>
                 </label>
@@ -293,7 +293,7 @@ const UpdateDataModal = ({ item }) => {
             <div className="md:flex gap-6">
               <div className="form-control md:w-1/2">
                 <label className="label">
-                  <span className="label-text text-primary">
+                  <span className="label-text text-primaryBg">
                     Application Deadline
                   </span>
                 </label>

@@ -80,19 +80,19 @@ const ApplyScholarship = ({ scholarship_info, toggleForm: TrxID }) => {
   return (
     <div>
       <div className="bg-base-100 border-2 border-primary md:max-w-3xl lg:max-w-5xl mx-auto p-5 rounded-md">
-        <h2 className="text-center text-3xl font-bold font-cinzel text-primary">
+        <h2 className="text-center text-3xl font-bold font-cinzel text-primaryBg">
           Applicant Information
         </h2>
         <div className="mt-10">
           <form
             onSubmit={handleSubmit(onSubmit)}
-            className="card-body text-primary"
+            className="card-body text-primaryBg"
           >
             {/* row 1 */}
             <div className="md:flex gap-6">
               <div className="form-control md:w-1/2">
                 <label className="label">
-                  <span className="label-text text-primary">
+                  <span className="label-text text-primaryBg">
                     University Name
                   </span>
                 </label>
@@ -108,7 +108,7 @@ const ApplyScholarship = ({ scholarship_info, toggleForm: TrxID }) => {
               </div>
               <div className="form-control md:w-1/2">
                 <label className="label">
-                  <span className="label-text text-primary">
+                  <span className="label-text text-primaryBg">
                     Subject Category
                   </span>
                 </label>
@@ -126,7 +126,7 @@ const ApplyScholarship = ({ scholarship_info, toggleForm: TrxID }) => {
             <div className="md:flex gap-6">
               <div className="form-control full md:w-1/2">
                 <label className="label">
-                  <span className="label-text text-primary">
+                  <span className="label-text text-primaryBg">
                     Scholarship Category
                   </span>
                 </label>
@@ -142,7 +142,7 @@ const ApplyScholarship = ({ scholarship_info, toggleForm: TrxID }) => {
               </div>
               <div className="form-control md:w-1/2">
                 <label className="label">
-                  <span className="label-text text-primary">Degree Name</span>
+                  <span className="label-text text-primaryBg">Degree Name</span>
                 </label>
                 <select {...register("degree_name")} className="select w-full">
                   <option disabled selected>
@@ -157,7 +157,7 @@ const ApplyScholarship = ({ scholarship_info, toggleForm: TrxID }) => {
             <div className="md:flex gap-6">
               <div className="form-control w-full md:w-1/2">
                 <label className="label">
-                  <span className="label-text text-primary">
+                  <span className="label-text text-primaryBg">
                     Professional Photo
                   </span>
                 </label>
@@ -171,7 +171,7 @@ const ApplyScholarship = ({ scholarship_info, toggleForm: TrxID }) => {
               </div>
               <div className="form-control w-full md:w-1/2">
                 <label className="label">
-                  <span className="label-text text-primary">
+                  <span className="label-text text-primaryBg">
                     Contact Number
                   </span>
                 </label>
@@ -191,7 +191,7 @@ const ApplyScholarship = ({ scholarship_info, toggleForm: TrxID }) => {
             <div className="md:flex gap-6">
               <div className="form-control md:w-1/3">
                 <label className="label">
-                  <span className="label-text text-primary">Village Name</span>
+                  <span className="label-text text-primaryBg">Village Name</span>
                 </label>
                 <input
                   type="text"
@@ -203,7 +203,7 @@ const ApplyScholarship = ({ scholarship_info, toggleForm: TrxID }) => {
               </div>
               <div className="form-control md:w-1/3">
                 <label className="label">
-                  <span className="label-text text-primary">District</span>
+                  <span className="label-text text-primaryBg">District</span>
                 </label>
                 <input
                   type="text"
@@ -215,7 +215,7 @@ const ApplyScholarship = ({ scholarship_info, toggleForm: TrxID }) => {
               </div>
               <div className="form-control md:w-1/3">
                 <label className="label">
-                  <span className="label-text text-primary">Country</span>
+                  <span className="label-text text-primaryBg">Country</span>
                 </label>
                 <input
                   type="text"
@@ -230,7 +230,7 @@ const ApplyScholarship = ({ scholarship_info, toggleForm: TrxID }) => {
             <div className="md:flex gap-6">
               <div className="form-control md:w-1/2">
                 <label className="label">
-                  <span className="label-text text-primary">SSC Result</span>
+                  <span className="label-text text-primaryBg">SSC Result</span>
                 </label>
                 <input
                   {...register("ssc_result", { min: 1, max: 5 })}
@@ -245,7 +245,7 @@ const ApplyScholarship = ({ scholarship_info, toggleForm: TrxID }) => {
               </div>
               <div className="form-control md:w-1/2">
                 <label className="label">
-                  <span className="label-text text-primary">HSC Result</span>
+                  <span className="label-text text-primaryBg">HSC Result</span>
                 </label>
                 <input
                   {...register("hsc_result", { min: 1, max: 5 })}
@@ -264,7 +264,7 @@ const ApplyScholarship = ({ scholarship_info, toggleForm: TrxID }) => {
             <div className="md:flex gap-6">
               <div className="form-control md:w-1/2">
                 <label className="label">
-                  <span className="label-text text-primary">Gender</span>
+                  <span className="label-text text-primaryBg">Gender</span>
                 </label>
                 <select {...register("gender")} className="select w-full">
                   <option disabled selected>
@@ -277,7 +277,7 @@ const ApplyScholarship = ({ scholarship_info, toggleForm: TrxID }) => {
               </div>
               <div className="form-control md:w-1/2">
                 <label className="label">
-                  <span className="label-text text-primary">
+                  <span className="label-text text-primaryBg">
                     Study Gap *(Optional)
                   </span>
                 </label>
@@ -290,7 +290,7 @@ const ApplyScholarship = ({ scholarship_info, toggleForm: TrxID }) => {
               </div>
             </div>
             <div className="mt-3">
-              <button className="w-full bg-primary text-white py-2 text-lg rounded-md hover:rounded-2xl transition-all duration-300">
+              <button className="w-full bg-primaryBg text-white py-2 text-lg rounded-md hover:rounded-2xl transition-all duration-300">
                 Submit
               </button>
             </div>

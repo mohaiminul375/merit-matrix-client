@@ -40,7 +40,7 @@ const ScholarshipCard = ({ item }) => {
       </div>
       <div className="flex justify-center mt-2">
         <Link
-          className="w-full text-center py-2 rounded-md bg-primary text-white hover:rounded-2xl duration-300 transition-all"
+          className="w-full text-center py-2 rounded-md bg-primaryBg text-white hover:rounded-2xl duration-300 transition-all"
           to={`/scholarship-details/${_id}`}
         >
           Details

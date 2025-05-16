@@ -33,7 +33,7 @@ const ManageAppliedModal = ({ info }) => {
       </div>
 
       <div className="mt-5 text-center">
-        <h2 className="font-bold text-3xl text-primary">
+        <h2 className="font-bold text-3xl text-primaryBgBgBg">
           Applicant Information
         </h2>
       </div>
@@ -44,12 +44,12 @@ const ManageAppliedModal = ({ info }) => {
           src={applicant_photo || "default-avatar.jpg"}
           alt="Applicant Photo"
         />
-        <p className="text-sm text-primary mt-2">Applicant Photo</p>
+        <p className="text-sm text-primaryBgBgBg mt-2">Applicant Photo</p>
       </div>
 
       <div className="mt-8 space-y-4">
         <section>
-          <h3 className="text-xl font-bold text-primary border-b pb-2">
+          <h3 className="text-xl font-bold text-primaryBgBgBg border-b pb-2">
             Personal Information
           </h3>
           <p className="text-sm text-gray-700 mt-2">
@@ -75,7 +75,7 @@ const ManageAppliedModal = ({ info }) => {
         </section>
 
         <section>
-          <h3 className="text-xl font-bold text-primary border-b pb-2">
+          <h3 className="text-xl font-bold text-primaryBgBgBg border-b pb-2">
             Institution Details
           </h3>
           <p className="text-sm text-gray-700 mt-2">
@@ -113,7 +113,7 @@ const ManageAppliedModal = ({ info }) => {
         </section>
 
         <section>
-          <h3 className="text-xl font-bold text-primary border-b pb-2">
+          <h3 className="text-xl font-bold text-primaryBgBgBg border-b pb-2">
             Academic Performance
           </h3>
           <p className="text-sm text-gray-700 mt-2">
@@ -131,7 +131,7 @@ const ManageAppliedModal = ({ info }) => {
         </section>
 
         <section>
-          <h3 className="text-xl font-bold text-primary border-b pb-2">
+          <h3 className="text-xl font-bold text-primaryBgBgBg border-b pb-2">
             Fees & Dates
           </h3>
           <p className="text-sm text-gray-700 mt-2">

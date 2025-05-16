@@ -40,7 +40,7 @@ const ManageFeedback = ({ id }) => {
                </form>
       </div>
       <div className="mt-5">
-        <h2 className="font-bold text-3xl text-center text-primary">
+        <h2 className="font-bold text-3xl text-center text-primaryBgBg">
           Submit feedback for this application
         </h2>
       </div>

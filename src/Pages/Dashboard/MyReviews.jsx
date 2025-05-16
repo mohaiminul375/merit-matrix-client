@@ -27,7 +27,7 @@ const MyReviews = () => {
   return (
     <div>
       <div className="text-center">
-        <h2 className="font-bold text-3xl text-primary font-cinzel">
+        <h2 className="font-bold text-3xl text-primaryBgBgBgBgBgBg font-cinzel">
           My Reviews
         </h2>
       </div>

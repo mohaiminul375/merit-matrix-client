@@ -60,11 +60,11 @@ const AllScholarship = () => {
         <title>merit-matrix | All Scholarship</title>
       </Helmet>
       <div className="text-center">
-        <h2 className="text-4xl font-bold font-cinzel text-primary">
+        <h2 className="text-4xl font-bold font-cinzel text-primaryBg">
           All Scholarship
         </h2>
       </div>
-      <div className="my-10 ">
+      <div className="my-10">
         <form
           className="flex px-5 md:px0 justify-center"
           onSubmit={handleSearch}
@@ -75,7 +75,7 @@ const AllScholarship = () => {
               className="input border-primary join-item w-full"
               placeholder="search by scholarship name or degree or university name"
             />
-            <button className="btn join-item bg-primary text-white rounded-r-md">
+            <button className="btn join-item bg-primaryBg text-white rounded-r-md">
               Search
             </button>
           </div>
@@ -125,7 +125,7 @@ const AllScholarship = () => {
             onClick={() => handlePaginationBtn(btnNum)}
             key={btnNum}
             className={`hidden ${
-              currentPg === btnNum ? "bg-primary text-white" : ""
+              currentPg === btnNum ? "bg-primaryBg text-white" : ""
             } px-4 py-2 mx-1 transition-colors duration-300 transform  rounded-md sm:inline hover:bg-primary  hover:text-white`}
           >
             {btnNum}

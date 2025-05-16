@@ -1,5 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 export default {
+    darkMode: "class",
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
     extend: {
@@ -36,7 +37,7 @@ export default {
           ...require("daisyui/src/theming/themes")["dark"],
           primary: "#0E0E0E",
           secondary: "#121212",
-          "text-gray-700":"#FFFFFF"
+          "text-gray-700":"#FFFFF"
         },
       },
     ],

@@ -202,7 +202,7 @@ const Navbar = () => {
                   className={({ isActive }) =>
                     isActive
                       ? "text-lg text-black  border-2 rounded-full md:p-2 border-background-Primary bg-background-Primary ml-6"
-                      : "text-black text-xs md:text-lg border-2 rounded-full md:p-2 p-1 border-background-Primary bg-background-Primary md:ml-6 ml-2"
+                      : "text-white text-xs md:text-lg border-2 rounded-full md:p-2 p-1 border-background-Primary bg-primaryBg md:ml-6 ml-2"
                   }
                   to="/register"
                 >

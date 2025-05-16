@@ -38,13 +38,13 @@ const AdminHome = () => {
         <title>merit-matrix | Dashboard-Home</title>
       </Helmet>
       <div>
-        <h4 className="text-lg font-bold font-cinzel text-primary">
+        <h4 className="text-lg font-bold font-cinzel text-primaryBg">
           Hi, {user?.displayName}
         </h4>
         <h2 className="text-4xl">Welcome to Admin Dashboard</h2>
       </div>
       <div>
-        <div className="flex flex-col md:flex-row justify-between mt-5 text-xl font-bold text-primary">
+        <div className="flex flex-col md:flex-row justify-between mt-5 text-xl font-bold text-primaryBg">
           <h2>Total Scholarship:{total_scholarship}</h2>
           <h2>Total Application: {total_application}</h2>
           <h2>Total Application fees deposit: ${totalFees}</h2>
@@ -56,7 +56,7 @@ const AdminHome = () => {
       {/* <ResponsiveContainer width="100%" height="100%"> */}
 
       <div className="my-10">
-        <h2 className="text-center underline font-cinzel text-3xl text-primary font-bold">
+        <h2 className="text-center underline font-cinzel text-3xl text-primaryBg font-bold">
           University-Wise Application Data
         </h2>
       </div>

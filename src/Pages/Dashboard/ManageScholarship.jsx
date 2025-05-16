@@ -28,7 +28,7 @@ const ManageScholarship = () => {
       </Helmet>
       <div className="text-center">
         <h4 className="font-bold text-lg">Manage Scholarship</h4>
-        <h2 className="font-bold text-3xl text-primary font-cinzel">
+        <h2 className="font-bold text-3xl text-primaryBg font-cinzel">
           Manage All Scholarship Data
         </h2>
       </div>

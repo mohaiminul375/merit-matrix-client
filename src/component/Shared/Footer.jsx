@@ -11,8 +11,9 @@ import {
 import stripe from "../../assets/stripe.png";
 const Footer = () => {
   return (
-    <footer className="bg-primary mt-28 font-inter border-t-2 border-primaryBg">
-      <div className="container p-6 mx-auto">
+    <footer className=" pt-0">
+      <div className="bg-primary font-inter border-t-2 border-primaryBg">
+ <div className="container p-6 mx-auto">
         <div className="lg:flex">
           <div className="w-full -mx-6 lg:w-2/5">
             <div className="px-6">
@@ -97,8 +98,9 @@ const Footer = () => {
               Mohaiminul Islam
             </Link>
           </p>
-          <p>Version: V2 | Last Update: 24-Dec-2024, 12:55 P.M (BDT)</p>
+          <p>Version: V2.0.1 | Last Update: 16-May-2025, 5:55 P.M (BDT)</p>
         </div>
+      </div>
       </div>
     </footer>
   );
