@@ -98,7 +98,7 @@ const Footer = () => {
               Mohaiminul Islam
             </Link>
           </p>
-          <p>Version: V2.0.1 | Last Update: 16-May-2025, 5:55 P.M (BDT)</p>
+          <p>Version: V2.0.1 | Last Update: 20-May-2025, 6:25 P.M (BDT)</p>
         </div>
       </div>
       </div>

@@ -68,6 +68,7 @@ const Login = () => {
             placeholder="Enter your email"
             className="input input-bordered text-primary w-full"
             required
+            defaultValue="admin1@mearit-metrix.com"
             {...register("email")}
           />
         </div>
@@ -83,6 +84,7 @@ const Login = () => {
             placeholder="Enter your password"
             className="input input-bordered text-primary w-full"
             required
+            defaultValue="admin@A1"
             {...register("password")}
           />
         </div>
