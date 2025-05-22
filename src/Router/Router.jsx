@@ -21,6 +21,7 @@ import MyReviews from "../Pages/Dashboard/MyReviews";
 import ErrorPage from "../Pages/ErrorPage";
 import OnlyAdminRoute from "../Router/OnlyAdminRoute";
 import ModeratorHome from "../Pages/Dashboard/ModeratorHome";
+import Support from "../Pages/Support/Support";
 export const router = createBrowserRouter([
   {
     path: "/",
@@ -42,6 +43,10 @@ export const router = createBrowserRouter([
       {
         path: "/all-Scholarship",
         element: <AllScholarship></AllScholarship>,
+      },
+      {
+        path: "/support",
+        element: <Support></Support>,
       },
       {
         path: "/scholarship-details/:id",
@@ -81,8 +86,11 @@ export const router = createBrowserRouter([
       },
       {
         path: "moderator-Home",
-        element: <AdminAndModeratorRoute><ModeratorHome
-        ></ModeratorHome></AdminAndModeratorRoute>,
+        element: (
+          <AdminAndModeratorRoute>
+            <ModeratorHome></ModeratorHome>
+          </AdminAndModeratorRoute>
+        ),
       },
       {
         path: "add-scholarship",

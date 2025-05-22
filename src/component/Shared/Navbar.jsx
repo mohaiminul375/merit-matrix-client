@@ -38,6 +38,14 @@ const Navbar = () => {
       >
         All Scholarship
       </NavLink>
+      <NavLink
+        className={({ isActive }) =>
+          isActive ? "text-lg font-bold underline " : "text-lg"
+        }
+        to="/support"
+      >
+        Support
+      </NavLink>
       {isAdminOrMod === "Admin" && (
         <NavLink
           className={({ isActive }) =>

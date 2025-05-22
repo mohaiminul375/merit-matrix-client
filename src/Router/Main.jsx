@@ -7,7 +7,7 @@ const Main = () => {
     <div className="font-inter">
       <Navbar></Navbar>
       <div className="bg-secondary pt-28 ">
-        <div className="md:max-w-screen-xl mx-auto min-h-screen pb-20">
+        <div className="md:max-w-screen-xl mx-auto min-h-[calc(100vh-390px)] pb-20">
           <Outlet></Outlet>
         </div>
       </div>
