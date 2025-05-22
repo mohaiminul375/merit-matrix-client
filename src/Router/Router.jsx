@@ -22,6 +22,7 @@ import ErrorPage from "../Pages/ErrorPage";
 import OnlyAdminRoute from "../Router/OnlyAdminRoute";
 import ModeratorHome from "../Pages/Dashboard/ModeratorHome";
 import Support from "../Pages/Support/Support";
+import About from "../Pages/Home/About";
 export const router = createBrowserRouter([
   {
     path: "/",
@@ -40,9 +41,14 @@ export const router = createBrowserRouter([
         path: "/register",
         element: <Register></Register>,
       },
+
       {
         path: "/all-Scholarship",
         element: <AllScholarship></AllScholarship>,
+      },
+      {
+        path: "/about-us",
+        element: <About></About>,
       },
       {
         path: "/support",

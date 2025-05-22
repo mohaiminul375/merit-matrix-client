@@ -63,6 +63,7 @@ const AllScholarship = () => {
         <h2 className="text-4xl font-bold font-cinzel text-primaryBg">
           All Scholarship
         </h2>
+        <p className="text-base">Explore our all Scholarship</p>
       </div>
       <div className="my-10">
         <form

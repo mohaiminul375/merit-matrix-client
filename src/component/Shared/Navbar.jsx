@@ -1,4 +1,5 @@
 import { Link, NavLink } from "react-router-dom";
+import { ScrollLink } from "react-scroll";
 import logo from "../../assets/logo.jpg";
 import { IoLogOutOutline } from "react-icons/io5";
 import useAdmin from "../../hooks/useAdmin";
@@ -30,6 +31,7 @@ const Navbar = () => {
       >
         Home
       </NavLink>
+
       <NavLink
         className={({ isActive }) =>
           isActive ? "text-lg font-bold underline " : "text-lg"
@@ -37,6 +39,14 @@ const Navbar = () => {
         to="/all-scholarship"
       >
         All Scholarship
+      </NavLink>
+      <NavLink
+        className={({ isActive }) =>
+          isActive ? "text-lg font-bold underline " : "text-lg"
+        }
+        to="/about-us"
+      >
+        About us
       </NavLink>
       <NavLink
         className={({ isActive }) =>
@@ -104,6 +114,8 @@ const Navbar = () => {
               </svg>
             </div>
             <ul
+              // if click hidden menu
+              onClick={() => document.activeElement.blur()}
               tabIndex={0}
               className="menu menu-sm dropdown-content mt-3 z-10 p-2 shadow bg-primary rounded-box w-52 text-white"
             >
